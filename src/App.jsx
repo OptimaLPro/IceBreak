@@ -1,6 +1,8 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import '@fontsource-variable/nunito-sans'; // Supports weights 200-900
-import Menu from './components/Menu';
+import MainPage from './MainPage';
+import { AuroraBackgroundProvider } from '@nauverse/react-aurora-background';
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 const theme = createTheme({
   typography: {
@@ -10,9 +12,13 @@ const theme = createTheme({
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <Menu />
-    </ThemeProvider>
+    <div className="main-page">
+      <AuroraBackgroundProvider className='background'>
+        <ThemeProvider theme={theme}>
+          <MainPage />
+        </ThemeProvider>
+      </AuroraBackgroundProvider>
+    </div>
   );
 }
 

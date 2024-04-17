@@ -1,3 +1,38 @@
 body {
-    font-family: 'Nunito Sans Variable', sans-serif;
-  }
+  font-family: 'Nunito Sans Variable', sans-serif;
+}
+
+
+.background {
+  background-color: #ff0000;
+  min-height: 1000vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-page {
+
+}
+
+.search{
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff0000;
+
+}
+
+.autocomplete-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: white;
+}
+
+.autocomplete-wrapper .MuiAutocomplete-root:hover {
+  box-shadow: 0 0 5px white;
+}
