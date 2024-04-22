@@ -6,14 +6,28 @@ const MainPage = () => {
     return (
         <>
             <Menu />
-            <div className="category-headers">
-                New Games 🔥
+            <div className="main-page">
+                <div className="category-headers">
+                    New Games 🔥
+                </div>
+                <Carousel />
+                <div className="category-headers">
+                    Short games 🕒
+                </div>
+                <Carousel />
+                <div className="category-headers">
+                    Short games 🕒
+                </div>
+                <Carousel />
+                <div className="category-headers">
+                    Short games 🕒
+                </div>
+                <Carousel />
+                <div className="category-headers">
+                    Short games 🕒
+                </div>
+                <Carousel />
             </div>
-            <Carousel />
-            <div className="category-headers">
-                Short games 🕒
-            </div>
-            <Carousel />
 
         </>
     );

@@ -14,11 +14,20 @@ const theme = createTheme({
 function App() {
   return (
     <div className="main-page">
-      <AuroraBackgroundProvider className='background' colors={["#5356FF", "#378CE7", "#67C6E3", "#DFF5FF"]} useRandomness="true" blurAmount="5vw">
-        <ThemeProvider theme={theme}>
-          <MainPage />
-        </ThemeProvider>
+      <AuroraBackgroundProvider className='background' colors={["#5356FF", "#378CE7", "#67C6E3", "#DFF5FF"]} useRandomness="true" blurAmount="5vw"
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%', // Ensure the background stays behind other content
+          zIndex: -1,
+        }}>
+
       </AuroraBackgroundProvider>
+      <ThemeProvider theme={theme}>
+        <MainPage />
+      </ThemeProvider>
     </div>
   );
 }
