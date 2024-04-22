@@ -3,6 +3,7 @@ import '@fontsource-variable/nunito-sans'; // Supports weights 200-900
 import MainPage from './MainPage';
 import { AuroraBackgroundProvider } from '@nauverse/react-aurora-background';
 import { ParallaxProvider } from 'react-scroll-parallax';
+import './App.css';
 
 const theme = createTheme({
   typography: {
