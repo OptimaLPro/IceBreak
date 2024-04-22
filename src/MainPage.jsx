@@ -10,7 +10,6 @@ import WeatherApp from './WeatherAPI';
 import { Button } from '@mui/material';
 import { useState } from 'react';
 import GameCards from './components/GameCards';
-import Carousel from './components/Carousel';
 
 
 const SearchTheme = styled('div')(({ theme }) => ({
@@ -59,7 +58,6 @@ const MainPage = () => {
             }}>
                 <Search />
             </div> */}
-            <Carousel />
 
         </>
     );
