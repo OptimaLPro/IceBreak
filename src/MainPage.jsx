@@ -13,19 +13,6 @@ import GameCards from './components/GameCards';
 import Carousel from './components/Carousel';
 
 
-var slider = new KeenSlider(
-    '#my-slider',
-    {
-        loop: true,
-        created: () => {
-            console.log('created')
-        },
-    },
-    [
-        // add plugins here
-    ]
-)
-
 const SearchTheme = styled('div')(({ theme }) => ({
     borderRadius: '50px',
     backgroundColor: alpha(theme.palette.common.white, 1),
