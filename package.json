@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@egjs/react-flicking": "^4.11.2",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@fontsource-variable/nunito-sans": "^5.0.13",
@@ -17,7 +18,12 @@
     "@mui/material": "^5.15.15",
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
     "@nauverse/react-aurora-background": "^1.0.12",
+    "@tsparticles/react": "^3.0.0",
+    "dotenv": "^16.4.5",
+    "hamburger-react": "^2.5.0",
+    "keen-slider": "^6.8.6",
     "react": "^18.2.0",
+    "react-burger-menu": "^3.0.9",
     "react-dom": "^18.2.0",
     "react-scroll-parallax": "^3.4.5",
     "styled-components": "^6.1.8"

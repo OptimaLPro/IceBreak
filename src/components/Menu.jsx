@@ -15,6 +15,8 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import { Twirl as Hamburger } from 'hamburger-react';
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -97,6 +99,7 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
+
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
@@ -155,18 +158,19 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1, padding: '10px'}}>
-      <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none'}}>
+    <Box sx={{ flexGrow: 1, padding: '10px' }}>
+      <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none' }}>
         <Toolbar>
           <IconButton
             size="large"
             edge="start"
             color="inherit"
-            aria-label="open drawer"
+            aria-label="menu"
             sx={{ mr: 2 }}
           >
-            <MenuIcon />
+            <Hamburger rounded size={25}/>
           </IconButton>
+
           <Typography
             variant="h6"
             noWrap

@@ -6,6 +6,25 @@ import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import shadows from '@mui/material/styles/shadows';
 import Search from './components/Search';
+import WeatherApp from './WeatherAPI';
+import { Button } from '@mui/material';
+import { useState } from 'react';
+import GameCards from './components/GameCards';
+import Carousel from './components/Carousel';
+
+
+var slider = new KeenSlider(
+    '#my-slider',
+    {
+        loop: true,
+        created: () => {
+            console.log('created')
+        },
+    },
+    [
+        // add plugins here
+    ]
+)
 
 const SearchTheme = styled('div')(({ theme }) => ({
     borderRadius: '50px',
@@ -44,47 +63,17 @@ const MainPage = () => {
     return (
         <>
             <Menu />
-
-
-            <div style={{
+            {/* <div style={{
                 display: 'flex',
+                flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
                 height: '80vh'
             }}>
-                    <Search />
-                {/* <Search >
-                    <SearchIconWrapper>
-                        <SearchIcon style={{ color: 'gray' }} />
-                    </SearchIconWrapper>
-                    <StyledInputBase
-                        placeholder="Search…"
-                        inputProps={{ 'aria-label': 'search' }}
-                        sx={{ color: 'black' }}
-                    />
-                </Search> */}
-            </div>
-
-
-
-            {/* </div > */}
-            {/* <div style={{ height: 'calc(100vh)' }}>
-                
-
+                <Search />
             </div> */}
-            {/* <Divider sx={{ borderBottom: '10px solid #1ba5e0' }} /> */}
-            {/* <div style={{ height: 'calc(100vh - 10px)' }}>
-                <div className="parallax">
-                    Hey
-                </div>
+            <Carousel />
 
-            </div>
-            <Divider sx={{ borderBottom: '10px solid #1ba5e0' }} />
-            <div style={{ height: 'calc(100vh - 10px)' }}>
-                there
-
-            </div>
-            <Divider sx={{ borderBottom: '10px solid #1ba5e0' }} /> */}
         </>
     );
 }

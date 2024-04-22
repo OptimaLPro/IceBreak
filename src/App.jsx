@@ -13,7 +13,7 @@ const theme = createTheme({
 function App() {
   return (
     <div className="main-page">
-      <AuroraBackgroundProvider className='background'>
+      <AuroraBackgroundProvider className='background' colors={["#5356FF", "#378CE7", "#67C6E3", "#DFF5FF"]} useRandomness="true" blurAmount="5vw">
         <ThemeProvider theme={theme}>
           <MainPage />
         </ThemeProvider>
