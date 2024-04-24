@@ -31,6 +31,10 @@ body {
   height: 100px;
 }
 
+.main-page{
+  margin-bottom: 30px;
+}
+
 @media (max-width: 768px) {
   .main-page {
     display: flex;

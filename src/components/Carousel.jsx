@@ -73,12 +73,7 @@ export default function App() {
           >
             {flippedIndex === 4 ? "Flipped!5" : "5"}
           </div>
-          <div
-            className={`carousel__cell number-slide6 ${flippedIndex === 5 ? "flipped" : ""}`}
-            onClick={() => handleFlip(5)}
-          >
-            {flippedIndex === 5 ? "Flipped!6" : "6"}
-          </div>
+
         </div>
       </div>
     </div>

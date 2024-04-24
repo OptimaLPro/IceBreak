@@ -33,10 +33,6 @@ return (
                 Drinking Games 🍻
             </div>
             <Carousel />
-            <div className="category-headers">
-                Short games 🕒
-            </div>
-            <Carousel />
         </div>
 
     </>
