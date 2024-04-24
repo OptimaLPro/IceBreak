@@ -1,7 +1,7 @@
 import React from "react"
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
-import "../assets/Carousel_style.css"
+import "../assets/css/Carousel_style.css"
 import { useState } from "react";
 import ReactCardFlip from "react-card-flip";
 
@@ -47,37 +47,37 @@ export default function App() {
             className={`carousel__cell number-slide1 ${flippedIndex === 0 ? "flipped" : ""}`}
             onClick={() => handleFlip(0)}
           >
-            {flippedIndex === 0 ? "Flipped!" : "1"}
+            {flippedIndex === 0 ? "Flipped!1" : "1"}
           </div>
           <div
             className={`carousel__cell number-slide2 ${flippedIndex === 1 ? "flipped" : ""}`}
             onClick={() => handleFlip(1)}
           >
-            {flippedIndex === 1 ? "Flipped!" : "2"}
+            {flippedIndex === 1 ? "Flipped!2" : "2"}
           </div>
           <div
             className={`carousel__cell number-slide3 ${flippedIndex === 2 ? "flipped" : ""}`}
             onClick={() => handleFlip(2)}
           >
-            {flippedIndex === 2 ? "Flipped!" : "3"}
+            {flippedIndex === 2 ? "Flipped!3" : "3"}
           </div>
           <div
             className={`carousel__cell number-slide4 ${flippedIndex === 3 ? "flipped" : ""}`}
             onClick={() => handleFlip(3)}
           >
-            {flippedIndex === 3 ? "Flipped!" : "4"}
+            {flippedIndex === 3 ? "Flipped!4" : "4"}
           </div>
           <div
             className={`carousel__cell number-slide5 ${flippedIndex === 4 ? "flipped" : ""}`}
             onClick={() => handleFlip(4)}
           >
-            {flippedIndex === 4 ? "Flipped!" : "5"}
+            {flippedIndex === 4 ? "Flipped!5" : "5"}
           </div>
           <div
             className={`carousel__cell number-slide6 ${flippedIndex === 5 ? "flipped" : ""}`}
             onClick={() => handleFlip(5)}
           >
-            {flippedIndex === 5 ? "Flipped!" : "6"}
+            {flippedIndex === 5 ? "Flipped!6" : "6"}
           </div>
         </div>
       </div>

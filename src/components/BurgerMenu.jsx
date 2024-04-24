@@ -1,6 +1,6 @@
 import { bubble as Menu } from 'react-burger-menu'
 import { Twirl as Hamburger } from 'hamburger-react';
-import '../assets/Burger_menu.css'
+import '../assets/css/Burger_menu.css'
 
 const BurgerMenuNew = () => {
   return (

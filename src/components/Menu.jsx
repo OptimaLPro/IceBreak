@@ -18,6 +18,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Twirl as Hamburger } from 'hamburger-react';
 import BurgerMenu from './BurgerMenu';
+import Logo from '../assets/images/LogoResize.png';
 
 
 
@@ -138,19 +139,19 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1, padding: '10px' }}>
+    <Box sx={{ flexGrow: 1, padding: '10px' , width: '100%'}}>
       <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none' }}>
-        <Toolbar>
+        <Toolbar sx={{justifyContent: { xs: 'space-between', md: 'flex' }}}>
           {<BurgerMenu />}
-          <IconButton
+          {/* <IconButton
             size="large"
             edge="start"
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            
-          </IconButton>
+
+          </IconButton> */}
 
           <Typography
             variant="h6"
@@ -158,9 +159,15 @@ export default function PrimarySearchAppBar() {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            Wavy
+            IceBreak
           </Typography>
-          <Search>
+          <img
+            src={Logo}
+            alt={Logo}
+            style={{ width: '60px', height: '50px' }}
+            loading="lazy"
+          />
+          {/* <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -168,8 +175,8 @@ export default function PrimarySearchAppBar() {
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
             />
-          </Search>
-          <Box sx={{ flexGrow: 1 }} />
+          </Search> */}
+          <Box sx={{ flexGrow: { xs: 0, md: 1 }, display: { xs: 'none', md: 'block' } }} />
           <Box sx={{ display: { xs: 'flex', md: 'flex' } }}>
             <IconButton
               size="large"
