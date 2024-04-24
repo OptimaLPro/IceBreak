@@ -17,7 +17,7 @@ return (
         </ReactCardFlip> */}
         <div className="main-page">
 
-            <div className="category-headers">
+            {/* <div className="category-headers">
                 New Games 🔥
             </div>
             <Carousel />
@@ -36,7 +36,7 @@ return (
             <div className="category-headers">
                 Short games 🕒
             </div>
-            <Carousel />
+            <Carousel /> */}
         </div>
 
     </>
