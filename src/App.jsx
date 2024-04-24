@@ -5,11 +5,13 @@ import { AuroraBackgroundProvider } from '@nauverse/react-aurora-background';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import './App.css';
 
+
 const theme = createTheme({
   typography: {
     fontFamily: '"Nunito Sans", sans-serif', // Specify the font family here
   },
 });
+
 
 function App() {
   return (
@@ -24,8 +26,10 @@ function App() {
           zIndex: -1,
         }}>
 
+
       </AuroraBackgroundProvider>
       <ThemeProvider theme={theme}>
+        
         <MainPage />
       </ThemeProvider>
     </div>

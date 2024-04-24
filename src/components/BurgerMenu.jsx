@@ -1,21 +1,16 @@
-import { slide as Menu } from 'react-burger-menu'
+import { bubble as Menu } from 'react-burger-menu'
+import { Twirl as Hamburger } from 'hamburger-react';
+import '../assets/Burger_menu.css'
 
-class Example extends React.Component {
-  showSettings (event) {
-    event.preventDefault();
-  }
-
-  render () {
-    // NOTE: You also need to provide styles, see https://github.com/negomi/react-burger-menu#styling
-    return (
-      <Menu>
-        <a id="home" className="menu-item" href="/">Home</a>
-        <a id="about" className="menu-item" href="/about">About</a>
-        <a id="contact" className="menu-item" href="/contact">Contact</a>
-        <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
-      </Menu>
-    );
-  }
+const BurgerMenuNew = () => {
+  return (
+    <Menu customBurgerIcon={<Hamburger rounded size={25} />}>
+      <a id="home" className="menu-item" href="/">Home</a>
+      <a id="about" className="menu-item" href="/">Join Room</a>
+      <a id="contact" className="menu-item" href="/">Filter By</a>
+      <a id="contact" className="menu-item" href="/">Share</a>
+    </Menu>
+  );
 }
 
-export default Example;
+export default BurgerMenuNew;
