@@ -84,7 +84,7 @@ body {
 .scene {
   width: 260px;
   height: 200px;
-  perspective: 200px;
+  perspective: 170px;
   position: relative;
 }
 .scene .carousel.keen-slider {
