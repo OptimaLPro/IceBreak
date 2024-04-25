@@ -4,6 +4,8 @@ import MainPage from './MainPage';
 import { AuroraBackgroundProvider } from '@nauverse/react-aurora-background';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import GameEnter from './games/generic/GameEnter';
 
 
 const theme = createTheme({
@@ -29,10 +31,14 @@ function App() {
 
       </AuroraBackgroundProvider>
       <ThemeProvider theme={theme}>
-        
-        <MainPage />
+        {/* <MainPage /> */}
       </ThemeProvider>
+      <Routes>
+        <Route index element={<MainPage />} />
+        <Route path="/enter" element={<GameEnter />} />
+      </Routes>
     </div>
+
   );
 }
 

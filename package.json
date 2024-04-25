@@ -25,6 +25,7 @@
     "react-burger-menu": "^3.0.9",
     "react-card-flip": "^1.2.2",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.23.0",
     "react-scroll-parallax": "^3.4.5",
     "styled-components": "^6.1.8"
   },

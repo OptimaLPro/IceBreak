@@ -3,6 +3,7 @@ import Carousel from './components/Carousel';
 import FlickingCarousel from './components/FlickingCarousel';
 import { useState } from "react";
 import ReactCardFlip from "react-card-flip";
+import { Link } from 'react-router-dom';
 
 const MainPage = () => {
 
@@ -10,16 +11,12 @@ return (
     <>
         <Menu />
         
-        {/* <ReactCardFlip isFlipped={flip}
-            flipDirection="vertical">
-            <div className=" number-slide1 " onClick={() => setFlip(!flip)}>1</div>
-            <div className=" number-slide2 " onClick={() => setFlip(!flip)}>2</div>
-        </ReactCardFlip> */}
         <div className="main-page">
-
+            <Link to="/enter">
             <div className="category-headers">
                 New Games 🔥
             </div>
+            </Link>
             <Carousel />
             <div className="category-headers">
                 Short games 🕒
