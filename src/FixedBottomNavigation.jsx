@@ -57,7 +57,7 @@ function refreshMessages() {
               setValue(newValue);
             }}
           >
-            <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
+            <BottomNavigationAction label="primary" icon={<RestoreIcon />} />
             <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
           </BottomNavigation>
         </Paper>
@@ -71,7 +71,7 @@ function refreshMessages() {
   const messageExamples = [
     {
       primary: 'Drinking Game',
-      secondary: "I'll be in the neighbourhood this week. Let's grab a bite to eat",
+      secondary: "I'll be in the neighborhood this week. Let's grab a bite to eat",
       person: '/static/images/avatar/5.jpg',
     },
     {
