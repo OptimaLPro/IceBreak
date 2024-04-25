@@ -6,7 +6,8 @@ import SignIn from "./components/SignIn";
 const MainPage = () => {
   return (
     <>
-      <Menu />
+      <SignUp />
+      {/* <Menu />
       <div className="main-page">
         <div className="category-headers">New Games 🔥</div>
         <Carousel />
@@ -18,7 +19,7 @@ const MainPage = () => {
         <Carousel />
         <div className="category-headers">Short games 🕒</div>
         <Carousel />
-      </div>
+      </div> */}
     </>
   );
 };

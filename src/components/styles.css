@@ -103,3 +103,24 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
+/* Making sure the autocomplete attribute isn't overriding the background */
+input[autocomplete] {
+  background-color: transparent !important; /* Set background to transparent */
+}
+
+/* Styling for webkit autofill */
+input:-webkit-autofill {
+  -webkit-text-fill-color: inherit !important; /* Inherit text color */
+}
+
+Target autofill background input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
+/*Set autofill background to transparent */
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  -webkit-transition-delay: 9999s;
+  -webkit-transition: color 9999s ease-out, background-color 9999s ease-out;
+}
