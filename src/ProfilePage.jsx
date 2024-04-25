@@ -4,7 +4,9 @@ import Avatar from "@mui/material/Avatar";
 import { Button } from "@mui/material";
 import HistoryIcon from '@mui/icons-material/History';
 import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
-import "./profilePage.css"; // Import CSS file
+import FixedBottomNavigation from "./FixedBottomNavigation";
+import "./profilePage.css";
+
 
 const ProfilePage = () => {
   return (
@@ -21,21 +23,16 @@ const ProfilePage = () => {
               sx={{ width: 150, height: 150, marginBottom: "30px", marginLeft: "40px", color: "GrayText", backgroundColor: "salmon" }}
             />
             <Button variant="outlined" color="secondary">Edit Avatar</Button> {/* Edit Avatar button */}
-            
           </div>
-          <p>Welcome to your profile page!</p>
           <p>Username: JohnDoe</p>
           <p>Email: johndoe@example.com</p>
-          <div className="button-container">
-            <Button variant="outlined" color="secondary" startIcon={<HistoryIcon />}>My History</Button>
-          </div>
-          <div className="button-container">
-            <Button variant="outlined" color="secondary" startIcon={<FavoriteOutlinedIcon />}>Favorites</Button>
-          </div>
-          <div className="button-container">
-            <Button variant="outlined" color="secondary">Log out</Button>
+          <div className="Data-table">
+            <FixedBottomNavigation />
           </div>
         </div>
+        {/* <div className="button-container">
+            <Button variant="outlined" color="secondary">Log out</Button>
+          </div> */}
       </div>
     </>
   );
