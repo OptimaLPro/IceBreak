@@ -31,8 +31,13 @@ body {
   height: 100px;
 }
 
-.main-page{
+.main-page {
   margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -43,4 +48,12 @@ body {
     align-items: center;
     width: 100%;
   }
+}
+
+.page-title{
+  text-align: center;
+}
+
+.content{
+
 }
