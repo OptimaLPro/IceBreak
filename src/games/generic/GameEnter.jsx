@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
+import AnimatedPage from "../../AnimatedPage";
 
 
 const GameEnter = () => {
     return (<>
-        <div>Hello world</div>
-        <Link to="/">Back</Link>
+        <AnimatedPage >
+            <div>Hello world</div>
+            <Link to="/">Back</Link>
+        </AnimatedPage>
     </>);
 }
 

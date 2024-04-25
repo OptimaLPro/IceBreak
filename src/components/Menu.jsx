@@ -19,6 +19,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import { Twirl as Hamburger } from 'hamburger-react';
 import BurgerMenu from './BurgerMenu';
 import Logo from '../assets/images/LogoResize.png';
+import { Link } from 'react-router-dom';
 
 
 
@@ -139,9 +140,9 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1, padding: '10px' , width: '100%'}}>
+    <Box sx={{ flexGrow: 1, padding: '10px', width: '100%' }}>
       <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none' }}>
-        <Toolbar sx={{justifyContent: { xs: 'space-between', md: 'flex' }}}>
+        <Toolbar sx={{ justifyContent: { xs: 'space-between', md: 'flex' } }}>
           {<BurgerMenu />}
           {/* <IconButton
             size="large"
@@ -161,12 +162,14 @@ export default function PrimarySearchAppBar() {
           >
             IceBreak
           </Typography>
-          <img
-            src={Logo}
-            alt={Logo}
-            style={{ width: '60px', height: '50px' }}
-            loading="lazy"
-          />
+          <Link to="/">
+            <img
+              src={Logo}
+              alt={Logo}
+              style={{ width: '60px', height: '50px', textDecoration: 'none', marginTop: '10px'}}
+              loading="lazy"
+            />
+          </Link>
           {/* <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -187,7 +190,7 @@ export default function PrimarySearchAppBar() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle fontSize='large' />
+              <AccountCircle fontSize='large' sx={{marginRight: '7px'}}/>
             </IconButton>
           </Box>
           {/* <Box sx={{ display: { xs: 'flex', md: 'none' } }}>

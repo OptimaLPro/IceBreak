@@ -6,6 +6,9 @@ import { ParallaxProvider } from 'react-scroll-parallax';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import GameEnter from './games/generic/GameEnter';
+import TestPage from './Test';
+import Menu from './components/Menu';
+import PageNotFound from './PageNotFound';
 
 
 const theme = createTheme({
@@ -32,10 +35,13 @@ function App() {
       </AuroraBackgroundProvider>
       <ThemeProvider theme={theme}>
         {/* <MainPage /> */}
+        <Menu />
       </ThemeProvider>
       <Routes>
         <Route index element={<MainPage />} />
         <Route path="/enter" element={<GameEnter />} />
+        <Route path="/test" element={<TestPage />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
 
