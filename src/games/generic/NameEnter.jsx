@@ -28,14 +28,14 @@ const NameEnter = () => {
                     <div style={{ marginBottom: '20px' }}>
                         <Avatar style={{ width: '100px', height: '100px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.3)' }} {...config} />
                     </div>
-                    <AwesomeButton size="small" type="secondary" style={{ width: '80%', marginBottom: '20px', maxWidth: '200px' }} onPress={handleRandomizeConfig}>Random Avatar 🎲</AwesomeButton>
+                    <AwesomeButton size="small" type="secondary" style={{ width: '87%', marginBottom: '20px'}} onPress={handleRandomizeConfig}>Random Avatar 🎲</AwesomeButton>
 
                     <div style={{ width: '100%', marginBottom: '20px', marginTop: '10px' }}>
                         <TextField id="outlined-basic" label="Enter Your Name" variant="outlined" fullWidth />
                     </div>
-                    <div className="bottom-button" style={{ width: '100%' }}>
+                    <div className="bottom-button" style={{ width: '100%', maxWidth: '500px' }}>
                         <Link to="/waitingroom">
-                            <AwesomeButton type="primary" style={{ width: '100%', maxWidth: '200px' }}>Done!</AwesomeButton>
+                            <AwesomeButton type="primary" style={{ width: '100%', maxWidth: '500px' }}>Done!</AwesomeButton>
                         </Link>
                     </div>
                 </Paper>
