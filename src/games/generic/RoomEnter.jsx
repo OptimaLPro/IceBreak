@@ -4,9 +4,10 @@ import Paper from '@mui/material/Paper';
 import { TextField } from "@mui/material";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/themes/theme-blue.css"; // Import the button styles
+import { Margin } from "@mui/icons-material";
 
-const GameEnter = () => {
-    return (<>
+const RoomEnter = () => {
+    return (
         <AnimatedPage>
             <div className="content">
                 <h1 className="page-title">Game Enter</h1>
@@ -16,12 +17,14 @@ const GameEnter = () => {
                         <TextField id="outlined-basic" label="Enter Room PIN" variant="outlined" />
                     </div>
                     <div>
-                        <AwesomeButton type="primary" style={{ width: '100%' }}>Enter Game!</AwesomeButton>
+                        <Link to="/nameenter">
+                            <AwesomeButton type="primary" style={{ width: '100%' }}>Enter Game!</AwesomeButton>
+                        </Link>
                     </div>
                 </Paper>
             </div>
         </AnimatedPage>
-    </>);
+    );
 }
 
-export default GameEnter;
+export default RoomEnter;

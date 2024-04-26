@@ -55,5 +55,17 @@ body {
 }
 
 .content{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
 
+}
+
+.bottom-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
 }

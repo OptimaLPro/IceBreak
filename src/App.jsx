@@ -5,10 +5,14 @@ import { AuroraBackgroundProvider } from '@nauverse/react-aurora-background';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import GameEnter from './games/generic/GameEnter';
+import RoomEnter from './games/generic/RoomEnter';
 import TestPage from './Test';
 import Menu from './components/Menu';
 import PageNotFound from './PageNotFound';
+import NameEnter from './games/generic/NameEnter';
+import WaitingRoom from './games/generic/WaitingRoom';
+import StartCountdown from './games/generic/StartCountdown';
+
 
 
 const theme = createTheme({
@@ -39,9 +43,12 @@ function App() {
       </ThemeProvider>
       <Routes>
         <Route index element={<MainPage />} />
-        <Route path="/enter" element={<GameEnter />} />
+        <Route path="/enter" element={<RoomEnter />} />
         <Route path="/test" element={<TestPage />} />
         <Route path="*" element={<PageNotFound />} />
+        <Route path="/nameenter" element={<NameEnter />} />
+        <Route path="/waitingroom" element={<WaitingRoom />} />
+        <Route path="/startcountdown" element={<StartCountdown />} />
       </Routes>
     </div>
 
