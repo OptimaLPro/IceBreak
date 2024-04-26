@@ -33,6 +33,10 @@
     margin-bottom: 20px;
     margin-top: 20px;
   }
+  .awesome-buttons{
+    button-danger-color:#733086;
+    button-danger-color-dark:#431C4E;
+  }
   
   .Data-table {
     margin-top: 20px;

@@ -2,8 +2,8 @@ import React from "react";
 import Menu from "./components/Menu";
 import Avatar from "@mui/material/Avatar";
 import { Button } from "@mui/material";
-import HistoryIcon from '@mui/icons-material/History';
-import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
+import { AwesomeButton } from 'react-awesome-button';
+import 'react-awesome-button/dist/styles.css';
 import FixedBottomNavigation from "./FixedBottomNavigation";
 import "./profilePage.css";
 
@@ -20,9 +20,9 @@ const ProfilePage = () => {
               alt="John Doe"
               src="/path/to/your-image.jpg"
               className="avatar"
-              sx={{ width: 150, height: 150, marginBottom: "30px", marginLeft: "40px", color: "GrayText", backgroundColor: "salmon" }}
+              sx={{ width: 150, height: 150, marginBottom: "30px", marginLeft: "125px", color: "GrayText", backgroundColor: "salmon" }}
             />
-            <Button variant="outlined" color="secondary">Edit Avatar</Button> {/* Edit Avatar button */}
+            <AwesomeButton type="secondary">Edit Avatar</AwesomeButton>
           </div>
           <p>Username: JohnDoe</p>
           <p>Email: johndoe@example.com</p>
