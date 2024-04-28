@@ -2,17 +2,7 @@ body {
   font-family: 'Nunito Sans Variable', sans-serif;
 }
 
-
-.background {
-  background-color: #ff0000;
-  min-height: 1000vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.search{
+.search {
   height: 100px;
   width: 100%;
   display: flex;
@@ -34,9 +24,45 @@ body {
   box-shadow: 0 0 5px white;
 }
 
-.category-headers{
+.category-headers {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100px;
+}
+
+.main-page {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .main-page {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+.page-title{
+  text-align: center;
+}
+
+.content{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+
+.bottom-button{
+  margin-top: 30px;
 }

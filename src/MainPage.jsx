@@ -1,14 +1,12 @@
-import Menu from './components/Menu';
+
 import Carousel from './components/Carousel';
-import ProfilePage from './ProfilePage';
 
 
 const MainPage = () => {
+
     return (
         <>
-        
-            <ProfilePage />
-            {/* <Menu />
+            <Menu />
             <div className="category-headers">
                 New Games 🔥
             </div>
@@ -16,7 +14,7 @@ const MainPage = () => {
             <div className="category-headers">
                 Short games 🕒
             </div>
-            <Carousel /> */}
+            <Carousel />
 
         </>
     );
