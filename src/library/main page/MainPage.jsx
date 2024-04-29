@@ -1,13 +1,12 @@
-import Menu from "./components/Menu";
-import Carousel from "./components/Carousel";
-import SignUp from "./components/SignUp";
-import SignIn from "./components/SignIn";
+import Menu from "../utils/menu/Menu";
+import Carousel from "./main page components/Carousel";
+import SignUp from "../log in pages/SignUp";
+import SignIn from "../log in pages/SignIn";
 
 const MainPage = () => {
   return (
     <>
-      <SignUp />
-      {/* <Menu />
+      <Menu />
       <div className="main-page">
         <div className="category-headers">New Games 🔥</div>
         <Carousel />
@@ -19,7 +18,7 @@ const MainPage = () => {
         <Carousel />
         <div className="category-headers">Short games 🕒</div>
         <Carousel />
-      </div> */}
+      </div>
     </>
   );
 };
