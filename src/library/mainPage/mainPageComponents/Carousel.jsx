@@ -1,7 +1,7 @@
 import React from "react"
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
-import "../assets/css/Carousel.css"
+import "../../../assets/css/Carousel.css"
 import { useState } from "react";
 import ReactCardFlip from "react-card-flip";
 

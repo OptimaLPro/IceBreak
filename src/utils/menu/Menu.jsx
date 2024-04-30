@@ -17,8 +17,8 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Twirl as Hamburger } from 'hamburger-react';
-import BurgerMenu from './BurgerMenu';
-import Logo from '../assets/images/LogoResize.png';
+import BurgerMenu from './menuComponents/BurgerMenu';
+//import Logo from '../assets/images/logo.png';
 import { Link } from 'react-router-dom';
 
 
@@ -144,7 +144,7 @@ export default function PrimarySearchAppBar() {
       <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none' }}>
         <Toolbar sx={{ justifyContent: { xs: 'space-between', md: 'flex' } }}>
           {<BurgerMenu />}
-          {/* <IconButton
+          { <IconButton
             size="large"
             edge="start"
             color="inherit"
@@ -152,7 +152,7 @@ export default function PrimarySearchAppBar() {
             sx={{ mr: 2 }}
           >
 
-          </IconButton> */}
+          </IconButton> }
 
           <Typography
             variant="h6"
@@ -163,12 +163,12 @@ export default function PrimarySearchAppBar() {
             IceBreak
           </Typography>
           <Link to="/">
-            <img
+            {/* <img
               src={Logo}
               alt={Logo}
               style={{ width: '60px', height: '50px', textDecoration: 'none', marginTop: '10px'}}
               loading="lazy"
-            />
+            /> */}
           </Link>
           {/* <Search>
             <SearchIconWrapper>
