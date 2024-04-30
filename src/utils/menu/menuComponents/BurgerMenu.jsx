@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { bubble as Menu } from 'react-burger-menu';
 import { Twirl as Hamburger } from 'hamburger-react';
-import '../assets/css/Burger_menu.css';
+import '../../../assets/css/Burger_menu.css';
 import { Link } from 'react-router-dom';
 
 const BurgerMenuNew = () => {
