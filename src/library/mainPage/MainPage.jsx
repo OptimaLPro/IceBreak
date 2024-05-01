@@ -1,10 +1,14 @@
 
 import Carousel from './mainPageComponents/Carousel';
+import FlickingCarousel from './mainPageComponents/FlickingCarousel';
+import { useState } from "react";
+import ReactCardFlip from "react-card-flip";
 import { Link } from 'react-router-dom';
 import AnimatedPage from '../../AnimatedPage';
 import { AwesomeButton } from 'react-awesome-button';
 import 'react-awesome-button/dist/styles.css';
-//import '../../../assets/css/AwesomeButton.css';
+import '../../assets/css/Awesome_Buttons.css';
+
 const MainPage = () => {
 
     return (
