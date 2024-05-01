@@ -1,7 +1,7 @@
 import Menu from "../utils/menu/Menu";
 import Carousel from "./main page components/Carousel";
-import SignUp from "../log in pages/SignUp";
-import SignIn from "../log in pages/SignIn";
+import SignUp from "../logInPages/SignUp";
+import SignIn from "../logInPages/SignIn";
 
 const MainPage = () => {
   return (
