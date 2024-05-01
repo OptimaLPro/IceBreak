@@ -34,19 +34,40 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignUp() {
+  const [firstNameValid, setFirstNameValid] = React.useState(true);
+  const [lastNameValid, setLastNameValid] = React.useState(true);
+  const [emailValid, setEmailValid] = React.useState(true);
+  const [passwordValid, setPasswordValid] = React.useState(true);
+  const [confirmPasswordValid, setConfirmPasswordValid] = React.useState(true);
+  const [passwordsMatch, setPasswordsMatch] = React.useState(true);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const password = data.get("password");
     const confirmPassword = data.get("confirm-password");
+    const email = data.get("email");
 
-    if (password !== confirmPassword) {
-      alert("Passwords don't match");
+    // Email validation using regular expression
+    const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    setEmailValid(isValidEmail);
+
+    setPasswordsMatch(password === confirmPassword);
+
+    // Password validation
+    setPasswordValid(password.length >= 8 && passwordsMatch);
+
+    if (
+      !isValidEmail ||
+      password !== confirmPassword ||
+      password.length < 8 /* add more conditions */
+    ) {
+      // Set validity state for other fields accordingly
       return;
     }
 
     console.log({
-      email: data.get("email"),
+      email: email,
       password: password,
       confirmPassword: confirmPassword,
     });
@@ -84,8 +105,10 @@ export default function SignUp() {
                   required
                   fullWidth
                   id="firstName"
-                  label="First Name"
+                  label={firstNameValid ? "First Name" : "Invalid Information"}
                   autoFocus
+                  error={!firstNameValid}
+                  onChange={(e) => setFirstNameValid(!!e.target.value)}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -93,9 +116,11 @@ export default function SignUp() {
                   required
                   fullWidth
                   id="lastName"
-                  label="Last Name"
+                  label={lastNameValid ? "Last Name" : "Invalid Information"}
                   name="lastName"
                   autoComplete="family-name"
+                  error={!lastNameValid}
+                  onChange={(e) => setLastNameValid(!!e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -103,9 +128,11 @@ export default function SignUp() {
                   required
                   fullWidth
                   id="email"
-                  label="Email Address"
+                  label={emailValid ? "Email Address" : "Invalid Email"}
                   name="email"
                   autoComplete="email"
+                  error={!emailValid}
+                  onChange={(e) => setEmailValid(!!e.target.value)}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -113,10 +140,12 @@ export default function SignUp() {
                   required
                   fullWidth
                   name="password"
-                  label="Password"
+                  label={passwordValid ? "Password" : "Password is less than 8"}
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  error={!passwordValid || !passwordsMatch}
+                  onChange={(e) => setPasswordValid(!!e.target.value)}
                   InputProps={{ style: { backgroundColor: "inherit" } }}
                   InputLabelProps={{ style: { backgroundColor: "inherit" } }}
                 />
@@ -126,10 +155,16 @@ export default function SignUp() {
                   required
                   fullWidth
                   name="confirm-password"
-                  label="Confirm Password"
+                  label={
+                    confirmPasswordValid
+                      ? "Confirm Password"
+                      : "Invalid Information"
+                  }
                   type="password"
                   id="confirm-password"
                   autoComplete="confirm-password"
+                  error={!confirmPasswordValid || !passwordsMatch}
+                  onChange={(e) => setConfirmPasswordValid(!!e.target.value)}
                   InputProps={{ style: { backgroundColor: "inherit" } }}
                   InputLabelProps={{ style: { backgroundColor: "inherit" } }}
                 />
