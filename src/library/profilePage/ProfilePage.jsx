@@ -1,10 +1,11 @@
 import React from "react";
-import Menu from "./components/Menu";
+import Menu from "../../utils/menu/Menu";
+import { Link } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import { Button } from "@mui/material";
 import { AwesomeButton } from 'react-awesome-button';
 import 'react-awesome-button/dist/styles.css';
-import FixedBottomNavigation from "./FixedBottomNavigation";
+import FixedBottomNavigation from "./profilePageComponents/FixedBottomNavigation";
 import "./profilePage.css";
 
 
