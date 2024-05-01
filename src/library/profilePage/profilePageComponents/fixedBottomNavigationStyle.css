@@ -1,0 +1,54 @@
+/* Style for the list of messages */
+.message-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Style for each message item */
+.message-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the message person avatar */
+.message-avatar {
+  width: 30px; /* Decrease size */
+  height: 30px; /* Decrease size */
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Style for the message text */
+.message-text {
+  margin: 0;
+  font-size: 14px; /* Decrease font size */
+  line-height: 1.3; /* Decrease line height */
+}
+/* Style for the Paper component */
+.paper-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 70%;
+  max-width: 400px;
+  margin: 0 auto; /* Center horizontally */
+  background-color:rgba(245, 245, 245, 0.159); /* Background color with transparency */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-bottom: -70px;
+}
+
+/* Style for the BottomNavigation component */
+.bottom-navigation {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color:rgba(245, 245, 245, 0.159);
+}
