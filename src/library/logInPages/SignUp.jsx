@@ -12,6 +12,8 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { InputLabel } from "@mui/material";
+import "../../assets/css/style.css";
 
 function Copyright(props) {
   return (
@@ -50,19 +52,19 @@ export default function SignUp() {
 
     // Email validation using regular expression
     const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const isValidName = /^[a-zA-Z]+$/;
     setEmailValid(isValidEmail);
 
     setPasswordsMatch(password === confirmPassword);
 
     // Password validation
-    setPasswordValid(password.length >= 8 && passwordsMatch);
+    setPasswordValid(password.length >= 8);
 
     if (
       !isValidEmail ||
       password !== confirmPassword ||
       password.length < 8 /* add more conditions */
     ) {
-      // Set validity state for other fields accordingly
       return;
     }
 
@@ -85,9 +87,6 @@ export default function SignUp() {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-            <LockOutlinedIcon />
-          </Avatar>
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
