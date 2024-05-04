@@ -14,31 +14,42 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "../../assets/css/style.css";
 
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        IceBreak
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
+function validateEmail(email) {
+  // Regular expression for basic email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
 }
 
-// TODO remove, this demo shouldn't need to reset the theme.
+function validatePassword(password) {
+  // Check if password is at least 8 characters long
+  return password.length >= 8;
+}
 
-const defaultTheme = createTheme();
+function SignIn() {
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [emailError, setEmailError] = React.useState(false);
+  const [passwordError, setPasswordError] = React.useState(false);
 
-export default function SignIn() {
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    // Reset error states
+    setEmailError(false);
+    setPasswordError(false);
+
+    // Validation
+    if (!validateEmail(email)) {
+      setEmailError(true);
+      return;
+    }
+
+    if (!validatePassword(password)) {
+      setPasswordError(true);
+      return;
+    }
+
+    // If validation passes, continue with form submission
     const data = new FormData(event.currentTarget);
     console.log({
       email: data.get("email"),
@@ -47,7 +58,7 @@ export default function SignIn() {
   };
 
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <ThemeProvider theme={createTheme()}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -76,6 +87,9 @@ export default function SignIn() {
               name="email"
               autoComplete="email"
               autoFocus
+              error={emailError}
+              onChange={(e) => setEmail(e.target.value)}
+              helperText={emailError ? "Please enter a valid email" : ""}
             />
             <TextField
               margin="normal"
@@ -86,6 +100,13 @@ export default function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+              error={passwordError}
+              onChange={(e) => setPassword(e.target.value)}
+              helperText={
+                passwordError
+                  ? "Password must be at least 8 characters long"
+                  : ""
+              }
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -113,8 +134,9 @@ export default function SignIn() {
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
   );
 }
+
+export default SignIn;
