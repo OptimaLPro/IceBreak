@@ -22,15 +22,16 @@
     "framer-motion": "^11.1.7",
     "hamburger-react": "^2.5.0",
     "keen-slider": "^6.8.6",
-    "react": "^18.2.0",
+    "react": "^18.3.1",
     "react-awesome-button": "^7.0.5",
     "react-burger-menu": "^3.0.9",
     "react-card-flip": "^1.2.2",
     "react-countdown-circle-timer": "^3.2.1",
-    "react-dom": "^18.2.0",
+    "react-dom": "^18.3.1",
     "react-loader-spinner": "^6.1.6",
     "react-nice-avatar": "^1.5.0",
     "react-router-dom": "^6.23.0",
+    "react-tilt": "^1.0.2",
     "styled-components": "^6.1.8"
   },
   "devDependencies": {
