@@ -27,7 +27,7 @@ const MainPage = () => {
                     </div>
                     <div className="cards">
                         {shortGames.map(game => (
-                            <GameCard game={game} />
+                            <GameCard key={game.id} game={game} />
                         ))}
                     </div>
 
@@ -36,7 +36,7 @@ const MainPage = () => {
                     </div>
                     <div className="cards">
                         {funnyGames.map(game => (
-                            <GameCard game={game} />
+                            <GameCard key={game.id} game={game} />
                         ))}
                     </div>
 
@@ -45,7 +45,7 @@ const MainPage = () => {
                     </div>
                     <div className="cards">
                         {drinkingGames.map(game => (
-                            <GameCard game={game} />
+                            <GameCard key={game.id} game={game} />
                         ))}
                     </div>
                 </div >
