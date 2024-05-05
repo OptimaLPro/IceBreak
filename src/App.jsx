@@ -2,7 +2,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import '@fontsource-variable/nunito-sans'; // Supports weights 200-900
 import MainPage from './library/mainPage/MainPage';
 import { AuroraBackgroundProvider } from '@nauverse/react-aurora-background';
-import { ParallaxProvider } from 'react-scroll-parallax';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import RoomEnter from './games/generic/RoomEnter';
@@ -14,11 +13,20 @@ import WaitingRoom from './games/generic/WaitingRoom';
 import StartCountdown from './games/generic/StartCountdown';
 import ProfilePage from './library/profilePage/ProfilePage';
 
-
-
 const theme = createTheme({
   typography: {
     fontFamily: '"Nunito Sans", sans-serif', // Specify the font family here
+    button: {
+      textTransform: 'none'
+    }
+  },
+  palette: {
+    ochre: {
+      main: '#E3D026',
+      light: '#E9DB5D',
+      dark: '#A29415',
+      contrastText: '#242105',
+    },
   },
 });
 
@@ -27,7 +35,7 @@ function App() {
   return (
     <div className="main-page">
       {/* <AuroraBackgroundProvider className='background' colors={["#5356FF", "#378CE7", "#67C6E3", "#DFF5FF"]} useRandomness="true" blurAmount="5vw" */}
-      {/* <AuroraBackgroundProvider colors={["#000000"]} useRandomness="true" blurAmount="5vw"
+      <AuroraBackgroundProvider colors={["#5356FF", '#378CE7', '#67C6E3']} useRandomness="true" blurAmount="15vw"
         style={{
           position: 'fixed',
           top: 0,
@@ -38,21 +46,22 @@ function App() {
         }}>
 
 
-      </AuroraBackgroundProvider> */}
+      </AuroraBackgroundProvider>
       <ThemeProvider theme={theme}>
         {/* <MainPage /> */}
         <Menu />
+
+        <Routes>
+          <Route index element={<MainPage />} />
+          <Route path="/enter" element={<RoomEnter />} />
+          <Route path="/test" element={<TestPage />} />
+          <Route path="*" element={<PageNotFound />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/nameenter" element={<NameEnter />} />
+          <Route path="/waitingroom" element={<WaitingRoom />} />
+          <Route path="/startcountdown" element={<StartCountdown />} />
+        </Routes>
       </ThemeProvider>
-      <Routes>
-        <Route index element={<MainPage />} />
-        <Route path="/enter" element={<RoomEnter />} />
-        <Route path="/test" element={<TestPage />} />
-        <Route path="*" element={<PageNotFound />} />
-        <Route path="/profile" element={<ProfilePage/>} />
-        <Route path="/nameenter" element={<NameEnter />} />
-        <Route path="/waitingroom" element={<WaitingRoom />} />
-        <Route path="/startcountdown" element={<StartCountdown />} />
-      </Routes>
     </div>
 
   );

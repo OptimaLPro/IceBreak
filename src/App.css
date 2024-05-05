@@ -30,7 +30,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px;
+  height: 80px;
+  font-size: 2rem;
+  color: white;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .main-page {
@@ -52,11 +57,11 @@ body {
   }
 }
 
-.page-title{
+.page-title {
   text-align: center;
 }
 
-.content{
+.content {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -65,6 +70,78 @@ body {
 
 }
 
-.bottom-button{
+.bottom-button {
   margin-top: 30px;
+}
+
+.games-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.game-card {
+  margin: 10px;
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.434);
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+.game-card-title {
+  padding: 15px 15px 15px 15px;
+  font-size: 1.5rem;
+  color: white;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+  width: 200px;
+}
+
+.game-card-img {
+  position: relative;
+  /* height: 100%; */
+  /* Ensure the image takes the full height of the card */
+  overflow: hidden;
+  /* Hide any content that overflows the card */
+}
+
+.game-card-img img {
+  position: absolute;
+  bottom: 0;
+  /* Position the image at the bottom of the card */
+  left: 0;
+  /* Align the image to the left */
+  width: 100%;
+  /* Ensure the image takes the full width of the card */
+  transform: translateY(60%);
+  -webkit-filter: drop-shadow(2px 2px 5px #2222228e);
+  filter: drop-shadow(2px 2px 5px #2222228e);
+  /* Move the image up by 20% of its own height */
+}
+
+.game-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; /* Ensure the content fills the entire height of the card */
+}
+
+.game-card-text {
+  margin-top: auto; /* Push the text to the bottom */
+  padding: 15px;
+  width: 100px;
+}
+
+.game-card-explanation{
+  padding: 0px 15px 15px 15px;
+  margin-top: -10px;
+}
+
+.game-card-header{
+  padding: 0px 15px 0px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
