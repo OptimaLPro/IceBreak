@@ -50,17 +50,19 @@
 
 .spy {
     max-width: 115px;
-    margin-left: 170px;
+    margin-left: 160px;
     margin-bottom: 5px;
 }
 
 .answer {
     max-width: 180px;
-    margin-left: 150px;
+    margin-left: 140px;
+    margin-bottom: -2px;
 }
 
 .rather {
-    max-width: 250px;
-    margin-left: 110px;
-    margin-bottom: 23px;
+    max-width: 240px;
+    margin-left: 95px;
+    margin-bottom: 17px;
+    transform: rotate(30deg);
 }
