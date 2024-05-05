@@ -5,7 +5,6 @@ import { useState } from "react";
 import ReactCardFlip from "react-card-flip";
 
 const MainPage = () => {
-git commi
 return (
     <>
         <Menu />
