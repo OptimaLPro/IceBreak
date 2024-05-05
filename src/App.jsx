@@ -26,7 +26,8 @@ const theme = createTheme({
 function App() {
   return (
     <div className="main-page">
-      <AuroraBackgroundProvider className='background' colors={["#5356FF", "#378CE7", "#67C6E3", "#DFF5FF"]} useRandomness="true" blurAmount="5vw"
+      {/* <AuroraBackgroundProvider className='background' colors={["#5356FF", "#378CE7", "#67C6E3", "#DFF5FF"]} useRandomness="true" blurAmount="5vw" */}
+      {/* <AuroraBackgroundProvider colors={["#000000"]} useRandomness="true" blurAmount="5vw"
         style={{
           position: 'fixed',
           top: 0,
@@ -37,7 +38,7 @@ function App() {
         }}>
 
 
-      </AuroraBackgroundProvider>
+      </AuroraBackgroundProvider> */}
       <ThemeProvider theme={theme}>
         {/* <MainPage /> */}
         <Menu />
