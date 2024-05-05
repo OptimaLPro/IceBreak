@@ -4,6 +4,7 @@ import MainPage from './MainPage';
 import { AuroraBackgroundProvider } from '@nauverse/react-aurora-background';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import './App.css';
+import Survey from './components/Survey';
 
 
 const theme = createTheme({
@@ -29,7 +30,6 @@ function App() {
 
       </AuroraBackgroundProvider>
       <ThemeProvider theme={theme}>
-        
         <MainPage />
       </ThemeProvider>
     </div>

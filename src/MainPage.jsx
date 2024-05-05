@@ -5,18 +5,16 @@ import { useState } from "react";
 import ReactCardFlip from "react-card-flip";
 
 const MainPage = () => {
-
+git commi
 return (
     <>
         <Menu />
-        
-        {/* <ReactCardFlip isFlipped={flip}
+        <ReactCardFlip isFlipped={flip}
             flipDirection="vertical">
             <div className=" number-slide1 " onClick={() => setFlip(!flip)}>1</div>
             <div className=" number-slide2 " onClick={() => setFlip(!flip)}>2</div>
-        </ReactCardFlip> */}
+        </ReactCardFlip>
         <div className="main-page">
-
             <div className="category-headers">
                 New Games 🔥
             </div>
