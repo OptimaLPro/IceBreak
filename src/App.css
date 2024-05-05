@@ -59,6 +59,7 @@ body {
 
 .page-title {
   text-align: center;
+  color: white;
 }
 
 .content {
@@ -67,7 +68,7 @@ body {
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-
+  color: rgb(255, 0, 0);
 }
 
 .bottom-button {
@@ -125,23 +126,40 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%; /* Ensure the content fills the entire height of the card */
+  height: 100%;
+  /* Ensure the content fills the entire height of the card */
 }
 
 .game-card-text {
-  margin-top: auto; /* Push the text to the bottom */
+  margin-top: auto;
+  /* Push the text to the bottom */
   padding: 15px;
   width: 100px;
 }
 
-.game-card-explanation{
+.game-card-explanation {
   padding: 0px 15px 15px 15px;
   margin-top: -10px;
 }
 
-.game-card-header{
+.game-card-header {
   padding: 0px 15px 0px 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1300px) {
+  .cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 }
