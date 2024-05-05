@@ -4,9 +4,6 @@ import MainPage from './library/mainPage/MainPage';
 import { AuroraBackgroundProvider } from '@nauverse/react-aurora-background';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import './App.css';
-<<<<<<< HEAD
-import Survey from './components/Survey';
-=======
 import { Routes, Route } from 'react-router-dom';
 import RoomEnter from './games/generic/RoomEnter';
 import TestPage from './Test';
@@ -17,7 +14,6 @@ import WaitingRoom from './games/generic/WaitingRoom';
 import StartCountdown from './games/generic/StartCountdown';
 import ProfilePage from './library/profilePage/ProfilePage';
 
->>>>>>> 00daedb0842b73b30fdd1a0dd0241ec9f0d7f553
 
 
 const theme = createTheme({
@@ -44,12 +40,8 @@ function App() {
 
       </AuroraBackgroundProvider> */}
       <ThemeProvider theme={theme}>
-<<<<<<< HEAD
         <MainPage />
-=======
-        {/* <MainPage /> */}
         <Menu />
->>>>>>> 00daedb0842b73b30fdd1a0dd0241ec9f0d7f553
       </ThemeProvider>
       <Routes>
         <Route index element={<MainPage />} />
