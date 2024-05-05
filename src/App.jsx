@@ -40,7 +40,7 @@ function App() {
 
       </AuroraBackgroundProvider> */}
       <ThemeProvider theme={theme}>
-        {/* <MainPage /> */}
+        <MainPage />
         <Menu />
       </ThemeProvider>
       <Routes>
