@@ -4,15 +4,6 @@ import { AuroraBackgroundProvider } from '@nauverse/react-aurora-background';
 import './App.css';
 import Router from './utils/Router';
 import Menu from './utils/menu/Menu';
-<<<<<<< HEAD
-import PageNotFound from './utils/404Page/PageNotFound';
-import NameEnter from './games/generic/NameEnter';
-import WaitingRoom from './games/generic/WaitingRoom';
-import StartCountdown from './games/generic/StartCountdown';
-import ProfilePage from './library/userProfile/ProfilePage';
-
-=======
->>>>>>> e4fc1da1b1fa8f45400383322c824cc89c9ebd47
 
 
 const theme = createTheme({

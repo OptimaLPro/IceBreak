@@ -6,7 +6,7 @@ import PageNotFound from '../utils/404Page/PageNotFound';
 import NameEnter from '../games/generic/NameEnter';
 import WaitingRoom from '../games/generic/WaitingRoom';
 import StartCountdown from '../games/generic/StartCountdown';
-import ProfilePage from '../library/profilePage/ProfilePage';
+import ProfilePage from '../library/userProfile/ProfilePage';
 
 const Router = () => {
     return (
