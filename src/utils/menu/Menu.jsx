@@ -17,8 +17,8 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Twirl as Hamburger } from 'hamburger-react';
-import BurgerMenu from './menuComponents/BurgerMenu';
-//import Logo from '../assets/images/logo.png';
+import BurgerMenu from './components/BurgerMenu';
+import Logo from '../../assets/images/LogoResize.png';
 import { Link } from 'react-router-dom';
 
 
@@ -62,6 +62,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
+
+const StyledMenuItem = styled(MenuItem)({
+  textDecoration: 'none', // Adding textDecoration: none to MenuItem
+});
 
 export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -110,10 +114,9 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-       
-      {/* <MenuItem <Link href="/profile" style={{textDecoration: 'none'}}></Link>}>Profile</MenuItem> */}
-      <MenuItem><Link to="/profile">Profile</Link></MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+
+      <StyledMenuItem component={Link} to="/profile">Profile</StyledMenuItem>
+      <StyledMenuItem component={Link} to="/account">My account</StyledMenuItem>
     </Menu>
   );
 
@@ -145,7 +148,7 @@ export default function PrimarySearchAppBar() {
       <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none' }}>
         <Toolbar sx={{ justifyContent: { xs: 'space-between', md: 'flex' } }}>
           {<BurgerMenu />}
-          { <IconButton
+          {/* { <IconButton
             size="large"
             edge="start"
             color="inherit"
@@ -153,7 +156,7 @@ export default function PrimarySearchAppBar() {
             sx={{ mr: 2 }}
           >
 
-          </IconButton> }
+          </IconButton> } */}
 
           <Typography
             variant="h6"
@@ -164,12 +167,12 @@ export default function PrimarySearchAppBar() {
             IceBreak
           </Typography>
           <Link to="/">
-            {/* <img
+            <img
               src={Logo}
               alt={Logo}
-              style={{ width: '60px', height: '50px', textDecoration: 'none', marginTop: '10px'}}
+              style={{ width: '60px', height: '50px', textDecoration: 'none', marginTop: '10px' }}
               loading="lazy"
-            /> */}
+            />
           </Link>
           {/* <Search>
             <SearchIconWrapper>
@@ -191,7 +194,7 @@ export default function PrimarySearchAppBar() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle fontSize='large' sx={{marginRight: '7px'}}/>
+              <AccountCircle fontSize='large' sx={{ marginRight: '7px' }} />
             </IconButton>
           </Box>
           {/* <Box sx={{ display: { xs: 'flex', md: 'none' } }}>

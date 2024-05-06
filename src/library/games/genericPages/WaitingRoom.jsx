@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { InfinitySpin } from 'react-loader-spinner';
-import AnimatedPage from '../../AnimatedPage';
+import AnimatedPage from "../../../theme/AnimatedPage";
 import { useNavigate } from 'react-router-dom';
 
 const WaitingRoom = ({ connectedPeopleCount }) => {
@@ -9,7 +9,7 @@ const WaitingRoom = ({ connectedPeopleCount }) => {
     useEffect(() => {
         const timeout = setTimeout(() => {
             navigateTo('/startcountdown')
-        }, 4000);
+        }, 5000);
 
         return () => clearTimeout(timeout);
     }, [history]);
@@ -17,7 +17,7 @@ const WaitingRoom = ({ connectedPeopleCount }) => {
     return (
         <AnimatedPage>
             <div className="content">
-                <h2>Waiting for host to start...</h2>
+                <h2 style={{color: 'white'}}>Waiting for host to start...</h2>
                 <div>
                     <InfinitySpin
                         height={100}
@@ -26,7 +26,7 @@ const WaitingRoom = ({ connectedPeopleCount }) => {
                         ariaLabel="loading"
                     />
                 </div>
-                <p>{connectedPeopleCount}4 people connected to the room</p>
+                <p style={{color: 'white'}}>{connectedPeopleCount}4 people connected to the room</p>
             </div>
         </AnimatedPage>
     );

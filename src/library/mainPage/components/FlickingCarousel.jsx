@@ -1,4 +1,7 @@
 import Flicking from "@egjs/react-flicking";
+import "@egjs/react-flicking/dist/flicking.css";
+// Or, if you have to support IE9
+import "@egjs/react-flicking/dist/flicking-inline.css";
 
 export default () => (
   <Flicking

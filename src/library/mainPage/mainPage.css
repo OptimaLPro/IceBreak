@@ -1,0 +1,68 @@
+.blue {
+    background: rgb(64, 175, 255);
+    background: linear-gradient(128deg,
+            rgba(64, 175, 255, 1) 0%,
+            rgba(63, 97, 255, 1) 100%);
+}
+
+.orange {
+    background: rgb(255, 75, 64);
+    background: linear-gradient(128deg,
+            rgba(255, 154, 63, 1) 0%,
+            rgba(255, 75, 64, 1) 100%);
+}
+
+.light-green {
+    background: rgb(182, 255, 64);
+    background: linear-gradient(128deg,
+            rgba(182, 255, 64, 1) 0%,
+            rgba(63, 255, 71, 1) 100%);
+    background: linear-gradient(128deg,
+            rgba(189, 255, 83, 1) 0%,
+            rgba(43, 250, 82, 1) 100%);
+}
+
+.light-blue {
+    background: rgb(64, 255, 242);
+    background: linear-gradient(128deg,
+            rgba(64, 255, 242, 1) 0%,
+            rgba(63, 188, 255, 1) 100%);
+}
+
+.pink {
+    background: rgb(255, 64, 156);
+    background: linear-gradient(128deg,
+            rgba(255, 64, 156, 1) 0%,
+            rgba(255, 63, 63, 1) 100%);
+}
+
+.purple {
+    background: rgb(64, 76, 255);
+    background: linear-gradient(128deg,
+            rgba(64, 76, 255, 1) 0%,
+            rgba(174, 63, 255, 1) 100%);
+}
+
+.trivia {
+    max-width: 115px;
+    margin-left: 170px;
+}
+
+.spy {
+    max-width: 115px;
+    margin-left: 160px;
+    margin-bottom: 5px;
+}
+
+.answer {
+    max-width: 180px;
+    margin-left: 140px;
+    margin-bottom: -2px;
+}
+
+.rather {
+    max-width: 240px;
+    margin-left: 95px;
+    margin-bottom: 17px;
+    transform: rotate(30deg);
+}

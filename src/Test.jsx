@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import AnimatedPage from "./AnimatedPage";
+import AnimatedPage from "./theme/AnimatedPage";
 import ProfilePage from "./library/profilePage/ProfilePage";
 
 const TestPage = () => {
