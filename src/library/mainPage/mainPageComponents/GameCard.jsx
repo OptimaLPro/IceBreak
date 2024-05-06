@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-// import Trivia from '../../../assets/images/Trivia.png';
-// import Spy from '../../assets/images/Spy.png';
-// import Answer from '../../assets/images/Answer.png';
-// import WouldYouRather from '../../assets/images/WouldYouRather.png';
 import { Button } from '@mui/material';
 import ReactCardFlip from "react-card-flip";
 import { Tilt } from 'react-tilt'
@@ -15,7 +11,6 @@ const gameCard = ({ game }) => {
 
   const handleClick = (e) => {
     if (e.target.tagName === 'BUTTON') {
-      // If the click target is a button, don't flip the card
       console.log('Button clicked');
       return;
     }
