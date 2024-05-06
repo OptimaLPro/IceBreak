@@ -63,6 +63,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+const StyledMenuItem = styled(MenuItem)({
+  textDecoration: 'none', // Adding textDecoration: none to MenuItem
+});
+
 export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -110,10 +114,9 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-       
-      {/* <MenuItem <Link href="/profile" style={{textDecoration: 'none'}}></Link>}>Profile</MenuItem> */}
-      <MenuItem><Link to="/profile">Profile</Link></MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+
+      <StyledMenuItem component={Link} to="/profile">Profile</StyledMenuItem>
+      <StyledMenuItem component={Link} to="/account">My account</StyledMenuItem>
     </Menu>
   );
 
@@ -167,7 +170,7 @@ export default function PrimarySearchAppBar() {
             <img
               src={Logo}
               alt={Logo}
-              style={{ width: '60px', height: '50px', textDecoration: 'none', marginTop: '10px'}}
+              style={{ width: '60px', height: '50px', textDecoration: 'none', marginTop: '10px' }}
               loading="lazy"
             />
           </Link>
@@ -191,7 +194,7 @@ export default function PrimarySearchAppBar() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle fontSize='large' sx={{marginRight: '7px'}}/>
+              <AccountCircle fontSize='large' sx={{ marginRight: '7px' }} />
             </IconButton>
           </Box>
           {/* <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
