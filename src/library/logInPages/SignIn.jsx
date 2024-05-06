@@ -1,18 +1,16 @@
-import * as React from "react";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import Checkbox from "@mui/material/Checkbox";
 import Container from "@mui/material/Container";
+import CssBaseline from "@mui/material/CssBaseline";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Grid from "@mui/material/Grid";
+import Link from "@mui/material/Link";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import "../../assets/css/style.css";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import * as React from "react";
+import "../../assets/css/loginPages.css";
 
 function validateEmail(email) {
   // Regular expression for basic email validation
@@ -102,11 +100,7 @@ function SignIn() {
               autoComplete="current-password"
               error={passwordError}
               onChange={(e) => setPassword(e.target.value)}
-              helperText={
-                passwordError
-                  ? "Password must be at least 8 characters long"
-                  : ""
-              }
+              helperText={passwordError ? "invalidPassword" : ""}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}

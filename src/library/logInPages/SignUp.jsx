@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -9,11 +8,12 @@ import {
   Grid,
   Link,
   TextField,
+  ThemeProvider,
   Typography,
   createTheme,
-  ThemeProvider,
 } from "@mui/material";
-import "../../assets/css/style.css";
+import React, { useState } from "react";
+import "../../assets/css/loginPages.css";
 
 const defaultTheme = createTheme();
 
