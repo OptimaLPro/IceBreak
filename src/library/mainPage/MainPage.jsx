@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import AnimatedPage from '../../AnimatedPage';
+import AnimatedPage from '../../theme/AnimatedPage';
 import { AwesomeButton } from 'react-awesome-button';
 import 'react-awesome-button/dist/styles.css';
 import '../../assets/css/Awesome_Buttons.css';
-import GameCard from './mainPageComponents/GameCard';
+import GameCard from './components/GameCard';
 import { gameData } from './gameData';
 
 const MainPage = () => {

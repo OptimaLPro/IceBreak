@@ -17,7 +17,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Twirl as Hamburger } from 'hamburger-react';
-import BurgerMenu from './menuComponents/BurgerMenu';
+import BurgerMenu from './components/BurgerMenu';
 import Logo from '../../assets/images/LogoResize.png';
 import { Link } from 'react-router-dom';
 

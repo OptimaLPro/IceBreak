@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import AnimatedPage from "../../AnimatedPage";
+import AnimatedPage from "../../../theme/AnimatedPage";
 import Paper from '@mui/material/Paper';
 import { TextField } from "@mui/material";
 import { AwesomeButton } from "react-awesome-button";
