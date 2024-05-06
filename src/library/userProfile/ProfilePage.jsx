@@ -4,11 +4,13 @@ import { AwesomeButton } from 'react-awesome-button';
 import 'react-awesome-button/dist/styles.css';
 import FixedBottomNavigation from "./components/FixedBottomNavigation";
 import "./profilePage.css";
+import AnimatedPage from "../../theme/AnimatedPage";
 
 
 const ProfilePage = () => {
   return (
     <>
+    <AnimatedPage>
       <div className="container">
         <div className="content">
           <div className="avatar-container">
@@ -27,6 +29,7 @@ const ProfilePage = () => {
           <FixedBottomNavigation />
         </div>
       </div>
+    </AnimatedPage>
     </>
   );
 }
