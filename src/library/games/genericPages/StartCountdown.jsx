@@ -1,5 +1,5 @@
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
-import AnimatedPage from '../../theme/AnimatedPage';
+import AnimatedPage from "../../../theme/AnimatedPage";
 
 const StartCountdown = () => {
     return (

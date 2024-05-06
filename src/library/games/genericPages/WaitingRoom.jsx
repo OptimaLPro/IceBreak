@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { InfinitySpin } from 'react-loader-spinner';
-import AnimatedPage from '../../theme/AnimatedPage';
+import AnimatedPage from "../../../theme/AnimatedPage";
 import { useNavigate } from 'react-router-dom';
 
 const WaitingRoom = ({ connectedPeopleCount }) => {
