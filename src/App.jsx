@@ -48,9 +48,6 @@ function App() {
         }}>
       </AuroraBackgroundProvider>
       <ThemeProvider theme={theme}>
-
-        <MainPage />
-
         <Menu />
 
         <Router />
