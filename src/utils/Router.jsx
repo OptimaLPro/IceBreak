@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import MainPage from '../library/mainPage/MainPage';
 import RoomEnter from '../games/generic/RoomEnter';
 import TestPage from '../Test';
-import PageNotFound from '../utils/404Page/PageNotFound';
+import PageNotFound from './404Page/PageNotFound';
 import NameEnter from '../games/generic/NameEnter';
 import WaitingRoom from '../games/generic/WaitingRoom';
 import StartCountdown from '../games/generic/StartCountdown';
