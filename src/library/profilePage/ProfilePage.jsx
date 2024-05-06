@@ -1,10 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
-import { Button } from "@mui/material";
 import { AwesomeButton } from 'react-awesome-button';
 import 'react-awesome-button/dist/styles.css';
-import FixedBottomNavigation from "./profilePageComponents/FixedBottomNavigation";
+import FixedBottomNavigation from "./components/FixedBottomNavigation";
 import "./profilePage.css";
 
 
@@ -13,7 +11,6 @@ const ProfilePage = () => {
     <>
       <div className="container">
         <div className="content">
-          {/* Add your profile content here */}
           <div className="avatar-container">
             <Avatar
               alt="John Doe"

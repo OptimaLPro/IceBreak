@@ -13,15 +13,14 @@ import ListItemText from '@mui/material/ListItemText';
 import Avatar from '@mui/material/Avatar';
 import './fixedBottomNavigationStyle.css';
 
-function refreshMessages() {
+ const refreshMessages= () => {
   const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
 
   return Array.from(new Array(50)).map(
     () => messageExamples[getRandomInt(messageExamples.length)],
   );
 }
-
-export default function FixedBottomNavigation() {
+ const FixedBottomNavigation = () => {
   const [value, setValue] = React.useState(0);
   const ref = React.useRef(null);
   const [messages, setMessages] = React.useState(() => refreshMessages());
@@ -42,7 +41,7 @@ export default function FixedBottomNavigation() {
           right: 0,
           backgroundColor: 'transparent',
           '& .css-16lloyr-MuiBottomNavigation-root': {
-            backgroundColor: 'transparent', // Change this to your desired background color
+            backgroundColor: 'transparent', 
           },
         }}
         elevation={3}
@@ -92,3 +91,5 @@ const messageExamples = [
     person: '/static/images/avatar/2.jpg',
   }
 ];
+
+export default FixedBottomNavigation;
