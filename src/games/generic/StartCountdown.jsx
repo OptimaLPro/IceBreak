@@ -6,7 +6,7 @@ const StartCountdown = () => {
         <>
             <AnimatedPage>
                 <div className="content">
-                    <h2>The game is starting!</h2>
+                    <h2 style={{color: 'white'}}>The game is starting!</h2>
                     <CountdownCircleTimer
                         isPlaying
                         duration={7}

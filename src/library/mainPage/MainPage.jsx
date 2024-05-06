@@ -1,40 +1,55 @@
-
-import Carousel from './mainPageComponents/Carousel';
-import FlickingCarousel from './mainPageComponents/FlickingCarousel';
-import { useState } from "react";
-import ReactCardFlip from "react-card-flip";
 import { Link } from 'react-router-dom';
 import AnimatedPage from '../../AnimatedPage';
 import { AwesomeButton } from 'react-awesome-button';
 import 'react-awesome-button/dist/styles.css';
 import '../../assets/css/Awesome_Buttons.css';
+import GameCard from './mainPageComponents/GameCard';
+import { gameData } from './gameData';
 
 const MainPage = () => {
+
+    const shortGames = gameData.filter(game => game.tags.includes('short'));
+    const funnyGames = gameData.filter(game => game.tags.includes('funny'));
+    const drinkingGames = gameData.filter(game => game.tags.includes('drinking'));
 
     return (
         <>
             <AnimatedPage>
                 <div className="main-page">
-                    <Link to="/test" style={{textDecoration: 'none'}}>
-                        <div className="category-headers">
+                    <Link to="/test" style={{ textDecoration: 'none' }}>
+                        <div className="">
                             <AwesomeButton type="primary">Test page</AwesomeButton>
                         </div>
                     </Link>
-                    <Carousel />
+
                     <div className="category-headers">
                         Short games 🕒
                     </div>
-                    <Carousel />
+                    <div className="cards">
+                        {shortGames.map(game => (
+                            <GameCard key={game.id} game={game} />
+                        ))}
+                    </div>
+
                     <div className="category-headers">
                         Funny games 😂
                     </div>
-                    <Carousel />
+                    <div className="cards">
+                        {funnyGames.map(game => (
+                            <GameCard key={game.id} game={game} />
+                        ))}
+                    </div>
+
                     <div className="category-headers">
                         Drinking Games 🍻
                     </div>
-                    <Carousel />
-                </div>
-            </AnimatedPage>
+                    <div className="cards">
+                        {drinkingGames.map(game => (
+                            <GameCard key={game.id} game={game} />
+                        ))}
+                    </div>
+                </div >
+            </AnimatedPage >
         </>
     );
 }
