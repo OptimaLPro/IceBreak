@@ -1,0 +1,46 @@
+.survey-wrapper {
+    text-align: center;
+    margin-top: 100px; /* Adjust as needed */
+}
+
+.survey-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.survey-container {
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.slider {
+    width: 300px; /* Adjust width as needed */
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.slider-value {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+.skip-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dropdown{
+    color: black;
+    background-color: white;
+}
