@@ -100,7 +100,7 @@ function SignIn() {
               autoComplete="current-password"
               error={passwordError}
               onChange={(e) => setPassword(e.target.value)}
-              helperText={passwordError ? "invalidPassword" : ""}
+              helperText={passwordError ? "invalid Password" : ""}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
