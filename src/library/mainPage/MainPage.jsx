@@ -1,12 +1,27 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AnimatedPage from '../../theme/AnimatedPage';
 import { AwesomeButton } from 'react-awesome-button';
 import 'react-awesome-button/dist/styles.css';
 import '../../assets/css/Awesome_Buttons.css';
 import GameCard from './components/GameCard';
-import { gameData } from './gameData';
+import { getAllGames } from './gamesFuncs';
 
 const MainPage = () => {
+    const [gameData, setGameData] = useState([]);
+
+    useEffect(() => {
+        const fetchGameData = async () => {
+            try {
+                const data = await getAllGames();
+                setGameData(data);
+            } catch (error) {
+                console.error('Error fetching game data:', error);
+            }
+        };
+
+        fetchGameData();
+    }, []);
 
     const shortGames = gameData.filter(game => game.tags.includes('short'));
     const funnyGames = gameData.filter(game => game.tags.includes('funny'));
@@ -48,8 +63,8 @@ const MainPage = () => {
                             <GameCard key={game.id} game={game} />
                         ))}
                     </div>
-                </div >
-            </AnimatedPage >
+                </div>
+            </AnimatedPage>
         </>
     );
 }
