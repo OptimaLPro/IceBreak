@@ -40,9 +40,9 @@ const MainPage = () => {
                     <div className="category-headers">
                         Short games 🕒
                     </div>
-                    <div className="cards">
+                    <div className="cards" >
                         {shortGames.map(game => (
-                            <GameCard key={game.id} game={game} />
+                            <GameCard key={game.name} game={game} />
                         ))}
                     </div>
 
@@ -51,7 +51,7 @@ const MainPage = () => {
                     </div>
                     <div className="cards">
                         {funnyGames.map(game => (
-                            <GameCard key={game.id} game={game} />
+                            <GameCard key={game.name} game={game} />
                         ))}
                     </div>
 
@@ -60,7 +60,7 @@ const MainPage = () => {
                     </div>
                     <div className="cards">
                         {drinkingGames.map(game => (
-                            <GameCard key={game.id} game={game} />
+                            <GameCard key={game.name} game={game} />
                         ))}
                     </div>
                 </div>
