@@ -10,11 +10,11 @@ const RoomEnter = () => {
     return (
         <AnimatedPage>
             <div className="content">
-                <h1 className="page-title">Game Enter</h1>
+                <h1 className="page-title">Join Game</h1>
 
                 <Paper elevation={8} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '30px', borderRadius: '15px' }}>
                     <div style={{ marginBottom: '20px' }}>
-                        <TextField id="outlined-basic" label="Enter Room PIN" variant="outlined" />
+                        <TextField id="outlined-basic" label="Enter Game PIN" variant="outlined" />
                     </div>
                     <div>
                         <Link to="/nameenter">

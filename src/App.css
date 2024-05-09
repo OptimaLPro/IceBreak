@@ -68,7 +68,10 @@ body {
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-  color: rgb(255, 0, 0);
+}
+
+.content h2, h3 {
+  color: white;
 }
 
 .bottom-button {

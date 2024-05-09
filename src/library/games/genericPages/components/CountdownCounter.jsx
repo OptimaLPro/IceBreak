@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import '../../../../assets/css/Countdown.css';
+import { red } from '@mui/material/colors';
 
-const CountdownCounter = ({ duration, size, selectedOption, setSelectedOption, setDisable }) => {
+const CountdownCounter = ({ duration, size, isComplete, setIsComplete, onCompleteState }) => {
     const renderTime = ({ remainingTime }) => {
         const currentTime = useRef(remainingTime);
         const prevTime = useRef(null);
@@ -45,7 +46,6 @@ const CountdownCounter = ({ duration, size, selectedOption, setSelectedOption, s
 
     const defaultColorsTime = [7, 4, 2, 0];
     const colorsTime = duration === 15 ? [15, 10, 5, 0] : defaultColorsTime;
-    const optionSelect = selectedOption !== null ? selectedOption : 999;
 
     return (
         <>
@@ -56,10 +56,7 @@ const CountdownCounter = ({ duration, size, selectedOption, setSelectedOption, s
                     colors={['#44ce1b', '#f7e379', '#f2a134', '#e51f1f']}
                     colorsTime={colorsTime}
                     size={size}
-                    onComplete={() => {
-                        selectedOption === null ? setSelectedOption(999) : '';
-                        setDisable(true);
-                    }}
+                    onComplete={onCompleteState}
                 >
                     {renderTime}
                 </CountdownCircleTimer>

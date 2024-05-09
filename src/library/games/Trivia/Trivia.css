@@ -55,3 +55,18 @@
         font-size: 4.5vw;
     }
 }
+
+.playmode {
+    font-size: 2.5vw;
+    width: 70%;
+    margin-bottom: 10px;
+    height: 70px;
+    margin-top: 20px;
+    text-shadow: 3px 1px 5px #00000054;
+}
+
+@media (max-width: 768px) {
+    .playmode {
+        font-size: 5.0vw;
+    }
+}
