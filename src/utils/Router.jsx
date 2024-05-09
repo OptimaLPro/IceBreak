@@ -8,6 +8,7 @@ import WaitingRoom from '../library/games/genericPages/WaitingRoom';
 import StartCountdown from '../library/games/genericPages/StartCountdown';
 import ProfilePage from '../library/profilePage/ProfilePage';
 import Survey from '../library/mainPage/components/Survey';
+import Trivia from '../library/games/Trivia/Trivia';
 
 const Router = () => {
     return (
@@ -22,6 +23,7 @@ const Router = () => {
                 <Route path="/waitingroom" element={<WaitingRoom />} />
                 <Route path="/startcountdown" element={<StartCountdown />} />
                 <Route path="/survey" element={<Survey />} />
+                <Route path="/trivia" element={<Trivia />} />
             </Routes>
         </>
     );

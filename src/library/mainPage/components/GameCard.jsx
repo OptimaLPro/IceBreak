@@ -58,7 +58,9 @@ const GameCard = ({ game }) => {
               <div className="game-card-title">
                 {game.title}
               </div>
-              <Button variant="contained" color="ochre">Play!</Button>
+              <Link to={`/${game.name}`} style={{ textDecoration: 'none' }}>
+                <Button variant="contained" color="ochre">Play!</Button>
+              </Link>
             </div>
             <div className="game-card-explanation">
               {game.description}

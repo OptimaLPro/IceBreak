@@ -144,7 +144,7 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1, padding: '10px', width: '100%' }}>
+    <Box sx={{ flexGrow: 1, paddingBottom: '10px', width: '100%' }}>
       <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none' }}>
         <Toolbar sx={{ justifyContent: { xs: 'space-between', md: 'flex' } }}>
           {<BurgerMenu />}

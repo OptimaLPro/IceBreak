@@ -1,13 +1,14 @@
-import React, { useState }from 'react';
+import React, { useState } from 'react';
 import './Survey.css';
 import Slider from "@mui/material/Slider";
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
+import { Paper } from '@mui/material';
 
 
 
 const Survey = () => {
-    
+
     // State to hold the value of the number of players slider
     const [numPlayers, setNumPlayers] = useState(0);
 
@@ -39,14 +40,21 @@ const Survey = () => {
 
 
     return (
-        
-        <div className="survey-wrapper">
+        <>
+            {/*  <div className="survey-wrapper"> */}
             <div className="survey-header">Before we start..</div>
-            <div className="survey-container">
-                <div class="numPlayers"></div>
+            {/* <div className="survey-container"> */}
+            <Paper elevation={8} sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                padding: '30px',
+                borderRadius: '15px'
+            }}>
+                <div className="numPlayers"></div>
                 <h3>Number of players:</h3>
                 <Slider
-                value={numPlayers}
+                    value={numPlayers}
                     onChange={handleNumPlayersChange}
                     aria-labelledby="discrete-slider"
                     valueLabelDisplay="auto"
@@ -54,10 +62,10 @@ const Survey = () => {
                     min={0}
                     max={100}
                 />
-                <div className="slider-value">{numPlayers}</div> 
+                <div className="slider-value">{numPlayers}</div>
                 <h3>Game time:</h3>
                 <Slider
-                value={gameTime}
+                    value={gameTime}
                     onChange={handleGameTimeChange}
                     aria-labelledby="discrete-slider"
                     valueLabelDisplay="auto"
@@ -73,12 +81,14 @@ const Survey = () => {
                     <option value="option2">option2</option>
                     <option value="option3">option3</option>
                 </select>
-            </div>
-            {/* <button className="skip-button" onClick={handleSkip}>Skip</button> */}
-            <Button variant="contained" endIcon={<SendIcon />}>
-  Send
-</Button>
-        </div>
+                {/* </div> */}
+                {/* <button className="skip-button" onClick={handleSkip}>Skip</button> */}
+                <Button variant="contained" endIcon={<SendIcon />}>
+                    Send
+                </Button>
+                {/* </div> */}
+            </Paper>
+        </>
     );
 }
 

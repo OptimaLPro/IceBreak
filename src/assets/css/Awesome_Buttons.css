@@ -1,5 +1,4 @@
 .aws-btn {
-
     --button-default-height: 48px;
     --button-default-font-size: 14px;
     --button-default-border-radius: 6px;
@@ -22,4 +21,166 @@
     --button-anchor-color-light: #4c3016;
     --button-anchor-color-hover: #f1bfa0;
     --button-anchor-border: 1px solid #8c633c;
-    }
+    --button-green-color: #259c4e;
+    --button-green-color-dark: #124f27;
+    --button-green-color-light: #ffffff;
+    --button-green-color-hover: #259c4e;
+    --button-green-border: none;
+    --button-green-color-active: #229b4b;
+}
+
+
+.aws-btn--green .aws-btn__wrapper:before {
+    background: var(--button-green-color-dark);
+}
+
+.aws-btn--green .aws-btn__content {
+    background: var(--button-green-color);
+    color: var(--button-green-color-light);
+    border: var(--button-green-border);
+}
+
+.aws-btn--green .aws-btn__content path {
+    fill: var(--button-green-color-light);
+}
+
+.aws-btn--green .aws-btn__wrapper:hover .aws-btn__content {
+    background: var(--button-green-color-hover);
+}
+
+.aws-btn--green.aws-btn--active .aws-btn__wrapper .aws-btn__content {
+    background: var(--button-green-color-active);
+}
+
+/* Trivia.css */
+
+.aws-btn {
+    /* Existing button styles */
+}
+
+/* New button colors */
+.aws-btn--pink {
+    --button-pink-color: #e63b85;
+    --button-pink-color-dark: #a31e55;
+    --button-pink-color-light: #ffffff;
+    --button-pink-color-hover: #e63b85;
+    --button-pink-border: none;
+    --button-pink-color-active: #d83d7e;
+}
+
+.aws-btn--purple {
+    --button-purple-color: #8338ec;
+    --button-purple-color-dark: #5b1fa9;
+    --button-purple-color-light: #ffffff;
+    --button-purple-color-hover: #8338ec;
+    --button-purple-border: none;
+    --button-purple-color-active: #793de8;
+}
+
+.aws-btn--orange {
+    --button-orange-color: #ec692a;
+    --button-orange-color-dark: #9b3915;
+    --button-orange-color-light: #ffffff;
+    --button-orange-color-hover: #ec692a;
+    --button-orange-border: none;
+    --button-orange-color-active: #e46426;
+}
+
+.aws-btn--grey {
+    --button-grey-color: #878d92;
+    --button-grey-color-dark: #495057;
+    --button-grey-color-light: #ffffff;
+    --button-grey-color-hover: #878d92;
+    --button-grey-border: none;
+    /* --button-grey-color-active: #5f676e; */
+    
+}
+
+/* Apply styles for each color */
+.aws-btn--pink .aws-btn__wrapper:before {
+    background: var(--button-pink-color-dark);
+}
+
+.aws-btn--pink .aws-btn__content {
+    background: var(--button-pink-color);
+    color: var(--button-pink-color-light);
+    border: var(--button-pink-border);
+}
+
+.aws-btn--pink .aws-btn__content path {
+    fill: var(--button-pink-color-light);
+}
+
+.aws-btn--pink .aws-btn__wrapper:hover .aws-btn__content {
+    background: var(--button-pink-color-hover);
+}
+
+.aws-btn--pink.aws-btn--active .aws-btn__wrapper .aws-btn__content {
+    background: var(--button-pink-color-active);
+}
+
+.aws-btn--purple .aws-btn__wrapper:before {
+    background: var(--button-purple-color-dark);
+}
+
+.aws-btn--purple .aws-btn__content {
+    background: var(--button-purple-color);
+    color: var(--button-purple-color-light);
+    border: var(--button-purple-border);
+}
+
+.aws-btn--purple .aws-btn__content path {
+    fill: var(--button-purple-color-light);
+}
+
+.aws-btn--purple .aws-btn__wrapper:hover .aws-btn__content {
+    background: var(--button-purple-color-hover);
+}
+
+.aws-btn--purple.aws-btn--active .aws-btn__wrapper .aws-btn__content {
+    background: var(--button-purple-color-active);
+}
+
+.aws-btn--orange .aws-btn__wrapper:before {
+    background: var(--button-orange-color-dark);
+}
+
+.aws-btn--orange .aws-btn__content {
+    background: var(--button-orange-color);
+    color: var(--button-orange-color-light);
+    border: var(--button-orange-border);
+}
+
+.aws-btn--orange .aws-btn__content path {
+    fill: var(--button-orange-color-light);
+}
+
+.aws-btn--orange .aws-btn__wrapper:hover .aws-btn__content {
+    background: var(--button-orange-color-hover);
+}
+
+.aws-btn--orange.aws-btn--active .aws-btn__wrapper .aws-btn__content {
+    background: var(--button-orange-color-active);
+}
+
+.aws-btn--grey .aws-btn__wrapper:before {
+    background: var(--button-grey-color-dark);
+}
+
+.aws-btn--grey .aws-btn__content {
+    background: var(--button-grey-color);
+    color: var(--button-grey-color-light);
+    border: var(--button-grey-border);
+}
+
+.aws-btn--grey .aws-btn__content path {
+    fill: var(--button-grey-color-light);
+}
+
+.aws-btn--grey .aws-btn__wrapper:hover .aws-btn__content {
+    background: var(--button-grey-color-hover);
+}
+
+.aws-btn--grey.aws-btn--active .aws-btn__wrapper .aws-btn__content {
+    background: var(--button-grey-color-active);
+}
