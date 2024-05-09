@@ -6,7 +6,22 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import React, { useState } from "react";
 import "../../assets/css/loginPages.css";
-import { emailValidator } from "../../utils/inputsValidators/inputValidators.util.js";
+import "../../utils/inputsValidators/inputValidators.util.js";
+import {
+  validateEmail,
+  validatePassword,
+} from "../../utils/inputsValidators/inputValidators.util.js";
+
+const messagesErrors = {
+  email: "Please enter a valid email address",
+  password: "Password must be at least 8 characters ",
+};
+
+const emailValidate = (value, setter) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const test = emailRegex.test(value);
+  setter(test ? "" : messagesErrors.email);
+};
 
 const SignIn = () => {
   const [validations, setValidations] = useState({
@@ -20,7 +35,6 @@ const SignIn = () => {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
-    emailValidator;
 
     emailValidate(formData.get("email"), setEmailError);
 
