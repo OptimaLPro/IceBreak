@@ -15,7 +15,35 @@ import {
 import React, { useState } from "react";
 import "../../assets/css/loginPages.css";
 
-const defaultTheme = createTheme();
+const inputsFields = [
+  {
+    name: "firstName",
+    label: "First Name",
+    autoComplete: "given-name",
+  },
+  {
+    name: "lastName",
+    label: "Last Name",
+    autoComplete: "family-name",
+  },
+  {
+    name: "email",
+    label: "Email Address",
+    autoComplete: "email",
+  },
+  {
+    name: "password",
+    label: "Password",
+    type: "password",
+    autoComplete: "new-password",
+  },
+  {
+    name: "confirmPassword",
+    label: "Confirm Password",
+    type: "password",
+    autoComplete: "confirm-password",
+  },
+];
 
 export default function SignUp() {
   const [validations, setValidations] = useState({
@@ -55,108 +83,71 @@ export default function SignUp() {
   };
 
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <Typography component="h1" variant="h5">
-            Sign up
-          </Typography>
-          <Box
-            component="form"
-            noValidate
-            onSubmit={handleSubmit}
-            sx={{ mt: 3 }}
-          >
-            <Grid container spacing={2}>
-              {[
-                {
-                  name: "firstName",
-                  label: "First Name",
-                  autoComplete: "given-name",
-                },
-                {
-                  name: "lastName",
-                  label: "Last Name",
-                  autoComplete: "family-name",
-                },
-                {
-                  name: "email",
-                  label: "Email Address",
-                  autoComplete: "email",
-                },
-                {
-                  name: "password",
-                  label: "Password",
-                  type: "password",
-                  autoComplete: "new-password",
-                },
-                {
-                  name: "confirmPassword",
-                  label: "Confirm Password",
-                  type: "password",
-                  autoComplete: "confirm-password",
-                },
-              ].map((field) => (
-                <Grid item xs={12} key={field.name}>
-                  <TextField
-                    required
-                    fullWidth
-                    name={field.name}
-                    label={
-                      validations[field.name]
-                        ? field.label
-                        : "Invalid Information"
-                    }
-                    type={field.type || "text"}
-                    id={field.name}
-                    autoComplete={field.autoComplete}
-                    error={!validations[field.name]}
-                    onChange={(e) =>
-                      setValidations({
-                        ...validations,
-                        [field.name]: !!e.target.value,
-                      })
-                    }
-                    InputProps={{ style: { backgroundColor: "inherit" } }}
-                    InputLabelProps={{ style: { backgroundColor: "inherit" } }}
-                  />
-                </Grid>
-              ))}
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={
-                    <Checkbox value="allowExtraEmails" color="primary" />
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <Box
+        sx={{
+          marginTop: 8,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Typography component="h1" variant="h5">
+          Sign up
+        </Typography>
+        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Grid container spacing={2}>
+            {inputsFields.map((field) => (
+              <Grid item xs={12} key={field.name}>
+                <TextField
+                  required
+                  fullWidth
+                  name={field.name}
+                  label={
+                    validations[field.name]
+                      ? field.label
+                      : "Invalid Information"
                   }
-                  label="I want to receive inspiration, marketing promotions and updates via email."
+                  type={field.type || "text"}
+                  id={field.name}
+                  autoComplete={field.autoComplete}
+                  error={!validations[field.name]}
+                  onChange={(e) =>
+                    setValidations({
+                      ...validations,
+                      [field.name]: !!e.target.value,
+                    })
+                  }
+                  InputProps={{ style: { backgroundColor: "inherit" } }}
+                  InputLabelProps={{ style: { backgroundColor: "inherit" } }}
                 />
               </Grid>
+            ))}
+            <Grid item xs={12}>
+              <FormControlLabel
+                control={<Checkbox value="allowExtraEmails" color="primary" />}
+                label="I want to receive inspiration, marketing promotions and updates via email."
+              />
             </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Sign Up
-            </Button>
-            <Grid container justifyContent="flex-end">
-              <Grid item>
-                <Link href="./SignIn" variant="body2">
-                  Already have an account? Sign in
-                </Link>
-              </Grid>
+          </Grid>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
+          >
+            Sign Up
+          </Button>
+          <Grid container justifyContent="flex-end">
+            <Grid item>
+              <Link href="./SignIn" variant="body2">
+                Already have an account? Sign in
+              </Link>
             </Grid>
-          </Box>
+          </Grid>
         </Box>
-      </Container>
-    </ThemeProvider>
+      </Box>
+    </Container>
   );
 }
