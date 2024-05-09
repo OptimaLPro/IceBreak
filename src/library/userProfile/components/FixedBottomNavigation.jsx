@@ -14,22 +14,13 @@ import Avatar from '@mui/material/Avatar';
 import './fixedBottomNavigationStyle.css';
 import dummyData from "../dummyData";
 
- const refreshMessages= () => {
-  const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
 
-  return Array.from(new Array(50)).map(
-    () => messageExamples[getRandomInt(messageExamples.length)],
-  );
-}
  const FixedBottomNavigation = () => {
   const [value, setValue] = React.useState('recents');
   const ref = React.useRef(null);
-  const [messages, setMessages] = React.useState(() => refreshMessages());
+ 
 
-  React.useEffect(() => {
-    ref.current.ownerDocument.body.scrollTop = 0;
-    setMessages(refreshMessages());
-  }, [value, setMessages]);
+ 
 
   return (
     <>
@@ -74,23 +65,6 @@ import dummyData from "../dummyData";
   );
 }
 
-const messageExamples = [
-  {
-    primary: 'Brunch this week?',
-    secondary: "I'll be in the neighbourhood this week. Let's grab a bite to eat",
-    person: '/static/images/avatar/5.jpg',
-  },
-  {
-    primary: 'Birthday Gift',
-    secondary: `Do you have a suggestion for a good present for John on his work
-      anniversary. I am really confused & would love your thoughts on it.`,
-    person: '/static/images/avatar/1.jpg',
-  },
-  {
-    primary: 'Recipe to try',
-    secondary: 'I am try out this new BBQ recipe, I think this might be amazing',
-    person: '/static/images/avatar/2.jpg',
-  }
-];
+
 
 export default FixedBottomNavigation;
