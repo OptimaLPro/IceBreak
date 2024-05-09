@@ -22,7 +22,7 @@ import dummyData from "../dummyData";
   );
 }
  const FixedBottomNavigation = () => {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState('recents');
   const ref = React.useRef(null);
   const [messages, setMessages] = React.useState(() => refreshMessages());
 
@@ -54,18 +54,18 @@ import dummyData from "../dummyData";
             setValue(newValue);
           }}
         >
-          <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-          <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
+          <BottomNavigationAction value={'recents'} label="Recents" icon={<RestoreIcon />} />
+          <BottomNavigationAction value={'favorites'} label="Favorites" icon={<FavoriteIcon />} />
         </BottomNavigation>
       </Paper>
       <Box sx={{ pb: 7 }} ref={ref}>
         <List>
-          {messages.map(({ primary, secondary, person }, index) => (
-            <ListItemButton key={index + person}>
+          {dummyData[value].map(({ gameName, description, image }, index) => (
+            <ListItemButton key={index + gameName}>
               <ListItemAvatar>
-                <Avatar alt="Profile Picture" src={person} />
+                <Avatar alt="Profile Picture" src={image} />
               </ListItemAvatar>
-              <ListItemText primary={primary} secondary={secondary} />
+              <ListItemText primary={gameName} secondary={description} />
             </ListItemButton>
           ))}
         </List>
