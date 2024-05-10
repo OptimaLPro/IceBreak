@@ -4,6 +4,27 @@ body {
 
 }
 
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0; /* Reset default margin */
+
+}
+
+.app-container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-page {
+  flex-grow: 1; /* Allow the main content to expand */
+  overflow-y: auto; /* Add vertical scrolling when content exceeds viewport */
+}
+
+
+
 .search {
   height: 100px;
   width: 100%;

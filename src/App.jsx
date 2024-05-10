@@ -7,9 +7,11 @@ import Menu from './utils/menu/Menu';
 
 function App() {
   return (
-    <div className="main-page">
-
-      <AuroraBackgroundProvider colors={["#5356FF", '#378CE7', '#67C6E3']} useRandomness="true" blurAmount="15vw"
+    <div className="app-container">
+      <AuroraBackgroundProvider
+        colors={["#5356FF", '#378CE7', '#67C6E3']}
+        useRandomness={true}
+        blurAmount="15vw"
         style={{
           position: 'fixed',
           top: 0,
@@ -17,16 +19,16 @@ function App() {
           width: '100%',
           height: '100%',
           zIndex: -1,
-        }}>
-      </AuroraBackgroundProvider>
+        }}
+      />
+
       <ThemeProvider theme={theme}>
-        <Menu />
-
-        <Router />
-
+        <div className="main-page">
+          <Menu />
+          <Router />
+        </div>
       </ThemeProvider>
     </div>
-
   );
 }
 

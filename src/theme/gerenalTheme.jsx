@@ -3,7 +3,7 @@ import '@fontsource-variable/nunito-sans'; // Supports weights 200-900
 
 export const theme = createTheme({
     typography: {
-      fontFamily: '"Nunito Sans", sans-serif', // Specify the font family here
+      fontFamily: '"Nunito Sans", sans-serif',
       button: {
         textTransform: 'none'
       }
