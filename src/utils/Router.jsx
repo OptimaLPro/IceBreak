@@ -7,10 +7,11 @@ import NameEnter from '../library/games/genericPages/NameEnter';
 import WaitingRoom from '../library/games/genericPages/WaitingRoom';
 import StartCountdown from '../library/games/genericPages/StartCountdown';
 import ProfilePage from '../library/profilePage/ProfilePage';
-import Survey from '../library/mainPage/components/Survey';
+import Survey from '../library/games/genericPages/Survey';
 import Trivia from '../library/games/Trivia/Trivia';
 import PlayMode from '../library/games/genericPages/PlayMode';
 import GameType from '../library/games/genericPages/GameType';
+import GameSettings from '../library/games/genericPages/GameSettings';
 
 const Router = () => {
     return (
@@ -28,6 +29,7 @@ const Router = () => {
                 <Route path="/trivia" element={<Trivia />} />
                 <Route path="/playmode" element={<PlayMode />} />
                 <Route path="/type" element={<GameType />} />
+                <Route path="/settings" element={<GameSettings />} />
             </Routes>
         </>
     );

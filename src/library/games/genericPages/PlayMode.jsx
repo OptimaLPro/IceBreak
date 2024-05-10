@@ -11,7 +11,7 @@ const RoomEnter = () => {
                     <Link to="/enter">
                         <AwesomeButton type="pink" className="playmode">🔗 Join Game</AwesomeButton>
                     </Link>
-                    <Link to="/waitingroom">
+                    <Link to="/type">
                         <AwesomeButton type="orange" className="playmode" >➕ Create Game</AwesomeButton>
                     </Link>
                 </div>

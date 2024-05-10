@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import './Survey.css';
+import './genericPages.css';
 import Slider from "@mui/material/Slider";
-import Button from '@mui/material/Button';
-import SendIcon from '@mui/icons-material/Send';
 import { MenuItem, Paper, Select } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { AwesomeButton } from 'react-awesome-button';
@@ -31,7 +29,7 @@ const Survey = () => {
 
     return (
         <>
-            <div className="survey-header">Before we start..</div>
+            <div className="survey-header">Game Settings</div>
             <Paper elevation={8} sx={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -41,49 +39,40 @@ const Survey = () => {
                 width: '70%',
             }}>
                 <div className="numPlayers"></div>
-                <h3>Number of players: <span className="slider-value">{numPlayers}</span></h3>
+                <h3>Select time:</h3>
+                <div className="time-buttons-container">
+                    <Link to="/waitingroom">
+                        <AwesomeButton type="primary" className="settings-button">5m</AwesomeButton>
+                        <AwesomeButton type="primary" className="settings-button">7m</AwesomeButton>
+                        <AwesomeButton type="primary" className="settings-button">10m</AwesomeButton>
+                        <AwesomeButton type="primary" className="settings-button">15m</AwesomeButton>
+                    </Link>
+                </div>
+                <h3>Number of questions: <span className="slider-value">{numPlayers}</span></h3>
                 <Slider
                     value={numPlayers}
                     onChange={handleNumPlayersChange}
                     aria-labelledby="discrete-slider"
                     valueLabelDisplay="auto"
-                    step={10}
-                    min={0}
-                    max={100}
+                    step={1}
+                    min={5}
+                    max={20}
                 />
 
-                <h3>Game time: <span className="slider-value">{gameTime}</span></h3>
+                <h3>Seconds for question: <span className="slider-value">{gameTime}</span></h3>
                 <Slider
                     value={gameTime}
                     onChange={handleGameTimeChange}
                     aria-labelledby="discrete-slider"
                     valueLabelDisplay="auto"
                     step={1}
-                    min={0}
-                    max={100}
+                    min={6}
+                    max={20}
                 />
 
-                <div className='atmosphere-container'>
-                    <h3>Atmosphere:</h3>
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={selectedAtmosphere}
-                        label="Age"
-                        onChange={handleChange}
-                        sx={{ width: '40%' }}
-                    >
-                        <MenuItem value={"Short"}>Short</MenuItem>
-                        <MenuItem value={"Funny"}>Funny</MenuItem>
-                        <MenuItem value={"Drinking"}>Drinking</MenuItem>
-                    </Select>
-                </div>
                 <div className='buttons-container'>
-                    <Link to="/">
-                        <AwesomeButton size="xl" type="primary" className="survey-button">Let's get it started 🔥</AwesomeButton>
-                    </Link>
-                    <Link to="/">
-                        <AwesomeButton size="small" type="primary" className="survey-button aws-btn--grey">Skip</AwesomeButton>
+                    <Link to="/waitingroom">
+                        <AwesomeButton size="xl" type="primary" className="survey-button">Let's go! 🔥</AwesomeButton>
                     </Link>
                 </div>
             </Paper>
@@ -92,4 +81,3 @@ const Survey = () => {
 }
 
 export default Survey;
-
