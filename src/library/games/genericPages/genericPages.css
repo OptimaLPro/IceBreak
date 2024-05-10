@@ -1,0 +1,80 @@
+.gametype {
+    font-size: 2.2vw;
+    width: 300px;
+    margin-bottom: 10px;
+    height: 50px;
+    margin-top: 20px;
+    text-shadow: 3px 1px 5px #00000054;
+}
+
+@media (max-width: 768px) {
+    .gametype {
+        font-size: 4.5vw;
+        width: 100%;
+    }
+}
+
+.buttons-div{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+    width: 100%;
+
+}
+
+.aws-btn .aws-btn__content {
+    justify-content: space-between;
+    width: 100%;
+    overflow: visible;
+
+}
+
+
+.button-content {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.base-image {
+    -webkit-filter: drop-shadow(2px 2px 5px #2222228e);
+    filter: drop-shadow(2px 2px 5px #2222228e);
+}
+
+.type-image1 {
+    width: 100px;
+    margin-left: -10px;
+    margin-bottom: 20px;
+}
+
+.type-image2 {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+}
+
+.type-image3 {
+    width: 63px;
+    margin-bottom: 15px;
+    margin-right: 17px;
+    margin-left: 10px;
+}
+
+.type-image4 {
+    width: 57px;
+    margin-bottom: 20px;
+    margin-right: 19px;
+    margin-left: 14px;
+}
+
+.type-image5 {
+    width: 80px;
+    margin-bottom: 20px;
+    margin-right: 7px;
+    margin-left: 3px;
+}

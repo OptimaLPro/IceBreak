@@ -70,7 +70,7 @@ body {
   flex-wrap: wrap;
 }
 
-.content h2, h3 {
+.content h2, .content h3 {
   color: white;
 }
 

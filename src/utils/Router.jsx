@@ -10,6 +10,7 @@ import ProfilePage from '../library/profilePage/ProfilePage';
 import Survey from '../library/mainPage/components/Survey';
 import Trivia from '../library/games/Trivia/Trivia';
 import PlayMode from '../library/games/genericPages/PlayMode';
+import GameType from '../library/games/genericPages/GameType';
 
 const Router = () => {
     return (
@@ -26,6 +27,7 @@ const Router = () => {
                 <Route path="/survey" element={<Survey />} />
                 <Route path="/trivia" element={<Trivia />} />
                 <Route path="/playmode" element={<PlayMode />} />
+                <Route path="/type" element={<GameType />} />
             </Routes>
         </>
     );
