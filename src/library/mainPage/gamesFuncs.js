@@ -1,6 +1,6 @@
 
 
 export const getAllGames = async () => {
-    const response = await fetch('http://localhost:8080/games');
+    const response = await fetch('https://icebreak-backend.onrender.com/games');
     return await response.json();
 };
