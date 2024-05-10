@@ -1,4 +1,4 @@
-const inputsControl = {
+export const inputsControl = {
   email: {
     error: "Please enter a valid email address",
     regex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,

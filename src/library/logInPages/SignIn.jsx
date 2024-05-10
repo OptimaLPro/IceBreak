@@ -1,27 +1,10 @@
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import React, { useState } from "react";
-import "../../assets/css/loginPages.css";
-import "../../utils/inputsValidators/inputValidators.util.js";
-import {
-  validateEmail,
-  validatePassword,
-} from "../../utils/inputsValidators/inputValidators.util.js";
-
-const messagesErrors = {
-  email: "Please enter a valid email address",
-  password: "Password must be at least 8 characters ",
-};
-
-const emailValidate = (value, setter) => {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const test = emailRegex.test(value);
-  setter(test ? "" : messagesErrors.email);
-};
 
 const SignIn = () => {
   const [validations, setValidations] = useState({
@@ -29,29 +12,17 @@ const SignIn = () => {
     password: "",
   });
 
-  const [emailError, setEmailError] = useState("");
-
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
+    const email = formData.get("email");
+    const password = formData.get("password");
 
-    emailValidate(formData.get("email"), setEmailError);
-
-    const newValidations = {
-      email: validateEmail(formData.get("email")),
-      password: validatePassword(formData.get("password")),
-    };
-
-    setValidations(newValidations);
-
-    if (Object.values(newValidations).every((isValid) => isValid)) {
-      const validFormData = {
-        email: formData.get("email"),
-        password: formData.get("password"),
-      };
-      console.log(validFormData);
-    }
+    setValidations({
+      email: inputValidator("email", email),
+      password: inputValidator("password", password),
+    });
   };
 
   return (
@@ -78,8 +49,8 @@ const SignIn = () => {
             name="email"
             autoComplete="email"
             autoFocus
-            error={!validations.email}
-            helperText={emailError}
+            error={!!validations.email}
+            helperText={validations.email}
           />
           <TextField
             margin="normal"
@@ -90,10 +61,8 @@ const SignIn = () => {
             type="password"
             id="password"
             autoComplete="current-password"
-            error={!validations.password}
-            helperText={
-              !validations.password && "Password must be at least 8 characters"
-            }
+            error={!!validations.password}
+            helperText={validations.password}
           />
           <Button
             type="submit"
