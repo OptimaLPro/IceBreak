@@ -1,27 +1,26 @@
 export const inputsControl = {
+  firstName: {
+    error: "name can only use hebrew/english letters.",
+    regex: /^[a-zA-Zא-ת]+$/u,
+  },
+  lastName: {
+    error: "name can only use hebrew/english letters.",
+    regex: /^[a-zA-Zא-ת]+$/u,
+  },
   email: {
     error: "Please enter a valid email address",
     regex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
   },
   password: {
     error: "Password must be at least 8 characters ",
-    regex: "^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$",
+    regex: /^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$/,
+  },
+  confirmPassword: {
+    error: "password's are not matching",
   },
 };
 
-export const inputValidator = (field, value, setter) => {
+export const inputValidator = (field, value) => {
   const test = inputsControl[field].regex.test(value);
-  setter(test ? "" : inputsControl[field].error);
+  return test ? "" : inputsControl[field].error;
 };
-
-export const emailValidator = inputValidator(
-  inputsControl.email,
-  formData.get("email"),
-  inputsControl.email.regex
-);
-
-export const passwordValidator = inputValidator(
-  inputsControl.password,
-  formData.get("password"),
-  inputsControl.password.regex
-);

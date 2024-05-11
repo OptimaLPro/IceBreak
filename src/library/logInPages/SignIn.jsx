@@ -5,6 +5,7 @@ import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
+import { inputValidator } from "../../utils/inputsValidators/inputValidators.util";
 
 const SignIn = () => {
   const [validations, setValidations] = useState({
@@ -77,5 +78,4 @@ const SignIn = () => {
     </Container>
   );
 };
-
 export default SignIn;

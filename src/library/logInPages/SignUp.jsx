@@ -1,86 +1,38 @@
 import {
   Box,
   Button,
-  Checkbox,
   Container,
   CssBaseline,
-  FormControlLabel,
   Grid,
   Link,
   TextField,
-  ThemeProvider,
   Typography,
-  createTheme,
 } from "@mui/material";
 import React, { useState } from "react";
 import "../../assets/css/loginPages.css";
-import axios from "axios";
-
-const inputsFields = [
-  {
-    name: "firstName",
-    label: "First Name",
-    autoComplete: "given-name",
-  },
-  {
-    name: "lastName",
-    label: "Last Name",
-    autoComplete: "family-name",
-  },
-  {
-    name: "email",
-    label: "Email Address",
-    autoComplete: "email",
-  },
-  {
-    name: "password",
-    label: "Password",
-    type: "password",
-    autoComplete: "new-password",
-  },
-  {
-    name: "confirmPassword",
-    label: "Confirm Password",
-    type: "password",
-    autoComplete: "confirm-password",
-  },
-];
+import { inputValidator } from "../../utils/inputsValidators/inputValidators.util";
 
 export default function SignUp() {
   const [validations, setValidations] = useState({
-    firstName: true,
-    lastName: true,
-    email: true,
-    password: true,
-    confirmPassword: true,
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   });
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const formData = Object.fromEntries(data.entries());
 
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const newValidations = Object.fromEntries(
-      Object.entries(formData).map(([name, value]) => {
-        switch (name) {
-          case "email":
-            return [name, emailRegex.test(value)];
-          case "password":
-            return [name, value.length >= 8];
-          case "confirmPassword":
-            return [name, value === formData.password];
-          default:
-            return [name, !!value];
-        }
-      })
-    );
-
-    setValidations(newValidations);
-
-    if (Object.values(newValidations).every((isValid) => isValid)) {
-      console.log(formData);
-    }
+    setValidations({
+      firstName: inputValidator("firstName", data.get("firstName")),
+      lastName: inputValidator("lastName", data.get("lastName")),
+      email: inputValidator("email", data.get("email")),
+      password: inputValidator("password", data.get("password")),
+      confirmPassword:
+        data.get("password") === data.get("confirmPassword") ? true : false,
+    });
   };
 
   return (
@@ -97,38 +49,69 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-          <Grid container spacing={2}>
-            {inputsFields.map((field) => (
-              <Grid item xs={12} key={field.name}>
-                <TextField
-                  required
-                  fullWidth
-                  name={field.name}
-                  label={
-                    validations[field.name]
-                      ? field.label
-                      : "Invalid Information"
-                  }
-                  type={field.type || "text"}
-                  id={field.name}
-                  autoComplete={field.autoComplete}
-                  error={!validations[field.name]}
-                  onChange={(e) =>
-                    setValidations({
-                      ...validations,
-                      [field.name]: !!e.target.value,
-                    })
-                  }
-                  InputProps={{ style: { backgroundColor: "inherit" } }}
-                  InputLabelProps={{ style: { backgroundColor: "inherit" } }}
-                />
-              </Grid>
-            ))}
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
+        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="firstName"
+            label="First name"
+            name="firstName"
+            autoComplete="firstName"
+            autoFocus
+            error={!!validations.firstName}
+            helperText={validations.firstName}
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="lastName"
+            label="Last name"
+            name="lastName"
+            autoComplete="lastName"
+            autoFocus
+            error={!!validations.lastName}
+            helperText={validations.lastName}
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+            autoFocus
+            error={!!validations.email}
+            helperText={validations.email}
+          />
+          <Grid container spacing={2} alignItems="center">
+            <Grid item xs={12} sm={6}>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="password"
+                error={!!validations.password}
+                helperText={validations.password}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="confirmPassword"
+                label="Confirm password"
+                type="password"
+                id="confirmPassword"
+                error={!!validations.confirmPassword}
+                helperText={validations.confirmPassword}
               />
             </Grid>
           </Grid>
