@@ -74,11 +74,10 @@ body h3 {
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-top: 20px;
+    /* margin-top: 20px; */
 }
 
 .survey-button {
-    margin-top: 20px;
     font-size: 5vw;
 }
 
@@ -120,7 +119,6 @@ body h3 {
     /* align-items: center; */
     flex-direction: column;
     width: 100%;
-
 }
 
 .aws-btn .aws-btn__content {
@@ -188,10 +186,51 @@ body h3 {
 
 .settings-button {
     font-size: 2vw;
+    width: 120px;
 }
 
 @media (max-width: 768px) {
     .settings-button {
         font-size: 4vw;
     }
+}
+
+.row-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
+}
+
+.bottom-row {
+    margin-top: 10px;
+}
+
+.label-text {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+.advance {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    width: 70%;
+}
+
+.fire {
+    margin-top: 20px;
+}
+
+.total-time{
+    margin-top: 30px;
+}
+
+.MuiAccordion-region {
+    display: flex;
+    justify-content: center;
 }

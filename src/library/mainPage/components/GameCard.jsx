@@ -59,7 +59,7 @@ const GameCard = ({ game }) => {
                 {game.title}
               </div>
               {/* <Link to={`/${game.name}`} style={{ textDecoration: 'none' }}> */}
-              <Link to={`/playmode`} style={{ textDecoration: 'none' }}>
+              <Link to={`/${game.name}/playmode`} style={{ textDecoration: 'none' }}>
                 <Button variant="contained" color="ochre">Play!</Button>
               </Link>
             </div>

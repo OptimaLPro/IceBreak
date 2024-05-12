@@ -26,10 +26,10 @@ const Router = () => {
                 <Route path="/waitingroom" element={<WaitingRoom />} />
                 <Route path="/startcountdown" element={<StartCountdown />} />
                 <Route path="/survey" element={<Survey />} />
-                <Route path="/trivia" element={<Trivia />} />
-                <Route path="/playmode" element={<PlayMode />} />
-                <Route path="/type" element={<GameType />} />
-                <Route path="/settings" element={<GameSettings />} />
+                <Route path="/:game" element={<Trivia />} />
+                <Route path="/:game/playmode" element={<PlayMode />} />
+                <Route path="/:game/type" element={<GameType />} />
+                <Route path="/:game/:type/settings" element={<GameSettings />} />
             </Routes>
         </>
     );

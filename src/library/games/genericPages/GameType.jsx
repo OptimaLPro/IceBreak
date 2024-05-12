@@ -1,16 +1,24 @@
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import AnimatedPage from "../../../theme/AnimatedPage";
 import { AwesomeButton } from "react-awesome-button";
 import "./genericPages.css";
 
-const RoomEnter = () => {
+const GameType = () => {
+    const [selectedType, setSelectedType] = useState("");
+    const { game } = useParams();
+    const selectType = (e) => {
+        const buttonText = e.target.innerText.toLowerCase().replace(/\s+/g, '-');
+        setSelectedType(buttonText);
+    };
+
     return (
         <AnimatedPage>
             <div className="content">
                 <h1 className="page-title">Choose your type:</h1>
                 <div className="buttons-div">
-                    <Link to="/settings">
-                        <AwesomeButton type="pink" className="gametype" >
+                    <Link to={`/${game}/${selectedType}/settings`}>
+                        <AwesomeButton type="pink" className="gametype" onPress={selectType} >
                             <div className="button-content">
                                 <img className="base-image type-image1" src="https://i.ibb.co/V9gVwNV/globe-3.png" alt="quiz" />
                                 <span>Countries</span>
@@ -33,7 +41,7 @@ const RoomEnter = () => {
                             </div>
                         </AwesomeButton>
                     </Link>
-                    <Link to="/settings">
+                    <Link to="/waitingroom">
                         <AwesomeButton type="purple" className="gametype" >
                             <div className="button-content">
                                 <img className="base-image type-image4" src="https://i.ibb.co/kc8xVKL/science-1.png" alt="quiz" />
@@ -42,7 +50,7 @@ const RoomEnter = () => {
                         </AwesomeButton>
 
                     </Link>
-                    <Link to="/settings">
+                    <Link to="/waitingroom">
                         <AwesomeButton type="green" className="gametype" >
                             <div className="button-content">
                                 <img className="base-image type-image5" src="https://i.ibb.co/tJj0srQ/pngtree-real-monkey-vector-png-image-6914142-1.png" alt="quiz" />
@@ -56,4 +64,4 @@ const RoomEnter = () => {
     );
 }
 
-export default RoomEnter;
+export default GameType;
