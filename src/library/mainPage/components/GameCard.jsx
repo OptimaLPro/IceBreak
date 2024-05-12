@@ -5,8 +5,7 @@ import { Tilt } from 'react-tilt'
 import { Link } from 'react-router-dom';
 import '../mainPage.css';
 
-const gameCard = ({ game }) => {
-
+const GameCard = ({ game }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleClick = (e) => {
@@ -18,58 +17,57 @@ const gameCard = ({ game }) => {
   }
 
   const defaultOptions = {
-    reverse: false,  // reverse the tilt direction
-    max: 20,     // max tilt rotation (degrees)
-    perspective: 2000,   // Transform perspective, the lower the more extreme the tilt gets.
-    scale: 1.05,    // 2 = 200%, 1.5 = 150%, etc..
-    speed: 1000,   // Speed of the enter/exit transition
-    transition: true,   // Set a transition on enter/exit.
-    axis: null,   // What axis should be disabled. Can be X or Y.
-    reset: true,    // If the tilt effect has to be reset on exit.
-    easing: "cubic-bezier(.03,.98,.52,.99)",    // Easing on enter/exit.
+    reverse: false,
+    max: 20,
+    perspective: 2000,
+    scale: 1.05,
+    speed: 1000,
+    transition: true,
+    axis: null,
+    reset: true,
+    easing: "cubic-bezier(.03,.98,.52,.99)",
   }
 
   return (
-    <>
-      <Tilt options={defaultOptions}>
+    <Tilt options={defaultOptions}>
+      <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
+        {/* Front side of the card */}
+        <div className={`game-card ${game.class}`} onClick={handleClick}>
+          <div className="game-card-content">
+            <div className="game-card-title">
+              {game.title}
+            </div>
+            <div className="game-card-img" style={{ overflow: 'visible' }}>
+              <img
+                src={game.image}
+                alt={game.title}
+                className={game.name}
+                loading="lazy"
+              />
+            </div>
+            <div className="game-card-text">
+              {game.trailer}
+            </div>
+          </div>
+        </div>
 
-        <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
-
-          <div className={`game-card ${game.class}`} onClick={handleClick}>
-            <div className="game-card-content">
+        {/* Back side of the card */}
+        <div className={`game-card ${game.class}`} onClick={handleClick}>
+          <div className="game-card-content">
+            <div className="game-card-header">
               <div className="game-card-title">
                 {game.title}
               </div>
-              <div className="game-card-img" style={{ overflow: 'visible' }}>
-                <img
-                  src={game.image}
-                  alt={game.image}
-                  className={game.name}
-                  loading="lazy" />
-              </div>
-              <div className="game-card-text">
-                {game.trailer}
-              </div>
+              <Button variant="contained" color="ochre">Play!</Button>
+            </div>
+            <div className="game-card-explanation">
+              {game.description}
             </div>
           </div>
-
-          <div className={`game-card ${game.class}`} onClick={handleClick}>
-            <div className="game-card-content">
-              <div className="game-card-header">
-                <div className="game-card-title">
-                  {game.title}
-                </div>
-                <Button variant="contained" color="ochre">Play!</Button>
-              </div>
-              <div className="game-card-explanation">
-                {game.description}
-              </div>
-            </div>
-          </div>
-        </ReactCardFlip>
-      </Tilt>
-    </>
+        </div>
+      </ReactCardFlip>
+    </Tilt>
   );
 }
 
-export default gameCard;
+export default GameCard;

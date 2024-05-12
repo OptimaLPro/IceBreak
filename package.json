@@ -18,7 +18,7 @@
     "@mui/material": "^5.15.15",
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
     "@nauverse/react-aurora-background": "^1.0.12",
-    "axios": "^1.6.8",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "framer-motion": "^11.1.7",
     "hamburger-react": "^2.5.0",
