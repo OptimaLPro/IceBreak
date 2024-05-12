@@ -17,12 +17,10 @@ const SignIn = () => {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
-    const email = formData.get("email");
-    const password = formData.get("password");
 
     setValidations({
-      email: inputValidator("email", email),
-      password: inputValidator("password", password),
+      email: inputValidator("email", formData.get("email")),
+      password: inputValidator("password", formData.get("password")),
     });
   };
 

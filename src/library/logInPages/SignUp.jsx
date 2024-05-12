@@ -10,7 +10,10 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import "../../assets/css/loginPages.css";
-import { inputValidator } from "../../utils/inputsValidators/inputValidators.util";
+import {
+  inputComparison,
+  inputValidator,
+} from "../../utils/inputsValidators/inputValidators.util";
 
 export default function SignUp() {
   const [validations, setValidations] = useState({
@@ -24,14 +27,19 @@ export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    const password = data.get("password");
+    const confirmPassword = data.get("confirmPassword");
 
     setValidations({
       firstName: inputValidator("firstName", data.get("firstName")),
       lastName: inputValidator("lastName", data.get("lastName")),
       email: inputValidator("email", data.get("email")),
-      password: inputValidator("password", data.get("password")),
-      confirmPassword:
-        data.get("password") === data.get("confirmPassword") ? true : false,
+      password: inputValidator("password", data.get("confirmPassword")),
+      confirmPassword: inputComparison(
+        "confirmPassword",
+        password,
+        confirmPassword
+      ),
     });
   };
 
@@ -125,7 +133,7 @@ export default function SignUp() {
           </Button>
           <Grid container justifyContent="flex-end">
             <Grid item>
-              <Link href="./SignIn" variant="body2">
+              <Link href="./signin" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>
