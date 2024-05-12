@@ -8,8 +8,15 @@ const GameType = () => {
     const [selectedType, setSelectedType] = useState("");
     const { game } = useParams();
     const selectType = (e) => {
-        const buttonText = e.target.innerText.toLowerCase().replace(/\s+/g, '-');
-        setSelectedType(buttonText);
+        let buttonText;
+        if (e.target.tagName === 'IMG') {
+            const siblingSpan = e.target.nextSibling;
+            buttonText = siblingSpan.textContent.toLowerCase().replace(/\s+/g, '-');
+        }
+        else {
+            buttonText = e.target.textContent.toLowerCase().replace(/\s+/g, '-');
+        }
+        setSelectedType(buttonText || '');
     };
 
     return (
@@ -25,24 +32,24 @@ const GameType = () => {
                             </div>
                         </AwesomeButton>
                     </Link>
-                    <Link to="/settings">
-                        <AwesomeButton type="orange" className="gametype" >
+                    <Link to={`/${game}/${selectedType}/settings`}>
+                        <AwesomeButton type="orange" className="gametype" onPress={selectType}>
                             <div className="button-content">
                                 <img className="base-image type-image2" src="https://cdn-icons-png.flaticon.com/512/5234/5234625.png" alt="quiz" />
                                 <span>Hisotry</span>
                             </div>
                         </AwesomeButton>
                     </Link>
-                    <Link to="/settings">
-                        <AwesomeButton type="primary" className="gametype" >
+                    <Link to={`/${game}/${selectedType}/settings`}>
+                        <AwesomeButton type="primary" className="gametype" onPress={selectType}>
                             <div className="button-content">
                                 <img className="base-image type-image3" src="https://i.ibb.co/r7Wt2xW/download-football-png-1-1.png" alt="quiz" />
                                 <span>Sport</span>
                             </div>
                         </AwesomeButton>
                     </Link>
-                    <Link to="/waitingroom">
-                        <AwesomeButton type="purple" className="gametype" >
+                    <Link to={`/${game}/${selectedType}/settings`}>
+                        <AwesomeButton type="purple" className="gametype" onPress={selectType}>
                             <div className="button-content">
                                 <img className="base-image type-image4" src="https://i.ibb.co/kc8xVKL/science-1.png" alt="quiz" />
                                 <span>Science</span>
@@ -50,8 +57,8 @@ const GameType = () => {
                         </AwesomeButton>
 
                     </Link>
-                    <Link to="/waitingroom">
-                        <AwesomeButton type="green" className="gametype" >
+                    <Link to={`/${game}/${selectedType}/settings`}>
+                        <AwesomeButton type="green" className="gametype" onPress={selectType}>
                             <div className="button-content">
                                 <img className="base-image type-image5" src="https://i.ibb.co/tJj0srQ/pngtree-real-monkey-vector-png-image-6914142-1.png" alt="quiz" />
                                 <span>Animals</span>

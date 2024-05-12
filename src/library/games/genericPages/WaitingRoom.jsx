@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { InfinitySpin } from 'react-loader-spinner';
 import AnimatedPage from "../../../theme/AnimatedPage";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Paper } from '@mui/material';
+import { AwesomeButton } from 'react-awesome-button';
 
 const WaitingRoom = ({ connectedPeopleCount }) => {
     const navigateTo = useNavigate();
-    const [gamePIN, setGamePIN] = useState('J58H3R');
+    const [gamePIN, setGamePIN] = useState(useParams().pin);
 
     useEffect(() => {
         const timeout = setTimeout(() => {
-            navigateTo('/startcountdown')
-        }, 5000);
+            navigateTo(`/${gamePIN}/startcountdown`)
+        }, 900000);
 
         return () => clearTimeout(timeout);
     });
@@ -43,6 +44,9 @@ const WaitingRoom = ({ connectedPeopleCount }) => {
                     />
                 </div>
                 <p style={{ color: 'white' }}>{connectedPeopleCount}4 people connected to the room</p>
+                <div>
+                    <AwesomeButton type="primary" className="aws-btn aws-btn--pink" onPress={() => navigateTo(`/${gamePIN}/startcountdown`)}>Start Game</AwesomeButton>
+                </div>
             </div>
         </AnimatedPage>
     );

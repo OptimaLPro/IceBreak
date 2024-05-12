@@ -4,13 +4,12 @@ import CountdownCounter from './components/CountdownCounter';
 import { useNavigate } from 'react-router-dom';
 
 const StartCountdown = () => {
-    const game = 'Trivia'
     const navigate = useNavigate();
     const duration = 7;
 
     useEffect(() => {
         const timeout = setTimeout(() => {
-            navigate(`/${game}`)
+            navigate(`/trivia`)
         }, duration * 1000);
 
         return () => clearTimeout(timeout);
