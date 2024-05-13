@@ -7,6 +7,7 @@ import NameEnter from '../library/games/genericPages/NameEnter';
 import WaitingRoom from '../library/games/genericPages/WaitingRoom';
 import StartCountdown from '../library/games/genericPages/StartCountdown';
 import ProfilePage from '../library/userProfile/ProfilePage'
+import Survey from '../library/mainPage/components/Survey';
 
 const Router = () => {
     return (
@@ -20,6 +21,7 @@ const Router = () => {
                 <Route path="/nameenter" element={<NameEnter />} />
                 <Route path="/waitingroom" element={<WaitingRoom />} />
                 <Route path="/startcountdown" element={<StartCountdown />} />
+                <Route path="/survey" element={<Survey />} />
             </Routes>
         </>
     );
