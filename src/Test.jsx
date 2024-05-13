@@ -1,14 +1,12 @@
 import { Link } from "react-router-dom";
 import AnimatedPage from "./theme/AnimatedPage";
-import ProfilePage from "./library/profilePage/ProfilePage";
 
 const TestPage = () => {
     return (
         <>
-        <ProfilePage />
-            {/* <AnimatedPage>
+             <AnimatedPage>
                 <h1>Test Page</h1>
-            </AnimatedPage> */}
+            </AnimatedPage> 
         </>
     );
 }
