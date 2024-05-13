@@ -96,6 +96,16 @@
     
 }
 
+.aws-btn--red {
+    --button-red-color: #d30000;
+    --button-red-color-dark: #a60000;
+    --button-red-color-light: #ffffff;
+    --button-red-color-hover: #ff0000;
+    --button-red-border: none;
+    --button-red-color-active: #e60000;
+
+}
+
 /* Apply styles for each color */
 .aws-btn--pink .aws-btn__wrapper:before {
     background: var(--button-pink-color-dark);
@@ -183,4 +193,27 @@
 
 .aws-btn--grey.aws-btn--active .aws-btn__wrapper .aws-btn__content {
     background: var(--button-grey-color-active);
+}
+
+/* Apply styles for each color */
+.aws-btn--red .aws-btn__wrapper:before {
+    background: var(--button-red-color-dark);
+}
+
+.aws-btn--red .aws-btn__content {
+    background: var(--button-red-color);
+    color: var(--button-red-color-light);
+    border: var(--button-red-border);
+}
+
+.aws-btn--red .aws-btn__content path {
+    fill: var(--button-red-color-light);
+}
+
+.aws-btn--red .aws-btn__wrapper:hover .aws-btn__content {
+    background: var(--button-red-color-hover);
+}
+
+.aws-btn--red.aws-btn--active .aws-btn__wrapper .aws-btn__content {
+    background: var(--button-red-color-active);
 }
