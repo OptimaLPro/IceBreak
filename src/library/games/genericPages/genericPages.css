@@ -234,3 +234,42 @@ body h3 {
     display: flex;
     justify-content: center;
 }
+
+.avatars-container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 20px;
+    width: 80%;
+    margin-bottom: 50px;
+}
+
+.avatar-connected{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.avatar-img{
+    width: 50px;
+    height: 50px;
+   border-radius: 50px;
+   box-shadow: 0px 0px 10px 0px #00000054;
+
+}
+
+.owner-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+.upper-owner{
+    margin-top: 20px;
+}
+

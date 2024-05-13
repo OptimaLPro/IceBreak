@@ -6,7 +6,9 @@ import { Link } from 'react-router-dom';
 import { AwesomeButton } from 'react-awesome-button';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import io from 'socket.io-client';
-const socket = io('http://localhost:3001');
+import axios from 'axios';
+import socket from './components/socket';
+import shortid from 'shortid';
 
 const GameSettings = () => {
     const [numQuestions, setNumQuestions] = useState(0);
@@ -47,9 +49,21 @@ const GameSettings = () => {
         socket.emit('createRoom', roomData);
     };
 
-    const buttonHandler = (numQuestions, questionSeconds) => {
-        selectTime(numQuestions, questionSeconds)
-        localStorage.setItem('user_id', Math.floor(Math.random() * 1000) + 1);
+    const buttonHandler = async (numQuestions, questionSeconds) => {
+        selectTime(numQuestions, questionSeconds);
+        localStorage.setItem('user_id', shortid.generate());
+
+        axios.post('http://localhost:8080/gameslog/create', {
+            owner: localStorage.getItem('user_id'),
+            pin: gamePIN,
+            players: {}
+        })
+            .then(response => {
+                console.log('Document added successfully:', response.data);
+            })
+            .catch(error => {
+                console.error('Error adding document:', error);
+            });
     };
 
     useEffect(() => {
@@ -70,8 +84,6 @@ const GameSettings = () => {
         };
     }, [roomCreated]);
 
-
-
     return (
         <>
             <div className="survey-header">Game Settings {gamePIN}</div>
@@ -84,12 +96,12 @@ const GameSettings = () => {
                 <div className="time-buttons-container">
                     <Link to={`/${gamePIN}/nameenter`} style={{ textDecoration: 'none' }}>
                         <div className='row-buttons'>
-                            <AwesomeButton type="primary" className="settings-button" onPress={buttonHandler(15, 20)}>5 min.</AwesomeButton>
-                            <AwesomeButton type="primary" className="settings-button" onPress={buttonHandler(15, 28)}>7 min.</AwesomeButton>
+                            <AwesomeButton type="primary" className="settings-button" onPress={() => buttonHandler(15, 20)}>5 min.</AwesomeButton>
+                            <AwesomeButton type="primary" className="settings-button" onPress={() => buttonHandler(15, 28)}>7 min.</AwesomeButton>
                         </div>
                         <div className='row-buttons bottom-row'>
-                            <AwesomeButton type="primary" className="settings-button" onPress={buttonHandler(15, 40)}>10 min.</AwesomeButton>
-                            <AwesomeButton type="primary" className="settings-button" onPress={buttonHandler(15, 60)}>15 min.</AwesomeButton>
+                            <AwesomeButton type="primary" className="settings-button" onPress={() => buttonHandler(15, 40)}>10 min.</AwesomeButton>
+                            <AwesomeButton type="primary" className="settings-button" onPress={() => buttonHandler(15, 60)}>15 min.</AwesomeButton>
                         </div>
                     </Link>
                 </div>
@@ -112,7 +124,7 @@ const GameSettings = () => {
 
                             <div className='buttons-container fire'>
                                 <Link to={`/${gamePIN}/nameenter`}>
-                                    <AwesomeButton type="primary" className="survey-button" onPress={buttonHandler(numQuestions, questionSeconds)}>Let's go! 🔥</AwesomeButton>
+                                    <AwesomeButton type="primary" className="survey-button" onPress={() => buttonHandler(numQuestions, questionSeconds)}>Let's go! 🔥</AwesomeButton>
                                 </Link>
                             </div>
                         </AccordionDetails>

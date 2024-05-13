@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AnimatedPage from "../../../theme/AnimatedPage";
 import Paper from '@mui/material/Paper';
@@ -8,10 +8,12 @@ import "react-awesome-button/dist/themes/theme-blue.css";
 import { createAvatar } from '@dicebear/core';
 import { micah } from '@dicebear/collection';
 import { useParams } from "react-router-dom";
+import socket from './components/socket';
 
 const NameEnter = () => {
     const [avatarSeed, setAvatarSeed] = useState(Date.now());
     const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    const gamePIN = useParams().pin;
 
     const avatar = createAvatar(micah, {
         seed: avatarSeed.toString(),
@@ -26,7 +28,18 @@ const NameEnter = () => {
     const clickHandler = () => {
         localStorage.setItem('name', document.querySelector('input').value);
         localStorage.setItem('avatar', avatar);
+        socket.emit('joinRoom', { gamePIN: gamePIN, name: localStorage.getItem('name'), avatar: localStorage.getItem('avatar') });
     }
+
+    useEffect(() => {
+        socket.on('roomJoined', (data) => {
+            if (data) {
+                console.log('Room joined successfully');
+            } else {
+                console.log('Room not joined');
+            }
+        });
+    } );
 
     return (
         <AnimatedPage>

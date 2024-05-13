@@ -4,22 +4,73 @@ import AnimatedPage from "../../../theme/AnimatedPage";
 import { useNavigate, useParams } from 'react-router-dom';
 import { Paper } from '@mui/material';
 import { AwesomeButton } from 'react-awesome-button';
+import socket from './components/socket';
+import CountdownCounter from './components/CountdownCounter';
 
-const WaitingRoom = ({ connectedPeopleCount }) => {
+const WaitingRoom = () => {
     const navigateTo = useNavigate();
-    const [gamePIN, setGamePIN] = useState(useParams().pin);
+    const { pin } = useParams();
+    const [gamePIN, setGamePIN] = useState(pin);
+    const [players, setPlayers] = useState([]);
+    const [isRoomOwner, setIsRoomOwner] = useState(false);
+    const [gameStarting, setGameStarting] = useState(false);
+
+    const fetchPlayersData = () => {
+        socket.emit('getPlayers', { gamePIN });
+
+        socket.on('playersData', (data) => {
+            console.log('Received players data:', data);
+            setPlayers(data.players);
+        });
+    };
+
+    const checkIfRoomOwner = () => {
+        socket.emit('checkRoomOwner', { gamePIN });
+    };
+
+    const clickHandler = () => {
+        // navigateTo(`/${gamePIN}/startcountdown`);
+        socket.emit('startGame', { gamePIN });
+    };
+
+    const onCompleteHandler = () => {
+        navigateTo(`/${gamePIN}/gameplay/`);
+    }
 
     useEffect(() => {
-        const timeout = setTimeout(() => {
-            navigateTo(`/${gamePIN}/startcountdown`)
-        }, 900000);
+        socket.on('playerJoined', (data) => {
+            console.log('Player joined:', data.name);
+            setPlayers((prevPlayers) => [...prevPlayers, data]);
+        });
 
-        return () => clearTimeout(timeout);
-    });
+        socket.on('playerLeft', (data) => {
+            console.log('Player left:', data.name);
+            setPlayers((prevPlayers) =>
+                prevPlayers.filter((player) => player.id !== data.id)
+            );
+        });
+
+        fetchPlayersData();
+        checkIfRoomOwner();
+
+        socket.on('isRoomOwner', (data) => {
+            setIsRoomOwner(data);
+        });
+
+        socket.on('gameStarted', (data) => {
+            console.log('Game starting:', data);
+            setGameStarting(data);
+        });
+
+        return () => {
+            socket.off('playerJoined');
+            socket.off('playerLeft');
+        };
+    }, [gamePIN]);
 
     return (
         <AnimatedPage>
-            <div className="content">
+            {!gameStarting ? (<div className="content">
                 <Paper elevation={8} sx={{
                     display: 'flex',
                     flexDirection: 'column',
@@ -29,7 +80,6 @@ const WaitingRoom = ({ connectedPeopleCount }) => {
                     borderRadius: '15px'
                 }}>
                     <h1>Game PIN: {gamePIN}</h1>
-
                 </Paper>
                 <div>
                     <h2>Waiting for your friends...</h2>
@@ -43,11 +93,28 @@ const WaitingRoom = ({ connectedPeopleCount }) => {
                         ariaLabel="loading"
                     />
                 </div>
-                <p style={{ color: 'white' }}>{connectedPeopleCount}4 people connected to the room</p>
-                <div>
-                    <AwesomeButton type="primary" className="aws-btn aws-btn--pink" onPress={() => navigateTo(`/${gamePIN}/startcountdown`)}>Start Game</AwesomeButton>
+                <p style={{ color: 'white' }}>{players.length} people connected to the room</p>
+                <div className="avatars-container">
+                    {players.map((player, index) => (
+                        <div className='avatar-connected' key={index}>
+                            <img src={player.avatar} className='avatar-img' alt="Avatar" />
+                            <span style={{ color: 'white' }}>{player.name}</span>
+                        </div>
+                    ))}
                 </div>
-            </div>
+                {isRoomOwner && (
+                    <div className='owner-container'>
+                        <AwesomeButton type="primary" className="aws-btn aws-btn--pink" onPress={clickHandler}>Start Game</AwesomeButton>
+                        <small className='upper-owner'>You are the room owner.</small>
+                        <small>Only you can start the game.</small>
+                    </div>
+                )}
+            </div>) : (
+                <div className="content">
+                    <h1 style={{ color: 'white', marginBottom: '100px' }}>The game is starting in</h1>
+                    <CountdownCounter duration={7} size={180} onCompleteState={onCompleteHandler} />
+                </div>
+            )}
         </AnimatedPage>
     );
 };

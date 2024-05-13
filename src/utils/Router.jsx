@@ -12,7 +12,7 @@ import Trivia from '../library/games/Trivia/Trivia';
 import PlayMode from '../library/games/genericPages/PlayMode';
 import GameType from '../library/games/genericPages/GameType';
 import GameSettings from '../library/games/genericPages/GameSettings';
-// import SocketFuncs from './socket/SocketFuncs';
+import Gameplay from '../library/games/gamePlayPages/Gameplay';
 
 const Router = () => {
     return (
@@ -26,8 +26,9 @@ const Router = () => {
                 <Route path="/:pin/nameenter" element={<NameEnter />} />
                 <Route path="/:pin/waitingroom" element={<WaitingRoom />} />
                 <Route path="/:pin/startcountdown" element={<StartCountdown />} />
+                <Route path="/:pin/gameplay" element={<Gameplay />} />
                 <Route path="/survey" element={<Survey />} />
-                <Route path="/:game" element={<Trivia />} />
+                {/* <Route path="/:game" element={<Trivia />} /> */}
                 <Route path="/:game/playmode" element={<PlayMode />} />
                 <Route path="/:game/type" element={<GameType />} />
                 <Route path="/:game/:type/settings" element={<GameSettings />} />
