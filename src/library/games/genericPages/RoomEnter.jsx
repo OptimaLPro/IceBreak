@@ -7,7 +7,7 @@ import "react-awesome-button/dist/themes/theme-blue.css";
 import io from 'socket.io-client';
 import CustomModal from './components/Modal';
 import { useNavigate } from "react-router-dom";
-import socket from './components/socket';
+import socket from '../../../utils/socket/socket';
 
 const RoomEnter = () => {
     const [isOpen, setIsOpen] = useState(false);

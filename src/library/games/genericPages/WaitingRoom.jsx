@@ -4,7 +4,7 @@ import AnimatedPage from "../../../theme/AnimatedPage";
 import { useNavigate, useParams } from 'react-router-dom';
 import { Paper } from '@mui/material';
 import { AwesomeButton } from 'react-awesome-button';
-import socket from './components/socket';
+import socket from '../../../utils/socket/socket';
 import CountdownCounter from './components/CountdownCounter';
 
 const WaitingRoom = () => {

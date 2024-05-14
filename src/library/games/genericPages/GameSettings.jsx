@@ -7,7 +7,7 @@ import { AwesomeButton } from 'react-awesome-button';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import io from 'socket.io-client';
 import axios from 'axios';
-import socket from './components/socket';
+import socket from '../../../utils/socket/socket';
 import shortid from 'shortid';
 
 const GameSettings = () => {
