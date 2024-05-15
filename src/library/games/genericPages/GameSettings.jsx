@@ -5,9 +5,8 @@ import { Accordion, AccordionDetails, AccordionSummary, MenuItem, Paper, Select 
 import { Link } from 'react-router-dom';
 import { AwesomeButton } from 'react-awesome-button';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import io from 'socket.io-client';
 import axios from 'axios';
-import socket from '../../../utils/socket/socket';
+import { socket } from '../../../utils/socket/socket';
 import shortid from 'shortid';
 
 const GameSettings = () => {
@@ -42,10 +41,10 @@ const GameSettings = () => {
         getQuestionSeconds(parseInt(event.target.value));
     };
 
-    const selectTime = (seconds, questions) => {
+    const selectTime = (questions, seconds) => {
         console.log("Selected time: ", seconds);
         console.log("Selected questions: ", questions);
-        const roomData = { gamePIN: gamePIN };
+        const roomData = { gamePIN: gamePIN, numQuestions: questions, questionSeconds: seconds};
         socket.emit('createRoom', roomData);
     };
 
@@ -53,17 +52,19 @@ const GameSettings = () => {
         selectTime(numQuestions, questionSeconds);
         localStorage.setItem('user_id', shortid.generate());
 
-        axios.post('http://localhost:8080/gameslog/create', {
-            owner: localStorage.getItem('user_id'),
-            pin: gamePIN,
-            players: {}
-        })
-            .then(response => {
-                console.log('Document added successfully:', response.data);
-            })
-            .catch(error => {
-                console.error('Error adding document:', error);
-            });
+        socket.emit('updateRoomData', { gamePIN });
+
+        // axios.post('http://localhost:8080/gameslog/create', {
+        //     owner: localStorage.getItem('user_id'),
+        //     pin: gamePIN,
+        //     players: {}
+        // })
+        //     .then(response => {
+        //         console.log('Document added successfully:', response.data);
+        //     })
+        //     .catch(error => {
+        //         console.error('Error adding document:', error);
+        //     });
     };
 
     useEffect(() => {
@@ -96,7 +97,7 @@ const GameSettings = () => {
                 <div className="time-buttons-container">
                     <Link to={`/${gamePIN}/nameenter`} style={{ textDecoration: 'none' }}>
                         <div className='row-buttons'>
-                            <AwesomeButton type="primary" className="settings-button" onPress={() => buttonHandler(15, 20)}>5 min.</AwesomeButton>
+                            <AwesomeButton type="primary" className="settings-button" onPress={() => buttonHandler(3, 20)}>5 min.</AwesomeButton>
                             <AwesomeButton type="primary" className="settings-button" onPress={() => buttonHandler(15, 28)}>7 min.</AwesomeButton>
                         </div>
                         <div className='row-buttons bottom-row'>

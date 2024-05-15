@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import AnimatedPage from "../../../theme/AnimatedPage";
 import { AwesomeButton } from "react-awesome-button";
 import "./genericPages.css";
+import axios from "axios";
+import { socket } from "../../../utils/socket/socket.js";
 
 const GameType = () => {
     const [selectedType, setSelectedType] = useState("");
@@ -16,8 +18,26 @@ const GameType = () => {
         else {
             buttonText = e.target.textContent.toLowerCase().replace(/\s+/g, '-');
         }
-        setSelectedType(buttonText || '');
+
+        const apiUrl = `https://icebreak-backend.onrender.com/${game}/triviaByTag/${buttonText}`;
+
+        setSelectedType(buttonText);
+
+        console.log(apiUrl);
+        axios.get(apiUrl)
+            .then(response => {
+                const fetchedQuestions = response.data;
+
+                console.log(fetchedQuestions);
+                socket.emit('sendRoomData', { fetchedQuestions })
+            })
+            .catch(error => {
+                console.log(error);
+            });
+
+
     };
+
 
     return (
         <AnimatedPage>
@@ -33,15 +53,15 @@ const GameType = () => {
                         </AwesomeButton>
                     </Link>
                     <Link to={`/${game}/${selectedType}/settings`}>
-                        <AwesomeButton type="orange" className="gametype" onPress={selectType}>
+                        <AwesomeButton type="primary" className="gametype" onPress={selectType}>
                             <div className="button-content">
-                                <img className="base-image type-image2" src="https://cdn-icons-png.flaticon.com/512/5234/5234625.png" alt="quiz" />
-                                <span>Hisotry</span>
+                                <img className="base-image type-image2" src="https://i.ibb.co/7WqHT10/television.png" alt="quiz" />
+                                <span>Television</span>
                             </div>
                         </AwesomeButton>
                     </Link>
                     <Link to={`/${game}/${selectedType}/settings`}>
-                        <AwesomeButton type="primary" className="gametype" onPress={selectType}>
+                        <AwesomeButton type="orange" className="gametype" onPress={selectType}>
                             <div className="button-content">
                                 <img className="base-image type-image3" src="https://i.ibb.co/r7Wt2xW/download-football-png-1-1.png" alt="quiz" />
                                 <span>Sport</span>

@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { AwesomeButton } from 'react-awesome-button';
 import './Trivia.css';
 import "../../../assets/css/Awesome_Buttons.css"
-import { triviaData } from './triviaData.js';
 import CountdownCounter from '../genericPages/components/CountdownCounter.jsx';
 import Confetti from 'react-confetti'
 import PreQuestion from './components/PreQuestion.jsx';
 import { Box } from '@mui/material';
 
-const Trivia = () => {
+const Trivia = ({ data }) => {
     const defaultButtonColors = ['green', 'purple', 'pink', 'orange'];
     const [questionIndex, setQuestionIndex] = useState(0);
     const [randomOptions, setRandomOptions] = useState([]);
@@ -19,13 +18,15 @@ const Trivia = () => {
     const [buttonColors, setButtonColors] = useState(defaultButtonColors);
     const [confetti, setConfetti] = useState(false);
     const [showPreQuestion, setShowPreQuestion] = useState(true);
-
-    const currentQuestion = triviaData[questionIndex];
+    const [currentQuestion, setCurrentQuestion] = useState(null);
     const [answer, setAnswer] = useState('');
 
     useEffect(() => {
-        setAnswer(currentQuestion.options[0]);
-        setRandomOptions(currentQuestion.options.sort(() => Math.random() - 0.5));
+        console.log(data);
+        const fetchedQuestion = data[questionIndex];
+        setCurrentQuestion(fetchedQuestion);
+        setAnswer(fetchedQuestion.options[0]);
+        setRandomOptions(fetchedQuestion.options.sort(() => Math.random() - 0.5));
     }, [questionIndex]);
 
     const toggleShowPreQuestion = () => {

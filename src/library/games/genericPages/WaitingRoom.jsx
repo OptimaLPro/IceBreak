@@ -4,7 +4,7 @@ import AnimatedPage from "../../../theme/AnimatedPage";
 import { useNavigate, useParams } from 'react-router-dom';
 import { Paper } from '@mui/material';
 import { AwesomeButton } from 'react-awesome-button';
-import socket from '../../../utils/socket/socket';
+import { socket } from '../../../utils/socket/socket';
 import CountdownCounter from './components/CountdownCounter';
 
 const WaitingRoom = () => {
@@ -29,7 +29,6 @@ const WaitingRoom = () => {
     };
 
     const clickHandler = () => {
-        // navigateTo(`/${gamePIN}/startcountdown`);
         socket.emit('startGame', { gamePIN });
     };
 
@@ -112,7 +111,7 @@ const WaitingRoom = () => {
             </div>) : (
                 <div className="content">
                     <h1 style={{ color: 'white', marginBottom: '100px' }}>The game is starting in</h1>
-                    <CountdownCounter duration={7} size={180} onCompleteState={onCompleteHandler} />
+                    <CountdownCounter duration={1} size={180} onCompleteState={onCompleteHandler} />
                 </div>
             )}
         </AnimatedPage>

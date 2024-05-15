@@ -19,7 +19,6 @@ const MainPage = () => {
                 console.error('Error fetching game data:', error);
             }
         };
-
         fetchGameData();
     }, []);
 

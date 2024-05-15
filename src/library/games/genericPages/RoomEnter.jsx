@@ -4,10 +4,9 @@ import Paper from '@mui/material/Paper';
 import { TextField } from "@mui/material";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/themes/theme-blue.css";
-import io from 'socket.io-client';
 import CustomModal from './components/Modal';
 import { useNavigate } from "react-router-dom";
-import socket from '../../../utils/socket/socket';
+import * as socketFunctions from '../../../utils/socket/socket';
 
 const RoomEnter = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -18,19 +17,17 @@ const RoomEnter = () => {
     };
 
     const clickHandler = () => {
-        const gamePIN = document.querySelector('input').value;
-        socket.emit('checkRoom', { gamePIN });
+        socketFunctions.checkRoom(document.querySelector('input').value);
     };
 
     useEffect(() => {
-        socket.on('roomChecked', (data) => {
+        socketFunctions.roomChecked((data) => {
             if (!data) {
-                setIsOpen(true); // Open the modal if the room does not exist
+                setIsOpen(true);
             } else {
-                navigate(`/${document.querySelector('input').value}/nameenter`); // Navigate to the correct route
+                navigate(`/${document.querySelector('input').value}/nameenter`);
             }
         });
-
     }, [navigate]);
 
     return (

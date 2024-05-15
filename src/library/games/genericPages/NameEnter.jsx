@@ -8,7 +8,8 @@ import "react-awesome-button/dist/themes/theme-blue.css";
 import { createAvatar } from '@dicebear/core';
 import { micah } from '@dicebear/collection';
 import { useParams } from "react-router-dom";
-import socket from '../../../utils/socket/socket';
+import {socket} from '../../../utils/socket/socket';
+
 
 const NameEnter = () => {
     const [avatarSeed, setAvatarSeed] = useState(Date.now());
