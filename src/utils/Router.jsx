@@ -26,6 +26,7 @@ const Router = () => {
         <Route path="/waitingroom" element={<WaitingRoom />} />
         <Route path="/startcountdown" element={<StartCountdown />} />
         <Route path="/survey" element={<Survey />} />
+        <Route path="/main" element={<MainPage />} />
       </Routes>
     </>
   );

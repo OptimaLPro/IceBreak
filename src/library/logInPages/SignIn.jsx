@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
@@ -13,9 +14,16 @@ const SignIn = () => {
     email: "",
     password: "",
   });
+  const [authenticated, setAuthenticated] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    // If already authenticated, navigate to main page
+    if (authenticated) {
+      window.location.href = "/main";
+      return;
+    }
 
     const formData = new FormData(event.currentTarget);
     const email = formData.get("email");
@@ -26,7 +34,8 @@ const SignIn = () => {
       password: inputValidator("password", password),
     });
 
-    axios.post("http://localhost:8080/users/login", {
+    axios
+      .post("http://localhost:8080/users/login", {
         email: email,
         password: password,
       })
@@ -34,14 +43,18 @@ const SignIn = () => {
         if (response.data) {
           const accessToken = response.data["accessToken"];
           localStorage.setItem("accessToken", accessToken);
+          setAuthenticated(true);
+          // Navigate to main page
+          window.location.href = "/main";
         } else {
           console.log("Invalid email or password");
         }
       })
-      .catch((error) => {
-        console.error(error);
+      .catch(() => {
+        console.error("error");
       });
   };
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -94,4 +107,5 @@ const SignIn = () => {
     </Container>
   );
 };
+
 export default SignIn;
