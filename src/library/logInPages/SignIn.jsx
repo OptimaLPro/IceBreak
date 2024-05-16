@@ -26,16 +26,14 @@ const SignIn = () => {
       password: inputValidator("password", password),
     });
 
-    axios
-      .get("http://localhost:8080/users/login", {
+    axios.post("http://localhost:8080/users/login", {
         email: email,
         password: password,
       })
       .then((response) => {
-        // Check if authentication was successful
-        if (response.data.authenticated) {
-          console.log("User connected");
-          // You can redirect the user or perform other actions here
+        if (response.data) {
+          const accessToken = response.data["accessToken"];
+          localStorage.setItem("accessToken", accessToken);
         } else {
           console.log("Invalid email or password");
         }
