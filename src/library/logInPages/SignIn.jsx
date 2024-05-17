@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
@@ -6,6 +7,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import { inputValidator } from "../../utils/inputsValidators/inputValidators.util";
+import axios from "axios";
 
 const SignIn = () => {
   const [validations, setValidations] = useState({
@@ -17,11 +19,31 @@ const SignIn = () => {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
+    const email = formData.get("email");
+    const password = formData.get("password");
 
     setValidations({
-      email: inputValidator("email", formData.get("email")),
-      password: inputValidator("password", formData.get("password")),
+      email: inputValidator("email", email),
+      password: inputValidator("password", password),
     });
+
+    axios
+      .post("http://localhost:8080/users/login", {
+        email: email,
+        password: password,
+      })
+      .then((response) => {
+        if (response.data) {
+          const accessToken = response.data["accessToken"];
+          localStorage.setItem("accessToken", accessToken);
+          window.location.href = "/main";
+        } else {
+          console.log("Invalid email or password");
+        }
+      })
+      .catch(() => {
+        console.error("error");
+      });
   };
 
   return (
@@ -76,4 +98,5 @@ const SignIn = () => {
     </Container>
   );
 };
+
 export default SignIn;
