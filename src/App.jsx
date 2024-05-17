@@ -1,7 +1,7 @@
 import { ThemeProvider } from '@mui/material/styles';
-import { theme } from './theme/gerenalTheme';
 import { AuroraBackgroundProvider } from '@nauverse/react-aurora-background';
 import './App.css';
+import { theme } from './theme/gerenalTheme';
 import Router from './utils/Router';
 import Menu from './utils/menu/Menu';
 
