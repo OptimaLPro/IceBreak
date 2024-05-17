@@ -20,7 +20,7 @@ const PreQuestion = ({ question, toggleShowPreQuestion }) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const duration = 5000; // Total animation duration in milliseconds
+    const duration = 1000; // Total animation duration in milliseconds
     const intervalTime = 50; // Interval time in milliseconds
     const steps = duration / intervalTime;
     const increment = 100 / steps;

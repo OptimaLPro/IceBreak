@@ -10,7 +10,6 @@ import { micah } from '@dicebear/collection';
 import { useParams } from "react-router-dom";
 import {socket} from '../../../utils/socket/socket';
 
-
 const NameEnter = () => {
     const [avatarSeed, setAvatarSeed] = useState(Date.now());
     const randomColor = Math.floor(Math.random() * 16777215).toString(16);
@@ -59,7 +58,7 @@ const NameEnter = () => {
                     <AwesomeButton size="small" type="secondary" style={{ width: '87%', marginBottom: '20px' }} onPress={handleRandomizeConfig}>Random Avatar 🎲</AwesomeButton>
 
                     <div style={{ width: '100%', marginBottom: '20px', marginTop: '10px' }}>
-                        <TextField id="outlined-basic" label="Enter Your Name" variant="outlined" fullWidth />
+                        <TextField id="outlined-basic" label="Enter Your Name" variant="outlined" value={"Ron"}fullWidth />
                     </div>
                     <div className="bottom-button" style={{ width: '100%', maxWidth: '500px' }}>
                         <Link to={`/${useParams().pin}/waitingroom`}>

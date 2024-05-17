@@ -2,8 +2,6 @@ import * as React from 'react';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Box from '@mui/material/Box';
-import Backdrop from '@mui/material/Backdrop';
-
 import Typography from '@mui/material/Typography';
 import { AwesomeButton } from 'react-awesome-button';
 
@@ -17,7 +15,6 @@ const style = {
     transform: 'translate(-50%, -50%)',
     width: '50%',
     bgcolor: 'background.paper',
-    // add border radius
     borderRadius: '15px',
     boxShadow: 24,
     p: 4,

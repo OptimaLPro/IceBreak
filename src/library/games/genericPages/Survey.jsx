@@ -46,7 +46,6 @@ const Survey = () => {
                             min={0}
                             max={100}
                         />
-
                         <span className='titles'>Game time: <span className="slider-value">{gameTime}</span></span>
                         <Slider
                             value={gameTime}
@@ -55,9 +54,7 @@ const Survey = () => {
                             valueLabelDisplay="auto"
                             step={1}
                             min={0}
-                            max={100}
-                        />
-
+                            max={100} />
                         <div className='atmosphere-container'>
                             <span className='titles'>Atmosphere:</span>
                             <Select
@@ -66,8 +63,7 @@ const Survey = () => {
                                 value={selectedAtmosphere}
                                 label="Age"
                                 onChange={handleChange}
-                                sx={{ width: '40%' }}
-                            >
+                                sx={{ width: '40%' }}>
                                 <MenuItem value={"Short"}>Short</MenuItem>
                                 <MenuItem value={"Funny"}>Funny</MenuItem>
                                 <MenuItem value={"Drinking"}>Drinking</MenuItem>

@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import '../../../../assets/css/Countdown.css';
-import { red } from '@mui/material/colors';
 
 const CountdownCounter = ({ duration, size, isComplete, setIsComplete, onCompleteState }) => {
     const renderTime = ({ remainingTime }) => {
@@ -18,7 +17,6 @@ const CountdownCounter = ({ duration, size, isComplete, setIsComplete, onComplet
             isNewTimeFirstTick.current = false;
         }
 
-        // force one last re-render when the time is over to trigger the last animation
         if (remainingTime === 0) {
             setTimeout(() => {
                 setOneLastRerender((val) => val + 1);

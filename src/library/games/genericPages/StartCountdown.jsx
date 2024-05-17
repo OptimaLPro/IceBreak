@@ -11,9 +11,7 @@ const StartCountdown = () => {
         const timeout = setTimeout(() => {
             navigate(`/trivia`)
         }, duration * 1000);
-
         return () => clearTimeout(timeout);
-
     });
 
     return (

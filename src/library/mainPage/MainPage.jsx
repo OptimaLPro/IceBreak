@@ -1,25 +1,27 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import AnimatedPage from '../../theme/AnimatedPage';
-import { AwesomeButton } from 'react-awesome-button';
 import 'react-awesome-button/dist/styles.css';
 import '../../assets/css/Awesome_Buttons.css';
 import GameCard from './components/GameCard';
-import { getAllGames } from './gamesFuncs';
+import axios from 'axios';
+import Loading from '../games/genericPages/components/Loading';
 
 const MainPage = () => {
     const [gameData, setGameData] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        const fetchGameData = async () => {
-            try {
-                const data = await getAllGames();
-                setGameData(data);
-            } catch (error) {
+        setLoading(true);
+        axios.get('https://icebreak-backend.onrender.com/games')
+            .then(response => {
+                setGameData(response.data);
+            })
+            .catch(error => {
                 console.error('Error fetching game data:', error);
-            }
-        };
-        fetchGameData();
+            })
+            .finally(() => {
+                setLoading(false);
+            });
     }, []);
 
     const shortGames = gameData.filter(game => game.tags.includes('short'));
@@ -28,14 +30,8 @@ const MainPage = () => {
 
     return (
         <>
-            <AnimatedPage>
+            {!loading && (<AnimatedPage>
                 <div className="main-page">
-                    <Link to="/test" style={{ textDecoration: 'none' }}>
-                        <div className="">
-                            <AwesomeButton type="primary">Test page</AwesomeButton>
-                        </div>
-                    </Link>
-
                     <div className="category-headers">
                         Short games 🕒
                     </div>
@@ -44,7 +40,6 @@ const MainPage = () => {
                             <GameCard key={game.name} game={game} />
                         ))}
                     </div>
-
                     <div className="category-headers">
                         Funny games 😂
                     </div>
@@ -53,7 +48,6 @@ const MainPage = () => {
                             <GameCard key={game.name} game={game} />
                         ))}
                     </div>
-
                     <div className="category-headers">
                         Drinking Games 🍻
                     </div>
@@ -63,7 +57,8 @@ const MainPage = () => {
                         ))}
                     </div>
                 </div>
-            </AnimatedPage>
+            </AnimatedPage>)}
+            {loading && <Loading />}
         </>
     );
 }
