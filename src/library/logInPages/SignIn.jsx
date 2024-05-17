@@ -36,7 +36,7 @@ const SignIn = () => {
         if (response.data) {
           const accessToken = response.data["accessToken"];
           localStorage.setItem("accessToken", accessToken);
-          window.location.href = "/main";
+          window.location.href = "/";
         } else {
           console.log("Invalid email or password");
         }
