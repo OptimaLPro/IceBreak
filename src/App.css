@@ -68,7 +68,15 @@ body {
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-  color: rgb(255, 0, 0);
+}
+
+.titles{
+  font-size: large;
+  font-weight: bold;
+}
+
+.content h2, .content h3 {
+  color: white;
 }
 
 .bottom-button {

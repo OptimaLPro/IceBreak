@@ -9,10 +9,6 @@ const GameCard = ({ game }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleClick = (e) => {
-    if (e.target.tagName === 'BUTTON') {
-      console.log('Button clicked');
-      return;
-    }
     setIsFlipped(!isFlipped);
   }
 
@@ -52,13 +48,15 @@ const GameCard = ({ game }) => {
         </div>
 
         {/* Back side of the card */}
-        <div className={`game-card ${game.class}`} onClick={handleClick}>
+        <div className={`game-card ${game.class}`}>
           <div className="game-card-content">
             <div className="game-card-header">
               <div className="game-card-title">
                 {game.title}
               </div>
-              <Button variant="contained" color="ochre">Play!</Button>
+              <Link to={`/${game.name}/playmode`} style={{ textDecoration: 'none' }}>
+                <Button variant="contained" color="ochre">Play!</Button>
+              </Link>
             </div>
             <div className="game-card-explanation">
               {game.description}
