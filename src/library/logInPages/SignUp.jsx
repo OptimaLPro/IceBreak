@@ -14,7 +14,6 @@ import {
   inputComparison,
   inputValidator,
 } from "../../utils/inputsValidators/inputValidators.util";
-import axios from "axios";
 
 export default function SignUp() {
   const [validations, setValidations] = useState({
@@ -24,9 +23,8 @@ export default function SignUp() {
     password: "",
     confirmPassword: "",
   });
-  const [authenticated, setAuthenticated] = useState(false);
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const password = data.get("password");
@@ -43,33 +41,6 @@ export default function SignUp() {
         confirmPassword
       ),
     });
-
-    if (
-      !validations.firstName &&
-      !validations.lastName &&
-      !validations.email &&
-      !validations.password &&
-      !validations.confirmPassword
-    ) {
-      try {
-        // Make POST request using Axios
-        const response = await axios
-          .post("http://localhost:8080/users/createUser", {
-            firstName: data.get("firstName"),
-            lastName: data.get("lastName"),
-            email: data.get("email"),
-            password: data.get("password"),
-            confirmPassword: data.get("confirmPassword"),
-          })
-          .then(() => {
-            setAuthenticated(true);
-            window.location.href = "/signin";
-          });
-        console.log(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    }
   };
 
   return (

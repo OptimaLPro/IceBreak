@@ -1,6 +1,7 @@
 body {
-  font-family: "Nunito Sans Variable", sans-serif;
+  font-family: 'Nunito Sans Variable', sans-serif;
   background-color: black;
+
 }
 
 .search {
@@ -10,6 +11,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #ff0000;
+
 }
 
 .autocomplete-wrapper {
@@ -37,9 +39,22 @@ body {
 }
 
 .main-page {
+  margin-bottom: 30px;
   display: flex;
+  justify-content: center;
   flex-direction: column;
-  height: 100svh;
+  align-items: center;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .main-page {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
 }
 
 .page-title {
@@ -55,13 +70,12 @@ body {
   flex-wrap: wrap;
 }
 
-.titles {
+.titles{
   font-size: large;
   font-weight: bold;
 }
 
-.content h2,
-.content h3 {
+.content h2, .content h3 {
   color: white;
 }
 
