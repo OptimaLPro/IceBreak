@@ -12,6 +12,7 @@
   "dependencies": {
     "@dicebear/collection": "^8.0.1",
     "@dicebear/core": "^8.0.1",
+    "@egjs/react-flicking": "^4.11.2",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@fontsource-variable/montserrat": "^5.0.19",
@@ -37,7 +38,6 @@
     "react-router-dom": "^6.23.0",
     "react-tilt": "^1.0.2",
     "shortid": "^2.2.16",
-    "socket.io": "^4.7.5",
     "socket.io-client": "^4.7.5",
     "styled-components": "^6.1.8"
   },

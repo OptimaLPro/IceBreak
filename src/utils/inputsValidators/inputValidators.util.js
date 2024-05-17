@@ -17,7 +17,7 @@ export const inputsControl = {
   },
   confirmPassword: {
     regexError: "Password is under 8 characters.",
-    matchError: "Passwords aren't matching.",
+    matchError: "Password's aren't matching.",
     regex: /^.{8,}$/,
   },
 };
