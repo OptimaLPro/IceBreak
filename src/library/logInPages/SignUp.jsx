@@ -24,6 +24,7 @@ export default function SignUp() {
     password: "",
     confirmPassword: "",
   });
+  const [authenticated, setAuthenticated] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -52,16 +53,18 @@ export default function SignUp() {
     ) {
       try {
         // Make POST request using Axios
-        const response = await axios.post(
-          "http://localhost:8080/users/createUser",
-          {
+        const response = await axios
+          .post("http://localhost:8080/users/createUser", {
             firstName: data.get("firstName"),
             lastName: data.get("lastName"),
             email: data.get("email"),
             password: data.get("password"),
             confirmPassword: data.get("confirmPassword"),
-          }
-        );
+          })
+          .then(() => {
+            setAuthenticated(true);
+            window.location.href = "/signin";
+          });
         console.log(response.data);
       } catch (error) {
         console.error(error);

@@ -14,16 +14,9 @@ const SignIn = () => {
     email: "",
     password: "",
   });
-  const [authenticated, setAuthenticated] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    // If already authenticated, navigate to main page
-    if (authenticated) {
-      window.location.href = "/main";
-      return;
-    }
 
     const formData = new FormData(event.currentTarget);
     const email = formData.get("email");
@@ -43,8 +36,6 @@ const SignIn = () => {
         if (response.data) {
           const accessToken = response.data["accessToken"];
           localStorage.setItem("accessToken", accessToken);
-          setAuthenticated(true);
-          // Navigate to main page
           window.location.href = "/main";
         } else {
           console.log("Invalid email or password");
