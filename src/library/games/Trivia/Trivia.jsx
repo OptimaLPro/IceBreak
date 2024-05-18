@@ -121,7 +121,7 @@ const Trivia = ({ data, gamePIN, questionSec }) => {
 
     return (
         <div className="container">
-            {confetti && <Confetti numberOfPieces={1500} recycle={false} />}
+            {confetti && <Confetti numberOfPieces={1500} recycle={false} style={{position: 'absolute'}}/>}
             {showPreQuestion && questionIndex < data.length && (
                 <Box sx={{ width: '100%' }}>
                     <PreQuestion question={currentQuestion ? currentQuestion.question : ''}

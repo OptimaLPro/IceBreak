@@ -1,5 +1,6 @@
 import io from 'socket.io-client';
-export const socket = io('localhost:3001');
+// export const socket = io('localhost:3001');
+export const socket = io('https://icebreak-backend.onrender.com/');
 
 
 export const connectToSocket = () => {

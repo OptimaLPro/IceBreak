@@ -12,7 +12,7 @@ const MainPage = () => {
 
     useEffect(() => {
         setLoading(true);
-        axios.get('https://icebreak-backend.onrender.com/games')
+        axios.get('https://icebreak-backend.onrender.com/games/allGames')
             .then(response => {
                 setGameData(response.data);
             })
