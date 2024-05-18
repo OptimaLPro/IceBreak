@@ -1,19 +1,22 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import AnimatedPage from "../../../theme/AnimatedPage";
-import Paper from '@mui/material/Paper';
+import { micah } from '@dicebear/collection';
+import { createAvatar } from '@dicebear/core';
 import { TextField } from "@mui/material";
+import Paper from '@mui/material/Paper';
+import React, { useEffect, useState } from "react";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/themes/theme-blue.css";
-import { createAvatar } from '@dicebear/core';
-import { micah } from '@dicebear/collection';
-import { useParams } from "react-router-dom";
-import {socket} from '../../../utils/socket/socket';
+import { useNavigate, useParams } from "react-router-dom";
+import AnimatedPage from "../../../theme/AnimatedPage";
+import { roomJoined, socket } from '../../../utils/socket/socket';
 
 const NameEnter = () => {
     const [avatarSeed, setAvatarSeed] = useState(Date.now());
-    const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    const [name, setName] = useState("");
+    const [error, setError] = useState("");
+    const [randomColor, setRandomColor] = useState(Math.floor(Math.random() * 16777215).toString(16));
+    const [isDisabled, setDisabled] = useState(true);
     const gamePIN = useParams().pin;
+    const navigateTo = useNavigate();
 
     const avatar = createAvatar(micah, {
         seed: avatarSeed.toString(),
@@ -23,23 +26,37 @@ const NameEnter = () => {
 
     const handleRandomizeConfig = () => {
         setAvatarSeed(Date.now());
+        setRandomColor(Math.floor(Math.random() * 16777215).toString(16));
+    };
+
+    const handleNameChange = (e) => {
+        const value = e.target.value;
+        if (value.length < 3 || value.length > 10) {
+            setError("Name must be between 3 and 10 characters.");
+            setDisabled(true);
+        } else {
+            setError("");
+            setDisabled(false);
+        }
+        setName(value);
     };
 
     const clickHandler = () => {
-        localStorage.setItem('name', document.querySelector('input').value);
-        localStorage.setItem('avatar', avatar);
-        socket.emit('joinRoom', { gamePIN: gamePIN, name: localStorage.getItem('name'), avatar: localStorage.getItem('avatar') });
-    }
+        if (name.length >= 3 && name.length <= 10) {
+            localStorage.setItem('name', name);
+            localStorage.setItem('avatar', avatar);
+            socket.emit('joinRoom', { gamePIN: gamePIN, name: localStorage.getItem('name'), avatar: localStorage.getItem('avatar') });
+
+            navigateTo(`/${gamePIN}/waitingroom`);
+        } else {
+            setError("Name must be between 3 and 10 characters.");
+        }
+    };
 
     useEffect(() => {
-        socket.on('roomJoined', (data) => {
-            if (data) {
-                console.log('Room joined successfully');
-            } else {
-                console.log('Room not joined');
-            }
-        });
-    } );
+        setRandomColor(Math.floor(Math.random() * 16777215).toString(16));
+        roomJoined();
+    }, []);
 
     return (
         <AnimatedPage>
@@ -58,12 +75,18 @@ const NameEnter = () => {
                     <AwesomeButton size="small" type="secondary" style={{ width: '87%', marginBottom: '20px' }} onPress={handleRandomizeConfig}>Random Avatar 🎲</AwesomeButton>
 
                     <div style={{ width: '100%', marginBottom: '20px', marginTop: '10px' }}>
-                        <TextField id="outlined-basic" label="Enter Your Name" variant="outlined" value={"Ron"}fullWidth />
+                        <TextField
+                            id="outlined-basic"
+                            label="Enter Your Name"
+                            variant="outlined"
+                            value={name}
+                            onChange={handleNameChange}
+                            error={!!error}
+                            helperText={error === "" ? "Name must be between 3 and 10 characters." : error}
+                            fullWidth />
                     </div>
                     <div className="bottom-button" style={{ width: '100%', maxWidth: '500px' }}>
-                        <Link to={`/${useParams().pin}/waitingroom`}>
-                            <AwesomeButton type="primary" onPress={clickHandler} style={{ width: '100%', maxWidth: '500px' }}>Done!</AwesomeButton>
-                        </Link>
+                        <AwesomeButton type="primary" disabled={isDisabled} onPress={clickHandler} style={{ width: '100%', maxWidth: '500px' }}>Done!</AwesomeButton>
                     </div>
                 </Paper>
             </div>

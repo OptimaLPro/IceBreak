@@ -1,27 +1,17 @@
-import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import Fab from '@mui/material/Fab';
-import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
-import Badge from '@mui/material/Badge';
-import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import MailIcon from '@mui/icons-material/Mail';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MoreIcon from '@mui/icons-material/MoreVert';
-import { Twirl as Hamburger } from 'hamburger-react';
-import BurgerMenu from './components/BurgerMenu';
-import Logo from '../../assets/images/LogoResize.png';
+import MenuItem from '@mui/material/MenuItem';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import { alpha, styled } from '@mui/material/styles';
+import * as React from 'react';
 import { Link } from 'react-router-dom';
-
-
+import Logo from '../../assets/images/LogoResize.png';
+import BurgerMenu from './components/BurgerMenu';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',

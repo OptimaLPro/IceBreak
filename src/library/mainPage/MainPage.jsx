@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
-import AnimatedPage from '../../theme/AnimatedPage';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import 'react-awesome-button/dist/styles.css';
 import '../../assets/css/Awesome_Buttons.css';
-import GameCard from './components/GameCard';
-import axios from 'axios';
+import AnimatedPage from '../../theme/AnimatedPage';
 import Loading from '../games/genericPages/components/Loading';
+import GameCard from './components/GameCard';
 
 const MainPage = () => {
     const [gameData, setGameData] = useState([]);

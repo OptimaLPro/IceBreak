@@ -26,11 +26,11 @@
     color: black;
 }
 
-/* @media (min-width: 768px) {
+@media (min-width: 600px) {
     .list-wrapper {
-        width: 40%;
+        width: 60%;
     }
-} */
+}
 
 .game-end {
     width: 70%;

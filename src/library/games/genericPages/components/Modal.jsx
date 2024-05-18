@@ -1,8 +1,8 @@
-import * as React from 'react';
-import Modal from '@mui/material/Modal';
-import Fade from '@mui/material/Fade';
 import Box from '@mui/material/Box';
+import Fade from '@mui/material/Fade';
+import Modal from '@mui/material/Modal';
 import Typography from '@mui/material/Typography';
+import * as React from 'react';
 import { AwesomeButton } from 'react-awesome-button';
 
 const style = {

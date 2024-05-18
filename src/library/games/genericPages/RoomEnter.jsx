@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
-import AnimatedPage from "../../../theme/AnimatedPage";
-import Paper from '@mui/material/Paper';
 import { TextField } from "@mui/material";
+import Paper from '@mui/material/Paper';
+import { useEffect, useState } from "react";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/themes/theme-blue.css";
-import CustomModal from './components/Modal';
 import { useNavigate } from "react-router-dom";
+import AnimatedPage from "../../../theme/AnimatedPage";
 import * as socketFunctions from '../../../utils/socket/socket';
+import CustomModal from './components/Modal';
 
 const RoomEnter = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +17,9 @@ const RoomEnter = () => {
     };
 
     const clickHandler = () => {
-        socketFunctions.checkRoom(document.querySelector('input').value);
+        const input = document.querySelector('input').value;
+        console.log(input.toUpperCase());
+        socketFunctions.checkRoom(input.toUpperCase());
     };
 
     useEffect(() => {
@@ -25,7 +27,7 @@ const RoomEnter = () => {
             if (!data) {
                 setIsOpen(true);
             } else {
-                navigate(`/${document.querySelector('input').value}/nameenter`);
+                navigate(`/${document.querySelector('input').value.toUpperCase()}/nameenter`);
             }
         });
     }, [navigate]);

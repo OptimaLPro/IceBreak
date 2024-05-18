@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react'
-import { CountdownCircleTimer } from 'react-countdown-circle-timer'
+import React, { useRef, useState } from 'react';
+import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import '../../../../assets/css/Countdown.css';
 
 const CountdownCounter = ({ duration, size, isComplete, setIsComplete, onCompleteState }) => {

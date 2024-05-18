@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
 import { Button } from '@mui/material';
+import React, { useState } from 'react';
 import ReactCardFlip from "react-card-flip";
-import { Tilt } from 'react-tilt'
 import { Link } from 'react-router-dom';
+import { Tilt } from 'react-tilt';
 import '../mainPage.css';
 
 const GameCard = ({ game }) => {
@@ -54,9 +54,15 @@ const GameCard = ({ game }) => {
               <div className="game-card-title">
                 {game.title}
               </div>
-              <Link to={`/${game.name}/playmode`} style={{ textDecoration: 'none' }}>
-                <Button variant="contained" color="ochre">Play!</Button>
-              </Link>
+              {game.active && (
+                <Link to={`/${game.name}/playmode`} style={{ textDecoration: 'none' }}>
+                  <Button variant="contained" color="ochre">Play!</Button>
+                </Link>
+              )}
+              {!game.active && (
+                <span className='coming-soon'>Coming Soon!</span>
+              )}
+
             </div>
             <div className="game-card-explanation">
               {game.description}

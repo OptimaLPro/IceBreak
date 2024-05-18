@@ -39,9 +39,7 @@ export const joinRoom = (gamePIN, name, avatar) => {
 
 export const roomJoined = () => {
     socket.on('roomJoined', (data) => {
-        if (data) {
-            console.log('Room joined successfully');
-        } else {
+        if (!data) {
             console.log('Room not joined');
         }
     });

@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import AnimatedPage from "../../../theme/AnimatedPage";
-import { AwesomeButton } from "react-awesome-button";
-import "./genericPages.css";
 import axios from "axios";
+import React, { useState } from "react";
+import { AwesomeButton } from "react-awesome-button";
+import { useNavigate, useParams } from "react-router-dom";
+import AnimatedPage from "../../../theme/AnimatedPage";
 import { socket } from "../../../utils/socket/socket.js";
-import { useNavigate } from "react-router-dom";
 import Loading from "./components/Loading.jsx";
+import "./genericPages.css";
 
 const GameType = () => {
     const [loading, setLoading] = useState(false);
@@ -18,10 +17,8 @@ const GameType = () => {
     };
 
     const selectType = (e) => {
-        console.log(e);
         setLoading(true);
         let buttonText;
-        console.log(e.target.tagName);
         if (e.target.tagName === 'IMG') {
             const siblingSpan = e.target.nextSibling;
             buttonText = siblingSpan.textContent.toLowerCase().replace(/\s+/g, '-');
@@ -30,13 +27,11 @@ const GameType = () => {
             buttonText = e.target.textContent.toLowerCase().replace(/\s+/g, '-');
         }
 
-        console.log(buttonText);
         const apiUrl = `https://icebreak-backend.onrender.com/${game}/triviaByTag/${buttonText}`;
 
         axios.get(apiUrl)
             .then(response => {
                 const fetchedQuestions = response.data;
-                console.log(fetchedQuestions);
                 socket.emit('sendRoomData', { fetchedQuestions })
             })
             .catch(error => {

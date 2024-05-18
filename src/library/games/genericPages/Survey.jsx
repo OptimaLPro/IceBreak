@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import './genericPages.css';
-import Slider from "@mui/material/Slider";
 import { MenuItem, Paper, Select } from '@mui/material';
-import { Link } from 'react-router-dom';
+import Slider from "@mui/material/Slider";
+import React, { useState } from 'react';
 import { AwesomeButton } from 'react-awesome-button';
+import { Link } from 'react-router-dom';
 import AnimatedPage from '../../../theme/AnimatedPage';
+import './genericPages.css';
 
 const Survey = () => {
     const [numPlayers, setNumPlayers] = useState(0);

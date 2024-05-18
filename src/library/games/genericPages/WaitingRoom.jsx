@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { InfinitySpin } from 'react-loader-spinner';
-import AnimatedPage from "../../../theme/AnimatedPage";
-import { useNavigate, useParams } from 'react-router-dom';
 import { Paper } from '@mui/material';
+import React, { useEffect, useState } from 'react';
 import { AwesomeButton } from 'react-awesome-button';
+import { InfinitySpin } from 'react-loader-spinner';
+import { useNavigate, useParams } from 'react-router-dom';
+import AnimatedPage from "../../../theme/AnimatedPage";
 import { socket } from '../../../utils/socket/socket';
 import CountdownCounter from './components/CountdownCounter';
 
@@ -19,7 +19,6 @@ const WaitingRoom = () => {
         socket.emit('getPlayers', { gamePIN });
 
         socket.on('playersData', (data) => {
-            console.log('Received players data:', data);
             setPlayers(data.players);
         });
     };
@@ -38,12 +37,10 @@ const WaitingRoom = () => {
 
     useEffect(() => {
         socket.on('playerJoined', (data) => {
-            console.log('Player joined:', data.name);
             setPlayers((prevPlayers) => [...prevPlayers, data]);
         });
 
         socket.on('playerLeft', (data) => {
-            console.log('Player left:', data.name);
             setPlayers((prevPlayers) =>
                 prevPlayers.filter((player) => player.id !== data.id)
             );
@@ -57,7 +54,6 @@ const WaitingRoom = () => {
         });
 
         socket.on('gameStarted', (data) => {
-            console.log('Game starting:', data);
             setGameStarting(data);
         });
 
@@ -69,13 +65,13 @@ const WaitingRoom = () => {
 
     return (
         <AnimatedPage>
-            {!gameStarting ? (<div className="content">
+            {!gameStarting ? (<div className="content" style={{ height: '100svh', justifyContent: 'flex-start' }}>
                 <Paper elevation={8} sx={{
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
-                    padding: '0px 30px 0px 30px',
-                    margin: '20px 0px 20px 0px',
+                    padding: '0px 25px 0px 25px',
+                    margin: '0px 0px 20px 0px',
                     borderRadius: '15px'
                 }}>
                     <h1>Game PIN: {gamePIN}</h1>
@@ -109,12 +105,13 @@ const WaitingRoom = () => {
                     </div>
                 )}
             </div>) : (
-                <div className="content">
+                <div className="content" style={{ height: '100svh', justifyContent: 'flex-start' }}>
                     <h1 style={{ color: 'white', marginBottom: '100px' }}>The game is starting in</h1>
-                    <CountdownCounter duration={1} size={180} onCompleteState={onCompleteHandler} />
+                    <CountdownCounter duration={3} size={180} onCompleteState={onCompleteHandler} />
                 </div>
-            )}
-        </AnimatedPage>
+            )
+            }
+        </AnimatedPage >
     );
 };
 

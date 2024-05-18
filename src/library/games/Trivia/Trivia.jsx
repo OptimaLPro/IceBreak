@@ -1,16 +1,14 @@
+import { Box } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { AwesomeButton } from 'react-awesome-button';
-import './Trivia.css';
-import "../../../assets/css/Awesome_Buttons.css"
-import CountdownCounter from '../genericPages/components/CountdownCounter.jsx';
-import Confetti from 'react-confetti'
-import PreQuestion from './components/PreQuestion.jsx';
-import { Box } from '@mui/material';
-import GameEnd from '../gamePlayPages/GameEnd.jsx';
+import Confetti from 'react-confetti';
+import "../../../assets/css/Awesome_Buttons.css";
 import { socket } from '../../../utils/socket/socket.js';
+import GameEnd from '../gamePlayPages/GameEnd.jsx';
 import ScoreTable from '../gamePlayPages/ScoreTable.jsx';
-import { delay } from 'framer-motion';
-import { WifiLock } from '@mui/icons-material';
+import CountdownCounter from '../genericPages/components/CountdownCounter.jsx';
+import './Trivia.css';
+import PreQuestion from './components/PreQuestion.jsx';
 
 const Trivia = ({ data, gamePIN, questionSec }) => {
     const defaultButtonColors = ['green', 'purple', 'pink', 'orange'];
