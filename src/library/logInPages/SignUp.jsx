@@ -15,6 +15,7 @@ import {
   inputValidator,
 } from "../../utils/inputsValidators/inputValidators.util";
 import axios from "axios";
+import { AwesomeButton } from "react-awesome-button";
 
 export default function SignUp() {
   const [validations, setValidations] = useState({
@@ -73,14 +74,23 @@ export default function SignUp() {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container
+      component="main"
+      maxWidth="xs"
+      sx={{
+        height: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <CssBaseline />
       <Box
         sx={{
-          marginTop: 8,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          width: "100%",
         }}
       >
         <Typography component="h1" variant="h5">
@@ -152,14 +162,13 @@ export default function SignUp() {
               />
             </Grid>
           </Grid>
-          <Button
+          <AwesomeButton
             type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
+            className="aws-btn--blue"
+            style={{ width: "100%" }}
           >
             Sign Up
-          </Button>
+          </AwesomeButton>
           <Grid container justifyContent="flex-end">
             <Grid item>
               <Link href="./signin" variant="body2">

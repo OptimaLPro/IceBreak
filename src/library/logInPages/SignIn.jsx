@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import { inputValidator } from "../../utils/inputsValidators/inputValidators.util";
 import axios from "axios";
+import React, { useState } from "react";
+import { AwesomeButton } from "react-awesome-button";
+import { inputValidator } from "../../utils/inputsValidators/inputValidators.util";
+import { inputStyle } from "../../theme/gerenalTheme";
 
 const SignIn = () => {
   const [validations, setValidations] = useState({
@@ -36,7 +36,7 @@ const SignIn = () => {
         if (response.data) {
           const accessToken = response.data["accessToken"];
           localStorage.setItem("accessToken", accessToken);
-          window.location.href = "/main";
+          window.location.href = "/";
         } else {
           console.log("Invalid email or password");
         }
@@ -47,7 +47,15 @@ const SignIn = () => {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container
+      component="main"
+      maxWidth="xs"
+      sx={{
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
       <CssBaseline />
       <Box
         sx={{
@@ -57,10 +65,16 @@ const SignIn = () => {
           alignItems: "center",
         }}
       >
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" className="sign-in-title">
           Sign in
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+        <Box
+          component="form"
+          onSubmit={handleSubmit}
+          noValidate
+          sx={{ mt: 1 }}
+          className="sign-in-title"
+        >
           <TextField
             margin="normal"
             required
@@ -85,14 +99,13 @@ const SignIn = () => {
             error={!!validations.password}
             helperText={validations.password}
           />
-          <Button
+          <AwesomeButton
             type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
+            className="aws-btn--blue"
+            style={{ width: "100%" }}
           >
             Sign In
-          </Button>
+          </AwesomeButton>
         </Box>
       </Box>
     </Container>

@@ -17,3 +17,9 @@ export const theme = createTheme({
       },
     },
   });
+
+  export const inputStyle = {
+    style: { color: "white" },
+  };
+
+    
