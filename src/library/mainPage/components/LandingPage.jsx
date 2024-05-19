@@ -22,7 +22,7 @@ const LandingPage = ({ setShowLandingPage }) => {
             <div className="background-landing"></div>
             {videoLoading && <div className='loader-landing'><InfinitySpin height={100} width={200} color="white" ariaLabel="loading"
             /></div>}
-            <video autoPlay loop muted className="bg-vid" onLoadedData={handleVideoLoad}>
+            <video autoPlay loop muted playsInline className="bg-vid" onLoadedData={handleVideoLoad}>
                 <source src={BgVideo} type="video/mp4" />
             </video>
             {!videoLoading &&
