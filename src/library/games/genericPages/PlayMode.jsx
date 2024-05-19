@@ -1,6 +1,6 @@
+import { AwesomeButton } from "react-awesome-button";
 import { Link, useParams } from "react-router-dom";
 import AnimatedPage from "../../../theme/AnimatedPage";
-import { AwesomeButton } from "react-awesome-button";
 
 const PlayMode = () => {
     const { game } = useParams();

@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react'
-import { CountdownCircleTimer } from 'react-countdown-circle-timer'
+import React, { useRef, useState } from 'react';
+import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import '../../../../assets/css/Countdown.css';
 
 const CountdownCounter = ({ duration, size, isComplete, setIsComplete, onCompleteState }) => {
@@ -46,20 +46,18 @@ const CountdownCounter = ({ duration, size, isComplete, setIsComplete, onComplet
     const colorsTime = duration === 15 ? [15, 10, 5, 0] : defaultColorsTime;
 
     return (
-        <>
-            <div className='timer-wrapper'>
-                <CountdownCircleTimer
-                    isPlaying
-                    duration={duration}
-                    colors={['#44ce1b', '#f7e379', '#f2a134', '#e51f1f']}
-                    colorsTime={colorsTime}
-                    size={size}
-                    onComplete={onCompleteState}
-                >
-                    {renderTime}
-                </CountdownCircleTimer>
-            </div>
-        </>
+        <div className='timer-wrapper'>
+            <CountdownCircleTimer
+                isPlaying
+                duration={duration}
+                colors={['#44ce1b', '#f7e379', '#f2a134', '#e51f1f']}
+                colorsTime={colorsTime}
+                size={size}
+                onComplete={onCompleteState}
+            >
+                {renderTime}
+            </CountdownCircleTimer>
+        </div>
     );
 }
 

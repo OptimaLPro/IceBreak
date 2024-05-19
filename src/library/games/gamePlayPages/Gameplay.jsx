@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Trivia from "../Trivia/Trivia";
 import { useParams } from "react-router-dom";
 import { socket } from "../../../utils/socket/socket";
+import Trivia from "../Trivia/Trivia";
 
 const Gameplay = () => {
     const [data, setData] = useState({});
@@ -12,7 +12,6 @@ const Gameplay = () => {
     useEffect(() => {
         socket.emit('getRoomData', { gamePIN: pin });
         const handleRoomData = (data) => {
-            console.log('Room data:', data);
             setData(data);
             setIsLoaded(true);
         };
