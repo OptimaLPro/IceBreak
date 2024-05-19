@@ -22,7 +22,14 @@ const LandingPage = ({ setShowLandingPage }) => {
             <div className="background-landing"></div>
             {videoLoading && <div className='loader-landing'><InfinitySpin height={100} width={200} color="white" ariaLabel="loading"
             /></div>}
-            <video autoPlay loop muted className="bg-vid" onLoadedData={handleVideoLoad}>
+            <video
+                autoPlay
+                loop
+                muted
+                className="bg-vid"
+                onLoadedData={handleVideoLoad}
+                preload="auto"
+            >
                 <source src={BgVideo} type="video/mp4" />
             </video>
             {!videoLoading &&
@@ -32,7 +39,9 @@ const LandingPage = ({ setShowLandingPage }) => {
                         <img src={Logo} alt="logo" width={300} />
                     </div>
                     <div className="landing-button">
-                        <AwesomeButton type="primary" size="large" onPress={handleButtonClick}><div className='landing-button-text'> Let's Play</div></AwesomeButton>
+                        <AwesomeButton type="primary" size="large" onPress={handleButtonClick}>
+                            <div className='landing-button-text'>Let's Play</div>
+                        </AwesomeButton>
                     </div>
                 </div>}
         </>
