@@ -15,8 +15,6 @@ import { inputValidator } from "../../utils/inputsValidators/inputValidators.uti
 import AnimatedPage from "../../theme/AnimatedPage";
 
 const SignIn = () => {
-  // const classes = useStyles();
-
   const [validations, setValidations] = useState({
     email: "",
     password: "",
@@ -85,7 +83,30 @@ const SignIn = () => {
               autoFocus
               error={!!validations.email}
               helperText={validations.email}
-              // classes={{ root: classes.container }}
+              sx={{
+                position: "relative",
+                "& .MuiInputBase-root": {
+                  backgroundColor: "white",
+                },
+                "& .MuiOutlinedInput-root": {
+                  position: "relative",
+                  "&:hover fieldset": {
+                    borderColor: "white",
+                  },
+                  "&.Mui-focused fieldset": {
+                    borderColor: "white",
+                  },
+                },
+                "& .MuiInputLabel-root.Mui-focused": {
+                  position: "relative",
+                  transform: "translateX(14px) scale(0.75)",
+                  color: "white",
+                  backgroundColor: "transparent",
+                },
+                "& .MuiInputBase-input": {
+                  color: "black",
+                },
+              }}
             />
 
             <TextField
@@ -99,9 +120,31 @@ const SignIn = () => {
               autoComplete="current-password"
               error={!!validations.password}
               helperText={validations.password}
-              // classes={{ root: classes.container }}
+              sx={{
+                position: "relative",
+                "& .MuiInputBase-root": {
+                  backgroundColor: "white",
+                },
+                "& .MuiOutlinedInput-root": {
+                  position: "relative",
+                  "&:hover fieldset": {
+                    borderColor: "white",
+                  },
+                  "&.Mui-focused fieldset": {
+                    borderColor: "white",
+                  },
+                },
+                "& .MuiInputLabel-root.Mui-focused": {
+                  position: "relative",
+                  transform: "translateX(14px) scale(0.75)",
+                  color: "white",
+                  backgroundColor: "transparent",
+                },
+                "& .MuiInputBase-input": {
+                  color: "black",
+                },
+              }}
             />
-
             <Box
               sx={{
                 display: "flex",
