@@ -53,7 +53,7 @@ export default function PrimarySearchAppBar() {
     >
 
       <StyledMenuItem component={Link} to="/profile">Profile</StyledMenuItem>
-      <StyledMenuItem component={Link} to="/account">My account</StyledMenuItem>
+      <StyledMenuItem component={Link} to="/signin">Sign In</StyledMenuItem>
     </Menu>
   );
 
@@ -74,7 +74,7 @@ export default function PrimarySearchAppBar() {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Sign In</MenuItem>
     </Menu>
   );
 
