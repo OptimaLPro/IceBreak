@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
 import Avatar from "@mui/material/Avatar";
-import { AwesomeButton } from 'react-awesome-button';
+import React, { useEffect, useState } from "react";
 import 'react-awesome-button/dist/styles.css';
+import AnimatedPage from "../../theme/AnimatedPage";
 import FixedBottomNavigation from "./components/FixedBottomNavigation";
 import "./profilePage.css";
-import AnimatedPage from "../../theme/AnimatedPage";
 import { getUserData } from "./userData";
-import { Favorite } from "@mui/icons-material";
 
 const ProfilePage = () => {
   const [userData, setUserData] = useState({

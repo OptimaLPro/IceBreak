@@ -9,7 +9,7 @@ import {
 import axios from "axios";
 import React, { useState } from "react";
 import { AwesomeButton } from "react-awesome-button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../assets/css/loginPages.css";
 import AnimatedPage from "../../theme/AnimatedPage";
 import {
@@ -18,6 +18,7 @@ import {
 } from "../../utils/inputsValidators/inputValidators.util";
 
 export default function SignUp() {
+  const navigateTo = useNavigate();
   const [validations, setValidations] = useState({
     firstName: "",
     lastName: "",
@@ -25,7 +26,6 @@ export default function SignUp() {
     password: "",
     confirmPassword: "",
   });
-  const [authenticated, setAuthenticated] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -63,8 +63,7 @@ export default function SignUp() {
             confirmPassword: data.get("confirmPassword"),
           })
           .then(() => {
-            setAuthenticated(true);
-            window.location.href = "/signin";
+            navigateTo("/signin");
           });
         console.log(response.data);
       } catch (error) {
