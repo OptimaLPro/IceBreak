@@ -53,9 +53,9 @@ import dummyData from "../dummyData";
         <List>
           {dummyData[value].map(({ gameName, description, image }, index) => (
             <ListItemButton key={index + gameName}>
-              <ListItemAvatar>
+              {/* <ListItemAvatar>
                 <Avatar alt="Profile Picture" src={image} />
-              </ListItemAvatar>
+              </ListItemAvatar> */}
               <ListItemText primary={gameName} secondary={description} />
             </ListItemButton>
           ))}
@@ -64,7 +64,5 @@ import dummyData from "../dummyData";
     </>
   );
 }
-
-
 
 export default FixedBottomNavigation;
