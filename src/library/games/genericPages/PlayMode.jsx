@@ -30,7 +30,7 @@ const PlayMode = () => {
                 <h1 className="page-title">What you wanna do?</h1>
                 <div style={{ marginTop: '50px' }}>
                     <Link to={`/enter`}>
-                        <AwesomeButton type="pink" className="playmode" onPress={() => clickHandler()}>🔗 Join Game</AwesomeButton>
+                        <AwesomeButton type="pink" className="playmode" >🔗 Join Game</AwesomeButton>
                     </Link>
                     <AwesomeButton type="orange" className="playmode" onPress={() => clickHandler()} >➕ Create Game</AwesomeButton>
                 </div>
