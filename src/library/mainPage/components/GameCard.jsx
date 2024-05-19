@@ -2,7 +2,6 @@ import { Button } from '@mui/material';
 import React, { useState } from 'react';
 import ReactCardFlip from "react-card-flip";
 import { Link } from 'react-router-dom';
-import { Tilt } from 'react-tilt';
 import '../mainPage.css';
 
 const GameCard = ({ game }) => {
@@ -25,52 +24,50 @@ const GameCard = ({ game }) => {
   }
 
   return (
-    <Tilt options={defaultOptions}>
-      <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
-        {/* Front side of the card */}
-        <div className={`game-card ${game.class}`} onClick={handleClick}>
-          <div className="game-card-content">
+    <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
+      {/* Front side of the card */}
+      <div className={`game-card ${game.class}`} onClick={handleClick}>
+        <div className="game-card-content">
+          <div className="game-card-title">
+            {game.title}
+          </div>
+          <div className="game-card-img" style={{ overflow: 'visible' }}>
+            <img
+              src={game.image}
+              alt={game.title}
+              className={game.name}
+              loading="lazy"
+            />
+          </div>
+          <div className="game-card-text">
+            {game.trailer}
+          </div>
+        </div>
+      </div>
+
+      {/* Back side of the card */}
+      <div className={`game-card ${game.class}`}>
+        <div className="game-card-content">
+          <div className="game-card-header">
             <div className="game-card-title">
               {game.title}
             </div>
-            <div className="game-card-img" style={{ overflow: 'visible' }}>
-              <img
-                src={game.image}
-                alt={game.title}
-                className={game.name}
-                loading="lazy"
-              />
-            </div>
-            <div className="game-card-text">
-              {game.trailer}
-            </div>
+            {game.active && (
+              <Link to={`/${game.name}/playmode`} style={{ textDecoration: 'none' }}>
+                <Button variant="contained" color="ochre">Play!</Button>
+              </Link>
+            )}
+            {!game.active && (
+              <span className='coming-soon'>Coming Soon!</span>
+            )}
+
+          </div>
+          <div className="game-card-explanation">
+            {game.description}
           </div>
         </div>
-
-        {/* Back side of the card */}
-        <div className={`game-card ${game.class}`}>
-          <div className="game-card-content">
-            <div className="game-card-header">
-              <div className="game-card-title">
-                {game.title}
-              </div>
-              {game.active && (
-                <Link to={`/${game.name}/playmode`} style={{ textDecoration: 'none' }}>
-                  <Button variant="contained" color="ochre">Play!</Button>
-                </Link>
-              )}
-              {!game.active && (
-                <span className='coming-soon'>Coming Soon!</span>
-              )}
-
-            </div>
-            <div className="game-card-explanation">
-              {game.description}
-            </div>
-          </div>
-        </div>
-      </ReactCardFlip>
-    </Tilt>
+      </div>
+    </ReactCardFlip>
   );
 }
 

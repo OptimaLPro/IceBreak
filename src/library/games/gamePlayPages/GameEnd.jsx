@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { socket } from "../../../utils/socket/socket";
 import ScoreTable from "./ScoreTable";
 
-const GameEnd = ({ gamePIN }) => {
+const GameEnd = ({ gamePIN, playersScore }) => {
     useEffect(() => {
         socket.emit('checkRoomOwner', { gamePIN });
 
@@ -20,27 +20,25 @@ const GameEnd = ({ gamePIN }) => {
         };
     }, [gamePIN]);
     return (
-        <>
-            <div className="game-end">
-                <Confetti
-                    drawShape={ctx => {
-                        ctx.beginPath()
-                        for (let i = 0; i < 22; i++) {
-                            const angle = 0.35 * i
-                            const x = (0.2 + (1.5 * angle)) * Math.cos(angle)
-                            const y = (0.2 + (1.5 * angle)) * Math.sin(angle)
-                            ctx.lineTo(x, y)
-                        }
-                        ctx.stroke()
-                        ctx.closePath()
-                    }}
-                />
-                <Link to="/">
-                    <AwesomeButton type="primary" className="aws-btn--orange">Back Home</AwesomeButton>
-                </Link>
-                <ScoreTable gamePIN={gamePIN} />
-            </div>
-        </>
+        <div className="game-end">
+            <Confetti
+                drawShape={ctx => {
+                    ctx.beginPath()
+                    for (let i = 0; i < 22; i++) {
+                        const angle = 0.35 * i
+                        const x = (0.2 + (1.5 * angle)) * Math.cos(angle)
+                        const y = (0.2 + (1.5 * angle)) * Math.sin(angle)
+                        ctx.lineTo(x, y)
+                    }
+                    ctx.stroke()
+                    ctx.closePath()
+                }}
+            />
+            <Link to="/">
+                <AwesomeButton type="primary" className="aws-btn--orange">Back Home</AwesomeButton>
+            </Link>
+            <ScoreTable playersScore={playersScore} />
+        </div>
     );
 }
 

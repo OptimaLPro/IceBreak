@@ -1,19 +1,8 @@
 import { Divider, List, ListItem, ListItemAvatar, ListItemText } from '@mui/material';
-import React, { useEffect, useState } from 'react';
-import { socket } from '../../../utils/socket/socket';
+import React from 'react';
 import './gamePlay.css';
 
-const ScoreTable = ({ gamePIN }) => {
-    const [playersScore, setPlayersScore] = useState([]);
-
-    useEffect(() => {
-        socket.emit('getPlayersScore', { gamePIN });
-
-        socket.on('resPlayersScore', (data) => {
-            setPlayersScore(data);
-        });
-    }, []);
-
+const ScoreTable = ({ playersScore }) => {
     return (
         <div className="score-table-container">
             <div>
@@ -22,7 +11,7 @@ const ScoreTable = ({ gamePIN }) => {
             <div className="list-wrapper">
                 <List sx={{ width: '100%', '& .MuiListItemText-primary': { fontWeight: 'bold', fontSize: '20px', textAlign: 'center' } }}>
                     {playersScore.map((player, index) => (<>
-                        <ListItem className='players-list' key={index} >
+                        <ListItem className='players-list' key={player.avatar} >
                             <ListItemAvatar>
                                 <img src={player.avatar} alt="Avatar" className='avatar-img' />
                             </ListItemAvatar>

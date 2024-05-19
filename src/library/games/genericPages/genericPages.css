@@ -3,7 +3,6 @@
 .survey-wrapper {
     text-align: center;
     margin-top: 100px;
-    /* Adjust as needed */
 }
 
 .survey-header {
@@ -30,7 +29,6 @@
 
 .slider {
     width: 300px;
-    /* Adjust width as needed */
     margin-bottom: 10px;
     cursor: pointer;
 }
@@ -74,17 +72,10 @@ body h3 {
     justify-content: center;
     align-items: center;
     width: 100%;
-    /* margin-top: 20px; */
 }
 
 .survey-button {
-    font-size: 5vw;
-}
-
-@media (min-width: 768px) {
-    .survey-button {
-        font-size: 2vw;
-    }
+    font-size: 20px;
 }
 
 .atmosphere-container {
@@ -116,13 +107,11 @@ body h3 {
 .buttons-div {
     display: flex;
     justify-content: center;
-    /* align-items: center; */
     flex-direction: column;
     width: 100%;
 }
 
 .aws-btn .aws-btn__content {
-    /* justify-content: space-between; */
     width: 100%;
     overflow: visible;
 
@@ -181,7 +170,6 @@ body h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin-top: 20px; */
     gap: 5px;
 }
 

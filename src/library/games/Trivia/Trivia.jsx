@@ -17,6 +17,7 @@ const Trivia = ({ data, gamePIN, questionSec }) => {
     const [disable, setDisable] = useState(false);
     const [selectedOption, setSelectedOption] = useState(-1);
     const [playerAnswer, setPlayerAnswer] = useState(null);
+    const [playersScore, setPlayersScore] = useState([]);
     const [answerIndex, setAnswerIndex] = useState(-1);
     const [buttonColors, setButtonColors] = useState(defaultButtonColors);
     const [confetti, setConfetti] = useState(false);
@@ -24,14 +25,6 @@ const Trivia = ({ data, gamePIN, questionSec }) => {
     const [currentQuestion, setCurrentQuestion] = useState(null);
     const [answer, setAnswer] = useState('');
     const [scoreTable, setScoreTable] = useState(false);
-
-    const showScoreTable = () => {
-        setScoreTable(true);
-
-        setTimeout(() => {
-            setScoreTable(false);
-        }, 4000);
-    };
 
     useEffect(() => {
         if (questionIndex === data.length) {
@@ -50,6 +43,12 @@ const Trivia = ({ data, gamePIN, questionSec }) => {
     const toggleShowPreQuestion = () => {
         setShowPreQuestion(!showPreQuestion);
     };
+
+    useEffect(() => {
+        socket.on('resPlayersScore', (data) => {
+            setPlayersScore(data);
+        });
+    }, []);
 
     const checkAnswer = (playerAnswer) => {
         let timeTaken;
@@ -90,7 +89,10 @@ const Trivia = ({ data, gamePIN, questionSec }) => {
         }
         checkAnswer(playerAnswer);
         let delayTime = 9;
-        let willRepeat = true;
+
+        setTimeout(() => {
+            socket.emit('getPlayersScore', { gamePIN });
+        }, 3000);
 
         if (!(questionIndex === data.length - 1)) {
             setTimeout(() => {
@@ -116,10 +118,9 @@ const Trivia = ({ data, gamePIN, questionSec }) => {
         return { shouldRepeat: true, delay: 5 };
     }
 
-
     return (
         <div className="container">
-            {confetti && <Confetti numberOfPieces={1500} recycle={false} style={{position: 'absolute'}}/>}
+            {confetti && <Confetti numberOfPieces={1500} recycle={false} style={{ position: 'absolute' }} />}
             {showPreQuestion && questionIndex < data.length && (
                 <Box sx={{ width: '100%' }}>
                     <PreQuestion question={currentQuestion ? currentQuestion.question : ''}
@@ -156,8 +157,8 @@ const Trivia = ({ data, gamePIN, questionSec }) => {
                     </div>
                 </div>
             </>)}
-            {questionIndex === data.length && <GameEnd gamePIN={gamePIN} />}
-            {scoreTable && <ScoreTable gamePIN={gamePIN} />}
+            {scoreTable && <ScoreTable playersScore={playersScore} />}
+            {questionIndex === data.length && <GameEnd gamePIN={gamePIN} playersScore={playersScore} />}
         </div>
     );
 };

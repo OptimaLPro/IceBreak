@@ -65,7 +65,7 @@ const WaitingRoom = () => {
 
     return (
         <AnimatedPage>
-            {!gameStarting ? (<div className="content" style={{ height: '100svh', justifyContent: 'flex-start' }}>
+            {!gameStarting ? (<div className="content" style={{ justifyContent: 'flex-start' }}>
                 <Paper elevation={8} sx={{
                     display: 'flex',
                     flexDirection: 'column',

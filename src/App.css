@@ -70,12 +70,13 @@ body {
   flex-wrap: wrap;
 }
 
-.titles{
+.titles {
   font-size: large;
   font-weight: bold;
 }
 
-.content h2, .content h3 {
+.content h2,
+.content h3 {
   color: white;
   font-size: larger;
 }
@@ -172,3 +173,4 @@ body {
     flex-direction: column;
   }
 }
+
