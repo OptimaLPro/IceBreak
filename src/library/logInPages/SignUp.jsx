@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   Container,
   CssBaseline,
   Grid,
@@ -9,13 +8,17 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
+import { AwesomeButton } from "react-awesome-button";
 import "../../assets/css/loginPages.css";
 import {
   inputComparison,
   inputValidator,
 } from "../../utils/inputsValidators/inputValidators.util";
+import { useStyles } from "./loginPagesComponents/loginPagesStyles";
 
 export default function SignUp() {
+  const classes = useStyles();
+
   const [validations, setValidations] = useState({
     firstName: "",
     lastName: "",
@@ -54,11 +57,12 @@ export default function SignUp() {
           alignItems: "center",
         }}
       >
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" className="textBox">
           Sign up
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
+            className="customTextField"
             margin="normal"
             required
             fullWidth
@@ -69,6 +73,7 @@ export default function SignUp() {
             autoFocus
             error={!!validations.firstName}
             helperText={validations.firstName}
+            classes={{ root: classes.container }}
           />
           <TextField
             margin="normal"
@@ -81,6 +86,7 @@ export default function SignUp() {
             autoFocus
             error={!!validations.lastName}
             helperText={validations.lastName}
+            classes={{ root: classes.container }}
           />
           <TextField
             margin="normal"
@@ -93,6 +99,7 @@ export default function SignUp() {
             autoFocus
             error={!!validations.email}
             helperText={validations.email}
+            classes={{ root: classes.container }}
           />
           <Grid container spacing={2} alignItems="center">
             <Grid item xs={12} sm={6}>
@@ -107,6 +114,7 @@ export default function SignUp() {
                 autoComplete="password"
                 error={!!validations.password}
                 helperText={validations.password}
+                classes={{ root: classes.container }}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -120,20 +128,26 @@ export default function SignUp() {
                 id="confirmPassword"
                 error={!!validations.confirmPassword}
                 helperText={validations.confirmPassword}
+                classes={{ root: classes.container }}
               />
             </Grid>
           </Grid>
-          <Button
+          <AwesomeButton
             type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
+            className="aws-btn--blue"
+            style={{ width: "100%" }}
           >
-            Sign Up
-          </Button>
+            Sign In
+          </AwesomeButton>
           <Grid container justifyContent="flex-end">
             <Grid item>
-              <Link href="./signin" variant="body2">
+              <Link
+                href="./signin"
+                variant="body2"
+                sx={{
+                  color: "white",
+                }}
+              >
                 Already have an account? Sign in
               </Link>
             </Grid>

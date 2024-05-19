@@ -1,13 +1,22 @@
+import {
+  Box,
+  Container,
+  CssBaseline,
+  Grid,
+  Link,
+  TextField,
+  Typography,
+} from "@mui/material";
+import axios from "axios";
 import React, { useState } from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
+import { AwesomeButton } from "react-awesome-button";
+import "react-awesome-button/dist/styles.css";
 import { inputValidator } from "../../utils/inputsValidators/inputValidators.util";
+import { useStyles } from "./loginPagesComponents/loginPagesStyles";
 
 const SignIn = () => {
+  const classes = useStyles();
+
   const [validations, setValidations] = useState({
     email: "",
     password: "",
@@ -17,11 +26,31 @@ const SignIn = () => {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
+    const email = formData.get("email");
+    const password = formData.get("password");
 
     setValidations({
-      email: inputValidator("email", formData.get("email")),
-      password: inputValidator("password", formData.get("password")),
+      email: inputValidator("email", email),
+      password: inputValidator("password", password),
     });
+
+    axios
+      .post("http://localhost:8080/users/login", {
+        email: email,
+        password: password,
+      })
+      .then((response) => {
+        if (response.data) {
+          const accessToken = response.data["accessToken"];
+          localStorage.setItem("accessToken", accessToken);
+          window.location.href = "/";
+        } else {
+          console.log("Invalid email or password");
+        }
+      })
+      .catch(() => {
+        console.error("error");
+      });
   };
 
   return (
@@ -35,7 +64,7 @@ const SignIn = () => {
           alignItems: "center",
         }}
       >
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" className="textBox">
           Sign in
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
@@ -50,7 +79,9 @@ const SignIn = () => {
             autoFocus
             error={!!validations.email}
             helperText={validations.email}
+            classes={{ root: classes.container }}
           />
+
           <TextField
             margin="normal"
             required
@@ -62,18 +93,42 @@ const SignIn = () => {
             autoComplete="current-password"
             error={!!validations.password}
             helperText={validations.password}
+            classes={{ root: classes.container }}
           />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
+
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              width: "100%",
+              mt: 2,
+            }}
           >
-            Sign In
-          </Button>
+            <AwesomeButton
+              type="submit"
+              className="aws-btn--blue"
+              style={{ width: "100%" }}
+            >
+              Sign In
+            </AwesomeButton>
+          </Box>
+          <Grid container justifyContent="flex-end">
+            <Grid item>
+              <Link
+                href="./signup"
+                variant="body2"
+                sx={{
+                  color: "white",
+                }}
+              >
+                Create an account
+              </Link>
+            </Grid>
+          </Grid>
         </Box>
       </Box>
     </Container>
   );
 };
+
 export default SignIn;
