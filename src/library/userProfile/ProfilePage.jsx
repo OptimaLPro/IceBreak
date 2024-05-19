@@ -37,7 +37,7 @@ const ProfilePage = () => {
       <AnimatedPage>
         <div className="container2">
           <div className="content">
-            <div className="avatar-container">
+            <div className="avatar-container2">
               {userData && (
                 <Avatar
                   alt={`${userData.firstName}`}
@@ -57,7 +57,7 @@ const ProfilePage = () => {
             </div>
             {userData && (
               <>
-                <p>Hello {userData.firstName}!</p>
+                <p style={{marginTop: '-20px'}}>Hello {userData.firstName}!</p>
                 <p>Email: {userData.email}</p>
               </>
             )}
