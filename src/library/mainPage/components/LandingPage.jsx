@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { AwesomeButton } from 'react-awesome-button';
 import { InfinitySpin } from 'react-loader-spinner';
 import Logo from '../../../assets/images/LogoResize.png';
