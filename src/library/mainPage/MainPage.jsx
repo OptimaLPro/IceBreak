@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import 'react-awesome-button/dist/styles.css';
 import '../../assets/css/Awesome_Buttons.css';
 import AnimatedPage from '../../theme/AnimatedPage';
@@ -10,14 +10,13 @@ import LandingPage from './components/LandingPage';
 const MainPage = () => {
     const [gameData, setGameData] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [showLandingPage, setShowLandingPage] = useState(false); // Initialize as false
+    const [showLandingPage, setShowLandingPage] = useState(false);
 
     useEffect(() => {
-        // Check if the landing page has been shown before
         const hasShownLandingPage = sessionStorage.getItem('hasShownLandingPage');
         if (!hasShownLandingPage) {
-            setShowLandingPage(true); // Show the landing page
-            sessionStorage.setItem('hasShownLandingPage', 'true'); // Set the flag
+            setShowLandingPage(true);
+            sessionStorage.setItem('hasShownLandingPage', 'true');
         }
 
         setLoading(true);
