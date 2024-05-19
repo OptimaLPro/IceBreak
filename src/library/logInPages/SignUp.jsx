@@ -79,7 +79,30 @@ export default function SignUp() {
               autoFocus
               error={!!validations.firstName}
               helperText={validations.firstName}
-              // classes={{ root: classes.container }}
+              sx={{
+                position: "relative",
+                "& .MuiInputBase-root": {
+                  backgroundColor: "white",
+                },
+                "& .MuiOutlinedInput-root": {
+                  position: "relative",
+                  "&:hover fieldset": {
+                    borderColor: "white",
+                  },
+                  "&.Mui-focused fieldset": {
+                    borderColor: "white",
+                  },
+                },
+                "& .MuiInputLabel-root.Mui-focused": {
+                  position: "relative",
+                  transform: "translateX(14px) scale(0.75)",
+                  color: "white",
+                  backgroundColor: "transparent",
+                },
+                "& .MuiInputBase-input": {
+                  color: "black",
+                },
+              }}
             />
             <TextField
               margin="normal"
@@ -92,7 +115,30 @@ export default function SignUp() {
               autoFocus
               error={!!validations.lastName}
               helperText={validations.lastName}
-              // classes={{ root: classes.container }}
+              sx={{
+                position: "relative",
+                "& .MuiInputBase-root": {
+                  backgroundColor: "white",
+                },
+                "& .MuiOutlinedInput-root": {
+                  position: "relative",
+                  "&:hover fieldset": {
+                    borderColor: "white",
+                  },
+                  "&.Mui-focused fieldset": {
+                    borderColor: "white",
+                  },
+                },
+                "& .MuiInputLabel-root.Mui-focused": {
+                  position: "relative",
+                  transform: "translateX(14px) scale(0.75)",
+                  color: "white",
+                  backgroundColor: "transparent",
+                },
+                "& .MuiInputBase-input": {
+                  color: "black",
+                },
+              }}
             />
             <TextField
               margin="normal"
@@ -105,7 +151,30 @@ export default function SignUp() {
               autoFocus
               error={!!validations.email}
               helperText={validations.email}
-              // classes={{ root: classes.container }}
+              sx={{
+                position: "relative",
+                "& .MuiInputBase-root": {
+                  backgroundColor: "white",
+                },
+                "& .MuiOutlinedInput-root": {
+                  position: "relative",
+                  "&:hover fieldset": {
+                    borderColor: "white",
+                  },
+                  "&.Mui-focused fieldset": {
+                    borderColor: "white",
+                  },
+                },
+                "& .MuiInputLabel-root.Mui-focused": {
+                  position: "relative",
+                  transform: "translateX(14px) scale(0.75)",
+                  color: "white",
+                  backgroundColor: "transparent",
+                },
+                "& .MuiInputBase-input": {
+                  color: "black",
+                },
+              }}
             />
             <TextField
               margin="normal"
@@ -118,8 +187,30 @@ export default function SignUp() {
               autoComplete="password"
               error={!!validations.password}
               helperText={validations.password}
-              // classes={{ root: classes.container }}
-              // InputProps={{ classes: { root: classes.container } }}
+              sx={{
+                position: "relative",
+                "& .MuiInputBase-root": {
+                  backgroundColor: "white",
+                },
+                "& .MuiOutlinedInput-root": {
+                  position: "relative",
+                  "&:hover fieldset": {
+                    borderColor: "white",
+                  },
+                  "&.Mui-focused fieldset": {
+                    borderColor: "white",
+                  },
+                },
+                "& .MuiInputLabel-root.Mui-focused": {
+                  position: "relative",
+                  transform: "translateX(14px) scale(0.75)",
+                  color: "white",
+                  backgroundColor: "transparent",
+                },
+                "& .MuiInputBase-input": {
+                  color: "black",
+                },
+              }}
             />
             <TextField
               margin="normal"
@@ -131,8 +222,30 @@ export default function SignUp() {
               id="confirmPassword"
               error={!!validations.confirmPassword}
               helperText={validations.confirmPassword}
-              // classes={{ root: classes.container }}
-              // InputProps={{ classes: { root: classes.container } }}
+              sx={{
+                position: "relative",
+                "& .MuiInputBase-root": {
+                  backgroundColor: "white",
+                },
+                "& .MuiOutlinedInput-root": {
+                  position: "relative",
+                  "&:hover fieldset": {
+                    borderColor: "white",
+                  },
+                  "&.Mui-focused fieldset": {
+                    borderColor: "white",
+                  },
+                },
+                "& .MuiInputLabel-root.Mui-focused": {
+                  position: "relative",
+                  transform: "translateX(14px) scale(0.75)",
+                  color: "white",
+                  backgroundColor: "transparent",
+                },
+                "& .MuiInputBase-input": {
+                  color: "black",
+                },
+              }}
             />
             <AwesomeButton type="primary" style={{ width: "100%" }}>
               Sign In
