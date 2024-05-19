@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { AwesomeButton } from 'react-awesome-button';
 import { InfinitySpin } from 'react-loader-spinner';
 import Logo from '../../../assets/images/LogoResize.png';
@@ -7,6 +7,10 @@ import "./landingPage.css";
 
 const LandingPage = ({ setShowLandingPage }) => {
     const [videoLoading, setVideoLoading] = useState(true);
+    const videoRef = useRef(undefined);
+    useEffect(() => {
+        videoRef.current.defaultMuted = true;
+    })
 
     const handleVideoLoad = () => {
         setVideoLoading(false);
@@ -26,6 +30,7 @@ const LandingPage = ({ setShowLandingPage }) => {
                 autoPlay
                 loop
                 muted
+                ref={videoRef}
                 className="bg-vid"
                 onLoadedData={handleVideoLoad}
                 preload="auto"
