@@ -52,6 +52,9 @@ export default function PrimarySearchAppBar() {
       <StyledMenuItem component={Link} to="/signin">
         Sign In
       </StyledMenuItem>
+      <StyledMenuItem component={Link} to="/signup">
+        Sign Up
+      </StyledMenuItem>
     </Menu>
   );
 

@@ -1,21 +1,21 @@
-import React, { useState } from "react";
-import { AwesomeButton } from "react-awesome-button";
 import {
   Box,
   Container,
   CssBaseline,
   Grid,
-  Link,
   TextField,
   Typography,
 } from "@mui/material";
+import axios from "axios";
+import React, { useState } from "react";
+import { AwesomeButton } from "react-awesome-button";
+import { Link } from "react-router-dom";
 import "../../assets/css/loginPages.css";
+import AnimatedPage from "../../theme/AnimatedPage";
 import {
   inputComparison,
   inputValidator,
 } from "../../utils/inputsValidators/inputValidators.util";
-import AnimatedPage from "../../theme/AnimatedPage";
-import axios from "axios";
 
 export default function SignUp() {
   const [validations, setValidations] = useState({
@@ -79,7 +79,7 @@ export default function SignUp() {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 5,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -274,13 +274,26 @@ export default function SignUp() {
                 },
               }}
             />
-            <AwesomeButton type="primary" style={{ width: "100%" }}>
-              Sign In
-            </AwesomeButton>
-            <Grid container justifyContent="flex-end">
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                width: "100%",
+              }}
+            >
+              <AwesomeButton type="primary" style={{ width: "50%", marginTop: '16px' }}>
+                Sign Up
+              </AwesomeButton>
+            </Box>
+            <Grid container justifyContent="center" sx={{ marginTop: '20px' }}>
               <Grid item>
                 <Link
-                  href="./signin"
+                  to="/signin"
+                  style={{
+                    textDecoration: "none",
+                    color: 'white',
+                    fontSize: "20px",
+                  }}
                   variant="body2"
                   sx={{
                     color: "white",

@@ -3,7 +3,6 @@ import {
   Container,
   CssBaseline,
   Grid,
-  Link,
   TextField,
   Typography,
 } from "@mui/material";
@@ -13,7 +12,7 @@ import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 import { inputValidator } from "../../utils/inputsValidators/inputValidators.util";
 import AnimatedPage from "../../theme/AnimatedPage";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const SignIn = () => {
   const navigateTo = useNavigate();
@@ -59,7 +58,7 @@ const SignIn = () => {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 5,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -155,20 +154,25 @@ const SignIn = () => {
                 mt: 2,
               }}
             >
-              <AwesomeButton type="primary" style={{ width: "100%" }}>
+              <AwesomeButton type="primary" style={{ width: "50%" }}>
                 Sign In
               </AwesomeButton>
             </Box>
-            <Grid container justifyContent="flex-end">
+            <Grid container justifyContent="center" sx={{ marginTop: '20px' }}>
               <Grid item>
                 <Link
-                  href="./signup"
+                  to="/signup"
+                  style={{
+                    textDecoration: "none",
+                    color: 'white',
+                    fontSize: "20px",
+                  }}
                   variant="body2"
                   sx={{
                     color: "white",
                   }}
                 >
-                  Create an account
+                  or... Create an account!
                 </Link>
               </Grid>
             </Grid>
