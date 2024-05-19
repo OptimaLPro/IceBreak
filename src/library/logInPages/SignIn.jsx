@@ -13,8 +13,10 @@ import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 import { inputValidator } from "../../utils/inputsValidators/inputValidators.util";
 import AnimatedPage from "../../theme/AnimatedPage";
+import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
+  const navigateTo = useNavigate();
   const [validations, setValidations] = useState({
     email: "",
     password: "",
@@ -41,7 +43,7 @@ const SignIn = () => {
         if (response.data) {
           const accessToken = response.data["accessToken"];
           localStorage.setItem("accessToken", accessToken);
-          window.location.href = "/";
+          navigateTo("/");
         } else {
           console.log("Invalid email or password");
         }
