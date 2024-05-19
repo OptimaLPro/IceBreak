@@ -29,6 +29,7 @@ const LandingPage = ({ setShowLandingPage }) => {
             <video
                 autoPlay
                 loop
+                playsInline
                 muted
                 ref={videoRef}
                 className="bg-vid"
