@@ -55,7 +55,7 @@ export default function SignUp() {
       try {
         // Make POST request using Axios
         const response = await axios
-          .post("http://localhost:8080/users/createUser", {
+          .post("https://icebreak-backend.onrender.com/users/createUser", {
             firstName: data.get("firstName"),
             lastName: data.get("lastName"),
             email: data.get("email"),
