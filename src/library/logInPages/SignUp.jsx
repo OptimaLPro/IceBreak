@@ -65,9 +65,15 @@ export default function SignUp() {
           .then(() => {
             navigateTo("/signin");
           });
-        console.log(response.data);
       } catch (error) {
-        console.error(error);
+        if (error.response && error.response.status === 400) {
+          setValidations((prev) => ({
+            ...prev,
+            email: "Email already exists",
+          }));
+        } else {
+          console.error(error);
+        }
       }
     }
   };
@@ -280,17 +286,20 @@ export default function SignUp() {
                 width: "100%",
               }}
             >
-              <AwesomeButton type="primary" style={{ width: "50%", marginTop: '16px' }}>
+              <AwesomeButton
+                type="primary"
+                style={{ width: "50%", marginTop: "16px" }}
+              >
                 Sign Up
               </AwesomeButton>
             </Box>
-            <Grid container justifyContent="center" sx={{ marginTop: '20px' }}>
+            <Grid container justifyContent="center" sx={{ marginTop: "20px" }}>
               <Grid item>
                 <Link
                   to="/signin"
                   style={{
                     textDecoration: "none",
-                    color: 'white',
+                    color: "white",
                     fontSize: "20px",
                   }}
                   variant="body2"
