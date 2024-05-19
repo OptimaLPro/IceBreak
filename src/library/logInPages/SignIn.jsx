@@ -12,11 +12,10 @@ import React, { useState } from "react";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 import { inputValidator } from "../../utils/inputsValidators/inputValidators.util";
-import { useStyles } from "./loginPagesComponents/loginPagesStyles";
 import AnimatedPage from "../../theme/AnimatedPage";
 
 const SignIn = () => {
-  const classes = useStyles();
+  // const classes = useStyles();
 
   const [validations, setValidations] = useState({
     email: "",
@@ -86,7 +85,7 @@ const SignIn = () => {
               autoFocus
               error={!!validations.email}
               helperText={validations.email}
-              classes={{ root: classes.container }}
+              // classes={{ root: classes.container }}
             />
 
             <TextField
@@ -100,7 +99,7 @@ const SignIn = () => {
               autoComplete="current-password"
               error={!!validations.password}
               helperText={validations.password}
-              classes={{ root: classes.container }}
+              // classes={{ root: classes.container }}
             />
 
             <Box

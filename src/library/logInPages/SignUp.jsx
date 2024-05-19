@@ -14,11 +14,10 @@ import {
   inputComparison,
   inputValidator,
 } from "../../utils/inputsValidators/inputValidators.util";
-import { useStyles } from "./loginPagesComponents/loginPagesStyles";
 import AnimatedPage from "../../theme/AnimatedPage";
 
 export default function SignUp() {
-  const classes = useStyles();
+  // const classes = useStyles();
 
   const [validations, setValidations] = useState({
     firstName: "",
@@ -80,7 +79,7 @@ export default function SignUp() {
               autoFocus
               error={!!validations.firstName}
               helperText={validations.firstName}
-              classes={{ root: classes.container }}
+              // classes={{ root: classes.container }}
             />
             <TextField
               margin="normal"
@@ -93,7 +92,7 @@ export default function SignUp() {
               autoFocus
               error={!!validations.lastName}
               helperText={validations.lastName}
-              classes={{ root: classes.container }}
+              // classes={{ root: classes.container }}
             />
             <TextField
               margin="normal"
@@ -106,7 +105,7 @@ export default function SignUp() {
               autoFocus
               error={!!validations.email}
               helperText={validations.email}
-              classes={{ root: classes.container }}
+              // classes={{ root: classes.container }}
             />
             <TextField
               margin="normal"
@@ -119,8 +118,8 @@ export default function SignUp() {
               autoComplete="password"
               error={!!validations.password}
               helperText={validations.password}
-              classes={{ root: classes.container }}
-              InputProps={{ classes: { root: classes.container } }}
+              // classes={{ root: classes.container }}
+              // InputProps={{ classes: { root: classes.container } }}
             />
             <TextField
               margin="normal"
@@ -132,8 +131,8 @@ export default function SignUp() {
               id="confirmPassword"
               error={!!validations.confirmPassword}
               helperText={validations.confirmPassword}
-              classes={{ root: classes.container }}
-              InputProps={{ classes: { root: classes.container } }}
+              // classes={{ root: classes.container }}
+              // InputProps={{ classes: { root: classes.container } }}
             />
             <AwesomeButton type="primary" style={{ width: "100%" }}>
               Sign In
