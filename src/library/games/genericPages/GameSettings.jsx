@@ -103,7 +103,7 @@ const GameSettings = () => {
                                 <span className='label-text'>Number of questions: <span className="slider-value">{numQuestions}</span></span>
                                 <Slider
                                     value={numQuestions} onChange={handleNumQuestions} aria-labelledby="discrete-slider" valueLabelDisplay="auto"
-                                    step={1} min={5} max={20} />
+                                    step={1} min={5} max={30} />
                                 <span className='label-text'>Seconds for question: <span className="slider-value">{questionSeconds}</span></span>
                                 <Slider
                                     value={questionSeconds} onChange={handleSecondsQuestion} aria-labelledby="discrete-slider" valueLabelDisplay="auto"

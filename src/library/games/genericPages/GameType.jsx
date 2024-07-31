@@ -50,7 +50,7 @@ const GameType = () => {
                 <div className="buttons-div">
                     <AwesomeButton type="pink" className="gametype" onPress={selectType} >
                         <div className="button-content">
-                            <img className="base-image type-image1" src="https://i.ibb.co/V9gVwNV/globe-3.png" alt="quiz" />
+                            <img className="base-image type-image1" src="https://res.cloudinary.com/dwgbi63rq/image/upload/v1722467217/IceBreak/yoeyufua8cbj7pijgbph.png" alt="quiz" />
                             <span>Countries</span>
                         </div>
                     </AwesomeButton>
