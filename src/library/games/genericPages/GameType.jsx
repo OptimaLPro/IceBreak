@@ -56,26 +56,32 @@ const GameType = () => {
                     </AwesomeButton>
                     <AwesomeButton type="primary" className="gametype" onPress={selectType}>
                         <div className="button-content">
-                            <img className="base-image type-image2" src="https://i.ibb.co/7WqHT10/television.png" alt="quiz" />
+                            <img className="base-image type-image2" src="https://res.cloudinary.com/dwgbi63rq/image/upload/v1722465926/IceBreak/rrlzpjpqakrdiilt8eg0.png" alt="quiz" />
                             <span>Television</span>
                         </div>
                     </AwesomeButton>
                     <AwesomeButton type="orange" className="gametype" onPress={selectType}>
                         <div className="button-content">
-                            <img className="base-image type-image3" src="https://i.ibb.co/r7Wt2xW/download-football-png-1-1.png" alt="quiz" />
+                            <img className="base-image type-image3" src="https://res.cloudinary.com/dwgbi63rq/image/upload/v1722465942/IceBreak/ic1xekcdpfduz0i44cdw.png" alt="quiz" />
                             <span>Sport</span>
                         </div>
                     </AwesomeButton>
                     <AwesomeButton type="purple" className="gametype" onPress={selectType}>
                         <div className="button-content">
-                            <img className="base-image type-image4" src="https://i.ibb.co/kc8xVKL/science-1.png" alt="quiz" />
+                            <img className="base-image type-image4" src="https://res.cloudinary.com/dwgbi63rq/image/upload/v1722465954/IceBreak/id4wqhcicnijvjqrwozv.png" alt="quiz" />
                             <span>Science</span>
                         </div>
                     </AwesomeButton>
                     <AwesomeButton type="green" className="gametype" onPress={selectType}>
                         <div className="button-content">
-                            <img className="base-image type-image5" src="https://i.ibb.co/tJj0srQ/pngtree-real-monkey-vector-png-image-6914142-1.png" alt="quiz" />
+                            <img className="base-image type-image5" src="https://res.cloudinary.com/dwgbi63rq/image/upload/v1722465966/IceBreak/a2zipjixhkbuvpsnynpr.png" alt="quiz" />
                             <span>Animals</span>
+                        </div>
+                    </AwesomeButton>
+                    <AwesomeButton type="black" className="gametype" onPress={selectType}>
+                        <div className="button-content">
+                            <img className="base-image type-image5" src="https://res.cloudinary.com/dwgbi63rq/image/upload/v1722465982/IceBreak/kkt2ahazlwooy8d39p9t.png" alt="quiz" />
+                            <span>ColmanDevClub</span>
                         </div>
                     </AwesomeButton>
                 </div>
