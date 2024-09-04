@@ -22,7 +22,7 @@
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
     "@nauverse/react-aurora-background": "^1.0.12",
     "@ramonak/react-progress-bar": "^5.2.0",
-    "axios": "^1.6.8",
+    "axios": "^1.7.4",
     "cors": "^2.8.5",
     "framer-motion": "^11.1.7",
     "hamburger-react": "^2.5.0",
